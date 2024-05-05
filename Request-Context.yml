@@ -1,0 +1,24 @@
+type: object
+properties: 
+  userIdentifier: 
+    type: string
+    example: AABBCC
+  userRole:
+    type: string
+  secondaryIdentifiers: 
+    type: object
+    properties: 
+      use: 
+        type: string
+      system: 
+        type: string
+      value: 
+        type: string
+    required: 
+    - use
+    - system
+    - value
+required: 
+- userIdentifier
+- userRole
+- secondaryIdentifiers

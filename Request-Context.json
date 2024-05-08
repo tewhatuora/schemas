@@ -48,7 +48,7 @@
   "required": [
       "userIdentifier",
       "userRole",
-      "secondaryIdentifiers",
+      "secondaryIdentifier",
       "purposeOfUse"
   ]
 }

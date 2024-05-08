@@ -1,38 +1,54 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "description": "HNZ | Te Whatu Ora request context header schema definition",
-    "type": "object",
-    "properties": {
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "HNZ | Te Whatu Ora request context header schema definition",
+  "type": "object",
+  "properties": {
       "userIdentifier": {
-        "type": "string",
-        "example": "AABBCC"
+          "type": "string",
+          "example": "AABBCC"
       },
       "userRole": {
-        "type": "string"
+          "type": "string",
+          "enum": [
+              "PAT",
+              "PROV"
+          ]
       },
-      "secondaryIdentifiers": {
-        "type": "object",
-        "properties": {
-          "use": {
-            "type": "string"
+      "secondaryIdentifier": {
+          "type": "object",
+          "properties": {
+              "use": {
+                  "type": "string"
+              },
+              "system": {
+                  "type": "string"
+              },
+              "value": {
+                  "type": "string"
+              }
           },
-          "system": {
-            "type": "string"
-          },
-          "value": {
-            "type": "string"
+          "required": [
+              "use",
+              "system",
+              "value"
+          ],
+          "purposeOfUse": {
+              "type": "string",
+              "enum": [
+                  "PATRQT",
+                  "POPHLTH",
+                  "TREAT",
+                  "ETREAT",
+                  "PUBHLTH",
+                  "SYSDEV"
+              ]
           }
-        },
-        "required": [
-          "use",
-          "system",
-          "value"
-        ]
       }
-    },
-    "required": [
+  },
+  "required": [
       "userIdentifier",
       "userRole",
-      "secondaryIdentifiers"
-    ]
-  }
+      "secondaryIdentifiers",
+      "purposeOfUse"
+  ]
+}

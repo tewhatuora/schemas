@@ -1,54 +1,54 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "HNZ | Te Whatu Ora request context header schema definition",
-  "type": "object",
-  "properties": {
-      "userIdentifier": {
-          "type": "string",
-          "example": "AABBCC"
-      },
-      "userRole": {
-          "type": "string",
-          "enum": [
-              "PAT",
-              "PROV"
-          ]
-      },
-      "secondaryIdentifier": {
-          "type": "object",
-          "properties": {
-              "use": {
-                  "type": "string"
-              },
-              "system": {
-                  "type": "string"
-              },
-              "value": {
-                  "type": "string"
-              }
-          },
-          "required": [
-              "use",
-              "system",
-              "value"
-          ],
-          "purposeOfUse": {
-              "type": "string",
-              "enum": [
-                  "PATRQT",
-                  "POPHLTH",
-                  "TREAT",
-                  "ETREAT",
-                  "PUBHLTH",
-                  "SYSDEV"
-              ]
-          }
-      }
-  },
-  "required": [
-      "userIdentifier",
-      "userRole",
-      "secondaryIdentifier",
-      "purposeOfUse"
-  ]
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "HNZ | Te Whatu Ora request context header schema definition",
+    "type": "object",
+    "properties": {
+        "userIdentifier": {
+            "type": "string",
+            "example": "AABBCC"
+        },
+        "userRole": {
+            "type": "string",
+            "enum": [
+                "PAT",
+                "PROV"
+            ]
+        },
+        "secondaryIdentifier": {
+            "type": "object",
+            "properties": {
+                "use": {
+                    "type": "string"
+                },
+                "system": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "use",
+                "system",
+                "value"
+            ]
+        },
+        "purposeOfUse": {
+            "type": "string",
+            "enum": [
+                "PATRQT",
+                "POPHLTH",
+                "TREAT",
+                "ETREAT",
+                "PUBHLTH",
+                "SYSDEV"
+            ]
+        }
+    },
+    "required": [
+        "userIdentifier",
+        "userRole",
+        "secondaryIdentifier",
+        "purposeOfUse"
+    ]
 }

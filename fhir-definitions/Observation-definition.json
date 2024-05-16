@@ -1,4 +1,4 @@
-{"$schema":"http://json-schema.org/draft-06/schema#","id":"http://hl7.org/fhir/json-schema/5.0",
+{"$schema":"http://json-schema.org/draft-06/schema#","$id":"http://hl7.org/fhir/json-schema/5.0",
   "description": "Measurements and simple assertions made about a patient, device or other subject.",
   "properties": {
     "resourceType": {

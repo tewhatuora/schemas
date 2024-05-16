@@ -1,4 +1,4 @@
-{"$schema":"http://json-schema.org/draft-06/schema#","id":"http://hl7.org/fhir/json-schema/5.0",
+{"$schema":"http://json-schema.org/draft-06/schema#","$id":"http://hl7.org/fhir/json-schema/5.0",
   "description": "Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.",
   "properties": {
     "id": {

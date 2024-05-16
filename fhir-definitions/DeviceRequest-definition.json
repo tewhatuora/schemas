@@ -1,4 +1,4 @@
-{"$schema":"http://json-schema.org/draft-06/schema#","id":"http://hl7.org/fhir/json-schema/5.0",
+{"$schema":"http://json-schema.org/draft-06/schema#","$id":"http://hl7.org/fhir/json-schema/5.0",
   "description": "Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.",
   "properties": {
     "resourceType": {

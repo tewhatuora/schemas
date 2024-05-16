@@ -1,4 +1,4 @@
-{"$schema":"http://json-schema.org/draft-06/schema#","id":"http://hl7.org/fhir/json-schema/5.0",
+{"$schema":"http://json-schema.org/draft-06/schema#","$id":"http://hl7.org/fhir/json-schema/5.0",
   "description": "Defines an affiliation/assotiation/relationship between 2 distinct oganizations, that is not a part-of relationship/sub-division relationship.",
   "properties": {
     "resourceType": {

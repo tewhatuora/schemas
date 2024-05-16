@@ -1,4 +1,4 @@
-{"$schema":"http://json-schema.org/draft-06/schema#","id":"http://hl7.org/fhir/json-schema/5.0",
+{"$schema":"http://json-schema.org/draft-06/schema#","$id":"http://hl7.org/fhir/json-schema/5.0",
   "description": "A provider issued list of professional services and products which have been provided, or are to be provided, to a patient which is sent to an insurer for reimbursement.",
   "properties": {
     "resourceType": {

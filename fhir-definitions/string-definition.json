@@ -1,0 +1,5 @@
+{
+  "pattern": "^[ \\r\\n\\t\\S]+$",
+  "type": "string",
+  "description": "A sequence of Unicode characters"
+}

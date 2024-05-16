@@ -1,0 +1,14 @@
+{
+    "resourceType": "OperationOutcome",
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h1>Operation Outcome</h1><table border=\"0\"><tr><td style=\"font-weight: bold;\">error</td><td>[]</td><td><pre>Resource Observation/aaabbbbcccc is not known</pre></td></tr></table></div>"
+    },
+    "issue": [
+        {
+            "severity": "error",
+            "code": "not-found",
+            "diagnostics": "Resource Observation/3d7b5f7a-12da-411b-8948-37c07d247bb6 is not known"
+        }
+    ]
+}

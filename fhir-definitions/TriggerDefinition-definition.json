@@ -1,4 +1,4 @@
-{
+{"$schema":"http://json-schema.org/draft-06/schema#","id":"http://hl7.org/fhir/json-schema/5.0",
   "description": "A description of a triggering event. Triggering events can be named events, data events, or periodic, as determined by the type element.",
   "properties": {
     "id": {

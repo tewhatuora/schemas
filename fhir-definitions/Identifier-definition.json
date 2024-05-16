@@ -1,4 +1,4 @@
-{
+{"$schema":"http://json-schema.org/draft-06/schema#","id":"http://hl7.org/fhir/json-schema/5.0",
   "description": "An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.",
   "properties": {
     "id": {

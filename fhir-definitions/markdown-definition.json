@@ -1,4 +1,4 @@
-{
+{"$schema":"http://json-schema.org/draft-06/schema#","id":"http://hl7.org/fhir/json-schema/5.0",
   "pattern": "^[ \\r\\n\\t\\S]+$",
   "type": "string",
   "description": "A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine"

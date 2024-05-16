@@ -1,4 +1,4 @@
-{
+{"$schema":"http://json-schema.org/draft-06/schema#","id":"http://hl7.org/fhir/json-schema/5.0",
   "description": "Describes a required data item for evaluation in terms of the type of data, and optional code or date-based filters of the data.",
   "properties": {
     "id": {

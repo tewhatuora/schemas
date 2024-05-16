@@ -1,4 +1,4 @@
-{
+{"$schema":"http://json-schema.org/draft-06/schema#","id":"http://hl7.org/fhir/json-schema/5.0",
   "description": "A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).",
   "properties": {
     "id": {

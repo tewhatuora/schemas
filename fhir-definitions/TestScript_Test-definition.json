@@ -1,4 +1,4 @@
-{
+{"$schema":"http://json-schema.org/draft-06/schema#","id":"http://hl7.org/fhir/json-schema/5.0",
   "description": "A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.",
   "properties": {
     "id": {

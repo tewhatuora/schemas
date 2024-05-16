@@ -1,4 +1,4 @@
-{
+{"$schema":"http://json-schema.org/draft-06/schema#","id":"http://hl7.org/fhir/json-schema/5.0",
   "description": "A search parameter that defines a named search item that can be used to search/filter on a resource.",
   "properties": {
     "id": {

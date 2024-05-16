@@ -1,4 +1,4 @@
-{
+{"$schema":"http://json-schema.org/draft-06/schema#","id":"http://hl7.org/fhir/json-schema/5.0",
   "description": "Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service.",
   "properties": {
     "id": {

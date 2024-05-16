@@ -1,4 +1,4 @@
-{
+{"$schema":"http://json-schema.org/draft-06/schema#","id":"http://hl7.org/fhir/json-schema/5.0",
   "description": "A collection of documents compiled for a purpose together with metadata that applies to the collection.",
   "properties": {
     "id": {

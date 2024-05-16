@@ -1,4 +1,4 @@
-{
+{"$schema":"http://json-schema.org/draft-06/schema#","id":"http://hl7.org/fhir/json-schema/5.0",
   "description": "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.",
   "properties": {
     "id": {

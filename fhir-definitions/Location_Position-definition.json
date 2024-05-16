@@ -1,4 +1,4 @@
-{
+{"$schema":"http://json-schema.org/draft-06/schema#","id":"http://hl7.org/fhir/json-schema/5.0",
   "description": "Details and position information for a physical place where services are provided and resources and participants may be stored, found, contained, or accommodated.",
   "properties": {
     "id": {

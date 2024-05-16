@@ -1,4 +1,4 @@
-{
+{"$schema":"http://json-schema.org/draft-06/schema#","id":"http://hl7.org/fhir/json-schema/5.0",
   "description": "Captures constraints on each element within the resource, profile, or extension.",
   "properties": {
     "id": {

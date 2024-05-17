@@ -1,0 +1,5 @@
+{
+  "pattern": "^true|false$",
+  "type": "boolean",
+  "description": "Value of \"true\" or \"false\""
+}

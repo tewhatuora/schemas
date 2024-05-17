@@ -1,0 +1,5 @@
+{
+  "pattern": "^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+  "type": "string",
+  "description": "A UUID, represented as a URI"
+}

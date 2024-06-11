@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "json-schema-to-openapi-schema": "^0.4.0"
+    "json-schema-to-openapi-schema": "^0.4.0",
+    "json-schema-ref-parser":"9.0.9"
   }
 }

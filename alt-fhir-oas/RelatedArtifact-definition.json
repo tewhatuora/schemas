@@ -1,0 +1,101 @@
+{
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "documentation",
+            "justification",
+            "citation",
+            "predecessor",
+            "successor",
+            "derived-from",
+            "depends-on",
+            "composed-of"
+          ],
+          "description": "The type of relationship to the related artifact."
+        },
+        "label": {
+          "type": "string",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "description": "A short label that can be used to reference the citation from elsewhere in the containing artifact, such as a footnote index."
+        },
+        "display": {
+          "type": "string",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "description": "A brief description of the document or knowledge resource being referenced, suitable for display to a consumer."
+        },
+        "citation": {
+          "type": "string",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "description": "A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format."
+        },
+        "url": {
+          "type": "string",
+          "pattern": "\\S*",
+          "description": "A url for the artifact that can be followed to access the actual content."
+        },
+        "document": {
+          "description": "The document being referenced, represented as an attachment. This is exclusive with the resource element.",
+          "allOf": [
+            {
+              "type": "object",
+              "properties": {
+                "contentType": {
+                  "type": "string",
+                  "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                  "description": "Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate."
+                },
+                "language": {
+                  "type": "string",
+                  "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                  "description": "The human language of the content. The value can be any valid value according to BCP 47."
+                },
+                "data": {
+                  "type": "string",
+                  "pattern": "(\\s*([0-9a-zA-Z\\+/=]){4}\\s*)+",
+                  "description": "The actual data of the attachment &ndash; a sequence of bytes, base64 encoded."
+                },
+                "url": {
+                  "type": "string",
+                  "pattern": "\\S*",
+                  "description": "A location where the data can be accessed."
+                },
+                "size": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "The number of bytes of data that make up this attachment (before base64 encoding, if that is done)."
+                },
+                "hash": {
+                  "type": "string",
+                  "pattern": "(\\s*([0-9a-zA-Z\\+/=]){4}\\s*)+",
+                  "description": "The calculated hash of the data using SHA&ndash;1. Represented using base64."
+                },
+                "title": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "A label or set of text to display in place of the data."
+                },
+                "creation": {
+                  "type": "string",
+                  "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                  "description": "The date that the attachment was first created."
+                }
+              }
+            }
+          ]
+        },
+        "resource": {
+          "type": "string",
+          "pattern": "\\S*",
+          "description": "The related resource, such as a library, value set, profile, or other knowledge resource."
+        }
+      },
+      "required": [
+        "type"
+      ]
+    }
+  ]
+}

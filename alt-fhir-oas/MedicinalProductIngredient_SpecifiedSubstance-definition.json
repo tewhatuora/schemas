@@ -1,0 +1,964 @@
+{
+  "allOf": [
+    {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "modifierExtension": {
+              "type": "array",
+              "items": {
+                "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                "allOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "The specified substance.",
+          "allOf": [
+            {
+              "type": "object",
+              "properties": {
+                "coding": {
+                  "type": "array",
+                  "items": {
+                    "description": "A reference to a code defined by a terminology system.",
+                    "allOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "system": {
+                            "type": "string",
+                            "pattern": "\\S*",
+                            "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                          },
+                          "version": {
+                            "type": "string",
+                            "pattern": "[ \\r\\n\\t\\S]+",
+                            "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                          },
+                          "code": {
+                            "type": "string",
+                            "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                            "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                          },
+                          "display": {
+                            "type": "string",
+                            "pattern": "[ \\r\\n\\t\\S]+",
+                            "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                          },
+                          "userSelected": {
+                            "type": "boolean",
+                            "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "text": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+                }
+              }
+            }
+          ]
+        },
+        "group": {
+          "description": "The group of specified substance, e.g. group 1 to 4.",
+          "allOf": [
+            {
+              "type": "object",
+              "properties": {
+                "coding": {
+                  "type": "array",
+                  "items": {
+                    "description": "A reference to a code defined by a terminology system.",
+                    "allOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "system": {
+                            "type": "string",
+                            "pattern": "\\S*",
+                            "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                          },
+                          "version": {
+                            "type": "string",
+                            "pattern": "[ \\r\\n\\t\\S]+",
+                            "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                          },
+                          "code": {
+                            "type": "string",
+                            "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                            "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                          },
+                          "display": {
+                            "type": "string",
+                            "pattern": "[ \\r\\n\\t\\S]+",
+                            "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                          },
+                          "userSelected": {
+                            "type": "boolean",
+                            "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "text": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+                }
+              }
+            }
+          ]
+        },
+        "confidentiality": {
+          "description": "Confidentiality level of the specified substance as the ingredient.",
+          "allOf": [
+            {
+              "type": "object",
+              "properties": {
+                "coding": {
+                  "type": "array",
+                  "items": {
+                    "description": "A reference to a code defined by a terminology system.",
+                    "allOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "system": {
+                            "type": "string",
+                            "pattern": "\\S*",
+                            "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                          },
+                          "version": {
+                            "type": "string",
+                            "pattern": "[ \\r\\n\\t\\S]+",
+                            "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                          },
+                          "code": {
+                            "type": "string",
+                            "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                            "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                          },
+                          "display": {
+                            "type": "string",
+                            "pattern": "[ \\r\\n\\t\\S]+",
+                            "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                          },
+                          "userSelected": {
+                            "type": "boolean",
+                            "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "text": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+                }
+              }
+            }
+          ]
+        },
+        "strength": {
+          "type": "array",
+          "items": {
+            "description": "Quantity of the substance or specified substance present in the manufactured item or pharmaceutical product.",
+            "allOf": [
+              {
+                "allOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "modifierExtension": {
+                        "type": "array",
+                        "items": {
+                          "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                          "allOf": [
+                            {
+                              "type": "object",
+                              "additionalProperties": true
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "presentation": {
+                    "description": "The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item.",
+                    "allOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "numerator": {
+                            "allOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "number",
+                                    "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                                  },
+                                  "comparator": {
+                                    "type": "string",
+                                    "enum": [
+                                      "<",
+                                      "<=",
+                                      ">=",
+                                      ">"
+                                    ],
+                                    "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                                  },
+                                  "unit": {
+                                    "type": "string",
+                                    "pattern": "[ \\r\\n\\t\\S]+",
+                                    "description": "A human&ndash;readable form of the unit."
+                                  },
+                                  "system": {
+                                    "type": "string",
+                                    "pattern": "\\S*",
+                                    "description": "The identification of the system that provides the coded form of the unit."
+                                  },
+                                  "code": {
+                                    "type": "string",
+                                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                                    "description": "A computer processable form of the unit in some unit representation system."
+                                  }
+                                }
+                              }
+                            ],
+                            "description": "The value of the numerator."
+                          },
+                          "denominator": {
+                            "allOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "number",
+                                    "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                                  },
+                                  "comparator": {
+                                    "type": "string",
+                                    "enum": [
+                                      "<",
+                                      "<=",
+                                      ">=",
+                                      ">"
+                                    ],
+                                    "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                                  },
+                                  "unit": {
+                                    "type": "string",
+                                    "pattern": "[ \\r\\n\\t\\S]+",
+                                    "description": "A human&ndash;readable form of the unit."
+                                  },
+                                  "system": {
+                                    "type": "string",
+                                    "pattern": "\\S*",
+                                    "description": "The identification of the system that provides the coded form of the unit."
+                                  },
+                                  "code": {
+                                    "type": "string",
+                                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                                    "description": "A computer processable form of the unit in some unit representation system."
+                                  }
+                                }
+                              }
+                            ],
+                            "description": "The value of the denominator."
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "presentationLowLimit": {
+                    "description": "A lower limit for the quantity of substance in the unit of presentation. For use when there is a range of strengths, this is the lower limit, with the presentation attribute becoming the upper limit.",
+                    "allOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "numerator": {
+                            "allOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "number",
+                                    "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                                  },
+                                  "comparator": {
+                                    "type": "string",
+                                    "enum": [
+                                      "<",
+                                      "<=",
+                                      ">=",
+                                      ">"
+                                    ],
+                                    "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                                  },
+                                  "unit": {
+                                    "type": "string",
+                                    "pattern": "[ \\r\\n\\t\\S]+",
+                                    "description": "A human&ndash;readable form of the unit."
+                                  },
+                                  "system": {
+                                    "type": "string",
+                                    "pattern": "\\S*",
+                                    "description": "The identification of the system that provides the coded form of the unit."
+                                  },
+                                  "code": {
+                                    "type": "string",
+                                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                                    "description": "A computer processable form of the unit in some unit representation system."
+                                  }
+                                }
+                              }
+                            ],
+                            "description": "The value of the numerator."
+                          },
+                          "denominator": {
+                            "allOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "number",
+                                    "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                                  },
+                                  "comparator": {
+                                    "type": "string",
+                                    "enum": [
+                                      "<",
+                                      "<=",
+                                      ">=",
+                                      ">"
+                                    ],
+                                    "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                                  },
+                                  "unit": {
+                                    "type": "string",
+                                    "pattern": "[ \\r\\n\\t\\S]+",
+                                    "description": "A human&ndash;readable form of the unit."
+                                  },
+                                  "system": {
+                                    "type": "string",
+                                    "pattern": "\\S*",
+                                    "description": "The identification of the system that provides the coded form of the unit."
+                                  },
+                                  "code": {
+                                    "type": "string",
+                                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                                    "description": "A computer processable form of the unit in some unit representation system."
+                                  }
+                                }
+                              }
+                            ],
+                            "description": "The value of the denominator."
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "concentration": {
+                    "description": "The strength per unitary volume (or mass).",
+                    "allOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "numerator": {
+                            "allOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "number",
+                                    "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                                  },
+                                  "comparator": {
+                                    "type": "string",
+                                    "enum": [
+                                      "<",
+                                      "<=",
+                                      ">=",
+                                      ">"
+                                    ],
+                                    "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                                  },
+                                  "unit": {
+                                    "type": "string",
+                                    "pattern": "[ \\r\\n\\t\\S]+",
+                                    "description": "A human&ndash;readable form of the unit."
+                                  },
+                                  "system": {
+                                    "type": "string",
+                                    "pattern": "\\S*",
+                                    "description": "The identification of the system that provides the coded form of the unit."
+                                  },
+                                  "code": {
+                                    "type": "string",
+                                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                                    "description": "A computer processable form of the unit in some unit representation system."
+                                  }
+                                }
+                              }
+                            ],
+                            "description": "The value of the numerator."
+                          },
+                          "denominator": {
+                            "allOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "number",
+                                    "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                                  },
+                                  "comparator": {
+                                    "type": "string",
+                                    "enum": [
+                                      "<",
+                                      "<=",
+                                      ">=",
+                                      ">"
+                                    ],
+                                    "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                                  },
+                                  "unit": {
+                                    "type": "string",
+                                    "pattern": "[ \\r\\n\\t\\S]+",
+                                    "description": "A human&ndash;readable form of the unit."
+                                  },
+                                  "system": {
+                                    "type": "string",
+                                    "pattern": "\\S*",
+                                    "description": "The identification of the system that provides the coded form of the unit."
+                                  },
+                                  "code": {
+                                    "type": "string",
+                                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                                    "description": "A computer processable form of the unit in some unit representation system."
+                                  }
+                                }
+                              }
+                            ],
+                            "description": "The value of the denominator."
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "concentrationLowLimit": {
+                    "description": "A lower limit for the strength per unitary volume (or mass), for when there is a range. The concentration attribute then becomes the upper limit.",
+                    "allOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "numerator": {
+                            "allOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "number",
+                                    "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                                  },
+                                  "comparator": {
+                                    "type": "string",
+                                    "enum": [
+                                      "<",
+                                      "<=",
+                                      ">=",
+                                      ">"
+                                    ],
+                                    "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                                  },
+                                  "unit": {
+                                    "type": "string",
+                                    "pattern": "[ \\r\\n\\t\\S]+",
+                                    "description": "A human&ndash;readable form of the unit."
+                                  },
+                                  "system": {
+                                    "type": "string",
+                                    "pattern": "\\S*",
+                                    "description": "The identification of the system that provides the coded form of the unit."
+                                  },
+                                  "code": {
+                                    "type": "string",
+                                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                                    "description": "A computer processable form of the unit in some unit representation system."
+                                  }
+                                }
+                              }
+                            ],
+                            "description": "The value of the numerator."
+                          },
+                          "denominator": {
+                            "allOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "number",
+                                    "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                                  },
+                                  "comparator": {
+                                    "type": "string",
+                                    "enum": [
+                                      "<",
+                                      "<=",
+                                      ">=",
+                                      ">"
+                                    ],
+                                    "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                                  },
+                                  "unit": {
+                                    "type": "string",
+                                    "pattern": "[ \\r\\n\\t\\S]+",
+                                    "description": "A human&ndash;readable form of the unit."
+                                  },
+                                  "system": {
+                                    "type": "string",
+                                    "pattern": "\\S*",
+                                    "description": "The identification of the system that provides the coded form of the unit."
+                                  },
+                                  "code": {
+                                    "type": "string",
+                                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                                    "description": "A computer processable form of the unit in some unit representation system."
+                                  }
+                                }
+                              }
+                            ],
+                            "description": "The value of the denominator."
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "measurementPoint": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "For when strength is measured at a particular point or distance."
+                  },
+                  "country": {
+                    "type": "array",
+                    "items": {
+                      "description": "The country or countries for which the strength range applies.",
+                      "allOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "coding": {
+                              "type": "array",
+                              "items": {
+                                "description": "A reference to a code defined by a terminology system.",
+                                "allOf": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "system": {
+                                        "type": "string",
+                                        "pattern": "\\S*",
+                                        "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                                      },
+                                      "version": {
+                                        "type": "string",
+                                        "pattern": "[ \\r\\n\\t\\S]+",
+                                        "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                                      },
+                                      "code": {
+                                        "type": "string",
+                                        "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                                        "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                                      },
+                                      "display": {
+                                        "type": "string",
+                                        "pattern": "[ \\r\\n\\t\\S]+",
+                                        "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                                      },
+                                      "userSelected": {
+                                        "type": "boolean",
+                                        "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                                      }
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            "text": {
+                              "type": "string",
+                              "pattern": "[ \\r\\n\\t\\S]+",
+                              "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "referenceStrength": {
+                    "type": "array",
+                    "items": {
+                      "description": "Strength expressed in terms of a reference substance.",
+                      "allOf": [
+                        {
+                          "allOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "modifierExtension": {
+                                  "type": "array",
+                                  "items": {
+                                    "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                                    "allOf": [
+                                      {
+                                        "type": "object",
+                                        "additionalProperties": true
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "substance": {
+                              "description": "Relevant reference substance.",
+                              "allOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "coding": {
+                                      "type": "array",
+                                      "items": {
+                                        "description": "A reference to a code defined by a terminology system.",
+                                        "allOf": [
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "system": {
+                                                "type": "string",
+                                                "pattern": "\\S*",
+                                                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                                              },
+                                              "version": {
+                                                "type": "string",
+                                                "pattern": "[ \\r\\n\\t\\S]+",
+                                                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                                              },
+                                              "code": {
+                                                "type": "string",
+                                                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                                                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                                              },
+                                              "display": {
+                                                "type": "string",
+                                                "pattern": "[ \\r\\n\\t\\S]+",
+                                                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                                              },
+                                              "userSelected": {
+                                                "type": "boolean",
+                                                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "text": {
+                                      "type": "string",
+                                      "pattern": "[ \\r\\n\\t\\S]+",
+                                      "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            "strength": {
+                              "description": "Strength expressed in terms of a reference substance.",
+                              "allOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "numerator": {
+                                      "allOf": [
+                                        {
+                                          "type": "object",
+                                          "properties": {
+                                            "value": {
+                                              "type": "number",
+                                              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                                            },
+                                            "comparator": {
+                                              "type": "string",
+                                              "enum": [
+                                                "<",
+                                                "<=",
+                                                ">=",
+                                                ">"
+                                              ],
+                                              "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                                            },
+                                            "unit": {
+                                              "type": "string",
+                                              "pattern": "[ \\r\\n\\t\\S]+",
+                                              "description": "A human&ndash;readable form of the unit."
+                                            },
+                                            "system": {
+                                              "type": "string",
+                                              "pattern": "\\S*",
+                                              "description": "The identification of the system that provides the coded form of the unit."
+                                            },
+                                            "code": {
+                                              "type": "string",
+                                              "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                                              "description": "A computer processable form of the unit in some unit representation system."
+                                            }
+                                          }
+                                        }
+                                      ],
+                                      "description": "The value of the numerator."
+                                    },
+                                    "denominator": {
+                                      "allOf": [
+                                        {
+                                          "type": "object",
+                                          "properties": {
+                                            "value": {
+                                              "type": "number",
+                                              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                                            },
+                                            "comparator": {
+                                              "type": "string",
+                                              "enum": [
+                                                "<",
+                                                "<=",
+                                                ">=",
+                                                ">"
+                                              ],
+                                              "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                                            },
+                                            "unit": {
+                                              "type": "string",
+                                              "pattern": "[ \\r\\n\\t\\S]+",
+                                              "description": "A human&ndash;readable form of the unit."
+                                            },
+                                            "system": {
+                                              "type": "string",
+                                              "pattern": "\\S*",
+                                              "description": "The identification of the system that provides the coded form of the unit."
+                                            },
+                                            "code": {
+                                              "type": "string",
+                                              "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                                              "description": "A computer processable form of the unit in some unit representation system."
+                                            }
+                                          }
+                                        }
+                                      ],
+                                      "description": "The value of the denominator."
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            "strengthLowLimit": {
+                              "description": "Strength expressed in terms of a reference substance.",
+                              "allOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "numerator": {
+                                      "allOf": [
+                                        {
+                                          "type": "object",
+                                          "properties": {
+                                            "value": {
+                                              "type": "number",
+                                              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                                            },
+                                            "comparator": {
+                                              "type": "string",
+                                              "enum": [
+                                                "<",
+                                                "<=",
+                                                ">=",
+                                                ">"
+                                              ],
+                                              "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                                            },
+                                            "unit": {
+                                              "type": "string",
+                                              "pattern": "[ \\r\\n\\t\\S]+",
+                                              "description": "A human&ndash;readable form of the unit."
+                                            },
+                                            "system": {
+                                              "type": "string",
+                                              "pattern": "\\S*",
+                                              "description": "The identification of the system that provides the coded form of the unit."
+                                            },
+                                            "code": {
+                                              "type": "string",
+                                              "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                                              "description": "A computer processable form of the unit in some unit representation system."
+                                            }
+                                          }
+                                        }
+                                      ],
+                                      "description": "The value of the numerator."
+                                    },
+                                    "denominator": {
+                                      "allOf": [
+                                        {
+                                          "type": "object",
+                                          "properties": {
+                                            "value": {
+                                              "type": "number",
+                                              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                                            },
+                                            "comparator": {
+                                              "type": "string",
+                                              "enum": [
+                                                "<",
+                                                "<=",
+                                                ">=",
+                                                ">"
+                                              ],
+                                              "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                                            },
+                                            "unit": {
+                                              "type": "string",
+                                              "pattern": "[ \\r\\n\\t\\S]+",
+                                              "description": "A human&ndash;readable form of the unit."
+                                            },
+                                            "system": {
+                                              "type": "string",
+                                              "pattern": "\\S*",
+                                              "description": "The identification of the system that provides the coded form of the unit."
+                                            },
+                                            "code": {
+                                              "type": "string",
+                                              "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                                              "description": "A computer processable form of the unit in some unit representation system."
+                                            }
+                                          }
+                                        }
+                                      ],
+                                      "description": "The value of the denominator."
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            "measurementPoint": {
+                              "type": "string",
+                              "pattern": "[ \\r\\n\\t\\S]+",
+                              "description": "For when strength is measured at a particular point or distance."
+                            },
+                            "country": {
+                              "type": "array",
+                              "items": {
+                                "description": "The country or countries for which the strength range applies.",
+                                "allOf": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "coding": {
+                                        "type": "array",
+                                        "items": {
+                                          "description": "A reference to a code defined by a terminology system.",
+                                          "allOf": [
+                                            {
+                                              "type": "object",
+                                              "properties": {
+                                                "system": {
+                                                  "type": "string",
+                                                  "pattern": "\\S*",
+                                                  "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                                                },
+                                                "version": {
+                                                  "type": "string",
+                                                  "pattern": "[ \\r\\n\\t\\S]+",
+                                                  "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                                                },
+                                                "code": {
+                                                  "type": "string",
+                                                  "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                                                  "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                                                },
+                                                "display": {
+                                                  "type": "string",
+                                                  "pattern": "[ \\r\\n\\t\\S]+",
+                                                  "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                                                },
+                                                "userSelected": {
+                                                  "type": "boolean",
+                                                  "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "text": {
+                                        "type": "string",
+                                        "pattern": "[ \\r\\n\\t\\S]+",
+                                        "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+                                      }
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          },
+                          "required": [
+                            "strength"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "presentation"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "code",
+        "group"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "generated",
+            "extensions",
+            "additional",
+            "empty"
+          ],
+          "description": "The status of the narrative &ndash; whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data."
+        },
+        "div": {
+          "type": "string",
+          "description": "The actual narrative content, a stripped down version of XHTML."
+        }
+      },
+      "required": [
+        "status",
+        "div"
+      ]
+    }
+  ]
+}

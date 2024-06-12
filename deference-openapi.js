@@ -23,9 +23,10 @@ async function splitDefinitions(filePath) {
       fs.writeFileSync(filename, JSON.stringify(value, null, 2), 'utf8');
       console.log(`Written ${key} to ${filename}`);
     }
+    fs.writeFileSync(`./openapi/fully-deferenced.json`, JSON.stringify(schema, null, 2), 'utf8');
   } catch (error) {
     console.error('Failed to process the schema:', error);
   }
 }
 
-splitDefinitions('./kyle/all-openapi.json');
+splitDefinitions('./openapi/manually-trimmed-schema.json');

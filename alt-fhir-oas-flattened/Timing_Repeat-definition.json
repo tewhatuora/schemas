@@ -1,0 +1,266 @@
+{
+  "type": "object",
+  "properties": {
+    "modifierExtension": {
+      "type": "array",
+      "items": {
+        "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "boundsDuration": {
+      "description": "Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+        },
+        "comparator": {
+          "type": "string",
+          "enum": [
+            "<",
+            "<=",
+            ">=",
+            ">"
+          ],
+          "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+        },
+        "unit": {
+          "type": "string",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "description": "A human&ndash;readable form of the unit."
+        },
+        "system": {
+          "type": "string",
+          "pattern": "\\S*",
+          "description": "The identification of the system that provides the coded form of the unit."
+        },
+        "code": {
+          "type": "string",
+          "pattern": "[^\\s]+(\\s[^\\s]+)*",
+          "description": "A computer processable form of the unit in some unit representation system."
+        }
+      }
+    },
+    "boundsRange": {
+      "description": "Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.",
+      "type": "object",
+      "properties": {
+        "low": {
+          "description": "The low limit. The boundary is inclusive.",
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number",
+              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+            },
+            "comparator": {
+              "type": "string",
+              "enum": [
+                "<",
+                "<=",
+                ">=",
+                ">"
+              ],
+              "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+            },
+            "unit": {
+              "type": "string",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "description": "A human&ndash;readable form of the unit."
+            },
+            "system": {
+              "type": "string",
+              "pattern": "\\S*",
+              "description": "The identification of the system that provides the coded form of the unit."
+            },
+            "code": {
+              "type": "string",
+              "pattern": "[^\\s]+(\\s[^\\s]+)*",
+              "description": "A computer processable form of the unit in some unit representation system."
+            }
+          }
+        },
+        "high": {
+          "description": "The high limit. The boundary is inclusive.",
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number",
+              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+            },
+            "comparator": {
+              "type": "string",
+              "enum": [
+                "<",
+                "<=",
+                ">=",
+                ">"
+              ],
+              "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+            },
+            "unit": {
+              "type": "string",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "description": "A human&ndash;readable form of the unit."
+            },
+            "system": {
+              "type": "string",
+              "pattern": "\\S*",
+              "description": "The identification of the system that provides the coded form of the unit."
+            },
+            "code": {
+              "type": "string",
+              "pattern": "[^\\s]+(\\s[^\\s]+)*",
+              "description": "A computer processable form of the unit in some unit representation system."
+            }
+          }
+        }
+      }
+    },
+    "boundsPeriod": {
+      "description": "Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.",
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "string",
+          "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+          "description": "The start of the period. The boundary is inclusive."
+        },
+        "end": {
+          "type": "string",
+          "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+          "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+        }
+      }
+    },
+    "count": {
+      "type": "integer",
+      "format": "int32",
+      "description": "A total count of the desired number of repetitions across the duration of the entire timing specification. If countMax is present, this element indicates the lower bound of the allowed range of count values."
+    },
+    "countMax": {
+      "type": "integer",
+      "format": "int32",
+      "description": "If present, indicates that the count is a range &ndash; so to perform the action between [count] and [countMax] times."
+    },
+    "duration": {
+      "type": "number",
+      "description": "How long this thing happens for when it happens. If durationMax is present, this element indicates the lower bound of the allowed range of the duration."
+    },
+    "durationMax": {
+      "type": "number",
+      "description": "If present, indicates that the duration is a range &ndash; so to perform the action between [duration] and [durationMax] time length."
+    },
+    "durationUnit": {
+      "type": "string",
+      "enum": [
+        "s",
+        "min",
+        "h",
+        "d",
+        "wk",
+        "mo",
+        "a"
+      ],
+      "description": "The units of time for the duration, in UCUM units."
+    },
+    "frequency": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The number of times to repeat the action within the specified period. If frequencyMax is present, this element indicates the lower bound of the allowed range of the frequency."
+    },
+    "frequencyMax": {
+      "type": "integer",
+      "format": "int32",
+      "description": "If present, indicates that the frequency is a range &ndash; so to repeat between [frequency] and [frequencyMax] times within the period or period range."
+    },
+    "period": {
+      "type": "number",
+      "description": "Indicates the duration of time over which repetitions are to occur; e.g. to express \"3 times per day\", 3 would be the frequency and \"1 day\" would be the period. If periodMax is present, this element indicates the lower bound of the allowed range of the period length."
+    },
+    "periodMax": {
+      "type": "number",
+      "description": "If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as \"do this once every 3&ndash;5 days."
+    },
+    "periodUnit": {
+      "type": "string",
+      "enum": [
+        "s",
+        "min",
+        "h",
+        "d",
+        "wk",
+        "mo",
+        "a"
+      ],
+      "description": "The units of time for the period in UCUM units."
+    },
+    "dayOfWeek": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri",
+          "sat",
+          "sun"
+        ],
+        "description": "If one or more days of week is provided, then the action happens only on the specified day(s)."
+      }
+    },
+    "timeOfDay": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?",
+        "description": "Specified time of day for action to take place."
+      }
+    },
+    "when": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "MORN",
+          "MORN.early",
+          "MORN.late",
+          "NOON",
+          "AFT",
+          "AFT.early",
+          "AFT.late",
+          "EVE",
+          "EVE.early",
+          "EVE.late",
+          "NIGHT",
+          "PHS",
+          "HS",
+          "WAKE",
+          "C",
+          "CM",
+          "CD",
+          "CV",
+          "AC",
+          "ACM",
+          "ACD",
+          "ACV",
+          "PC",
+          "PCM",
+          "PCD",
+          "PCV"
+        ],
+        "description": "An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur."
+      }
+    },
+    "offset": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The number of minutes from the event. If the event code does not indicate whether the minutes is before or after the event, then the offset is assumed to be after the event."
+    }
+  }
+}

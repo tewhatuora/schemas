@@ -1,0 +1,187 @@
+{
+  "type": "object",
+  "properties": {
+    "modifierExtension": {
+      "type": "array",
+      "items": {
+        "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "type": {
+      "description": "The category of patient centric costs associated with treatment.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "type": "array",
+          "items": {
+            "description": "A reference to a code defined by a terminology system.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+              },
+              "version": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+              },
+              "userSelected": {
+                "type": "boolean",
+                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+              }
+            }
+          }
+        },
+        "text": {
+          "type": "string",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+        }
+      }
+    },
+    "valueQuantity": {
+      "description": "The amount due from the patient for the cost category.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+        },
+        "comparator": {
+          "type": "string",
+          "enum": [
+            "<",
+            "<=",
+            ">=",
+            ">"
+          ],
+          "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+        },
+        "unit": {
+          "type": "string",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "description": "A human&ndash;readable form of the unit."
+        },
+        "system": {
+          "type": "string",
+          "pattern": "\\S*",
+          "description": "The identification of the system that provides the coded form of the unit."
+        },
+        "code": {
+          "type": "string",
+          "pattern": "[^\\s]+(\\s[^\\s]+)*",
+          "description": "A computer processable form of the unit in some unit representation system."
+        }
+      }
+    },
+    "valueMoney": {
+      "description": "The amount due from the patient for the cost category.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "Numerical value (with implicit precision)."
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "[^\\s]+(\\s[^\\s]+)*",
+          "description": "ISO 4217 Currency Code."
+        }
+      }
+    },
+    "exception": {
+      "type": "array",
+      "items": {
+        "description": "A suite of codes indicating exceptions or reductions to patient costs and their effective periods.",
+        "type": "object",
+        "properties": {
+          "modifierExtension": {
+            "type": "array",
+            "items": {
+              "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "type": {
+            "description": "The code for the specific exception.",
+            "type": "object",
+            "properties": {
+              "coding": {
+                "type": "array",
+                "items": {
+                  "description": "A reference to a code defined by a terminology system.",
+                  "type": "object",
+                  "properties": {
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                    },
+                    "display": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                    },
+                    "userSelected": {
+                      "type": "boolean",
+                      "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                    }
+                  }
+                }
+              },
+              "text": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+              }
+            }
+          },
+          "period": {
+            "description": "The timeframe during when the exception is in force.",
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                "description": "The start of the period. The boundary is inclusive."
+              },
+              "end": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+              }
+            }
+          }
+        },
+        "required": [
+          "type"
+        ]
+      }
+    }
+  }
+}

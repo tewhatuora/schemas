@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "A brief, natural language description of the condition that effectively communicates the intended semantics."
+    },
+    "name": {
+      "type": "string",
+      "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+      "description": "A short name assigned to the expression to allow for multiple reuse of the expression in the context where it is defined."
+    },
+    "language": {
+      "type": "string",
+      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+      "description": "The media type of the language for the expression."
+    },
+    "expression": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "An expression in the specified language that returns a value."
+    },
+    "reference": {
+      "type": "string",
+      "pattern": "\\S*",
+      "description": "A URI that defines where the expression is found."
+    }
+  },
+  "required": [
+    "language"
+  ]
+}

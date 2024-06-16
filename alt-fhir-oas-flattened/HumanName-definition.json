@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "use": {
+      "type": "string",
+      "enum": [
+        "usual",
+        "official",
+        "temp",
+        "nickname",
+        "anonymous",
+        "old",
+        "maiden"
+      ],
+      "description": "Identifies the purpose for this name."
+    },
+    "text": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "Specifies the entire name as it should be displayed e.g. on an application UI. This may be provided instead of or as well as the specific parts."
+    },
+    "family": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father."
+    },
+    "given": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "[ \\r\\n\\t\\S]+",
+        "description": "Given name."
+      }
+    },
+    "prefix": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "[ \\r\\n\\t\\S]+",
+        "description": "Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name."
+      }
+    },
+    "suffix": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "[ \\r\\n\\t\\S]+",
+        "description": "Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name."
+      }
+    },
+    "period": {
+      "description": "Indicates the period of time when this name was valid for the named person.",
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "string",
+          "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+          "description": "The start of the period. The boundary is inclusive."
+        },
+        "end": {
+          "type": "string",
+          "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+          "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+        }
+      }
+    }
+  }
+}

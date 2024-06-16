@@ -1,0 +1,182 @@
+{
+  "type": "object",
+  "properties": {
+    "modifierExtension": {
+      "type": "array",
+      "items": {
+        "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "code": {
+      "type": "string",
+      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+      "description": "A code &ndash; a text symbol &ndash; that uniquely identifies the concept within the code system."
+    },
+    "display": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "A human readable string that is the recommended default way to present this concept to a user."
+    },
+    "definition": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "The formal definition of the concept. The code system resource does not make formal definitions required, because of the prevalence of legacy systems. However, they are highly recommended, as without them there is no formal meaning associated with the concept."
+    },
+    "designation": {
+      "type": "array",
+      "items": {
+        "description": "Additional representations for the concept &ndash; other languages, aliases, specialized purposes, used for particular purposes, etc.",
+        "type": "object",
+        "properties": {
+          "modifierExtension": {
+            "type": "array",
+            "items": {
+              "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "language": {
+            "type": "string",
+            "pattern": "[^\\s]+(\\s[^\\s]+)*",
+            "description": "The language this designation is defined for."
+          },
+          "use": {
+            "description": "A code that details how this designation would be used.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+              },
+              "version": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+              },
+              "userSelected": {
+                "type": "boolean",
+                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+              }
+            }
+          },
+          "value": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "The text value for this designation."
+          }
+        },
+        "required": [
+          "value"
+        ]
+      }
+    },
+    "property": {
+      "type": "array",
+      "items": {
+        "description": "A property value for this concept.",
+        "type": "object",
+        "properties": {
+          "modifierExtension": {
+            "type": "array",
+            "items": {
+              "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "code": {
+            "type": "string",
+            "pattern": "[^\\s]+(\\s[^\\s]+)*",
+            "description": "A code that is used to identify the property. The code is used internally (in CodeSystem.concept.property.code) and also externally, such as in property filters."
+          },
+          "valueCode": {
+            "type": "string",
+            "pattern": "[^\\s]+(\\s[^\\s]+)*",
+            "description": "The value of this property."
+          },
+          "valueCoding": {
+            "description": "The value of this property.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+              },
+              "version": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+              },
+              "userSelected": {
+                "type": "boolean",
+                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+              }
+            }
+          },
+          "valueString": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "The value of this property."
+          },
+          "valueInteger": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The value of this property."
+          },
+          "valueBoolean": {
+            "type": "boolean",
+            "description": "The value of this property."
+          },
+          "valueDateTime": {
+            "type": "string",
+            "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+            "description": "The value of this property."
+          },
+          "valueDecimal": {
+            "type": "number",
+            "description": "The value of this property."
+          }
+        },
+        "required": [
+          "code"
+        ]
+      }
+    },
+    "concept": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "description": "Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is&ndash;a/contains/categorizes) &ndash; see hierarchyMeaning."
+      }
+    }
+  },
+  "required": [
+    "code"
+  ]
+}

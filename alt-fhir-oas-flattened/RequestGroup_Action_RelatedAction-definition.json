@@ -1,0 +1,148 @@
+{
+  "type": "object",
+  "properties": {
+    "modifierExtension": {
+      "type": "array",
+      "items": {
+        "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "actionId": {
+      "type": "string",
+      "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+      "description": "The element id of the action this is related to."
+    },
+    "relationship": {
+      "type": "string",
+      "enum": [
+        "before-start",
+        "before",
+        "before-end",
+        "concurrent-with-start",
+        "concurrent",
+        "concurrent-with-end",
+        "after-start",
+        "after",
+        "after-end"
+      ],
+      "description": "The relationship of this action to the related action."
+    },
+    "offsetDuration": {
+      "description": "A duration or range of durations to apply to the relationship. For example, 30&ndash;60 minutes before.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+        },
+        "comparator": {
+          "type": "string",
+          "enum": [
+            "<",
+            "<=",
+            ">=",
+            ">"
+          ],
+          "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+        },
+        "unit": {
+          "type": "string",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "description": "A human&ndash;readable form of the unit."
+        },
+        "system": {
+          "type": "string",
+          "pattern": "\\S*",
+          "description": "The identification of the system that provides the coded form of the unit."
+        },
+        "code": {
+          "type": "string",
+          "pattern": "[^\\s]+(\\s[^\\s]+)*",
+          "description": "A computer processable form of the unit in some unit representation system."
+        }
+      }
+    },
+    "offsetRange": {
+      "description": "A duration or range of durations to apply to the relationship. For example, 30&ndash;60 minutes before.",
+      "type": "object",
+      "properties": {
+        "low": {
+          "description": "The low limit. The boundary is inclusive.",
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number",
+              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+            },
+            "comparator": {
+              "type": "string",
+              "enum": [
+                "<",
+                "<=",
+                ">=",
+                ">"
+              ],
+              "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+            },
+            "unit": {
+              "type": "string",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "description": "A human&ndash;readable form of the unit."
+            },
+            "system": {
+              "type": "string",
+              "pattern": "\\S*",
+              "description": "The identification of the system that provides the coded form of the unit."
+            },
+            "code": {
+              "type": "string",
+              "pattern": "[^\\s]+(\\s[^\\s]+)*",
+              "description": "A computer processable form of the unit in some unit representation system."
+            }
+          }
+        },
+        "high": {
+          "description": "The high limit. The boundary is inclusive.",
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number",
+              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+            },
+            "comparator": {
+              "type": "string",
+              "enum": [
+                "<",
+                "<=",
+                ">=",
+                ">"
+              ],
+              "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+            },
+            "unit": {
+              "type": "string",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "description": "A human&ndash;readable form of the unit."
+            },
+            "system": {
+              "type": "string",
+              "pattern": "\\S*",
+              "description": "The identification of the system that provides the coded form of the unit."
+            },
+            "code": {
+              "type": "string",
+              "pattern": "[^\\s]+(\\s[^\\s]+)*",
+              "description": "A computer processable form of the unit in some unit representation system."
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "actionId",
+    "relationship"
+  ]
+}

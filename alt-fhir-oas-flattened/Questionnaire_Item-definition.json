@@ -1,0 +1,583 @@
+{
+  "type": "object",
+  "properties": {
+    "modifierExtension": {
+      "type": "array",
+      "items": {
+        "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "linkId": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource."
+    },
+    "definition": {
+      "type": "string",
+      "pattern": "\\S*",
+      "description": "This element is a URI that refers to an [ElementDefinition](elementdefinition.html) that provides information about this item, including information that might otherwise be included in the instance of the Questionnaire resource. A detailed description of the construction of the URI is shown in Comments, below. If this element is present then the following element values MAY be derived from the Element Definition if the corresponding elements of this Questionnaire resource instance have no value:\n\n* code (ElementDefinition.code) \n* type (ElementDefinition.type) \n* required (ElementDefinition.min) \n* repeats (ElementDefinition.max) \n* maxLength (ElementDefinition.maxLength) \n* answerValueSet (ElementDefinition.binding)\n* options (ElementDefinition.binding)."
+    },
+    "code": {
+      "type": "array",
+      "items": {
+        "description": "A terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers).",
+        "type": "object",
+        "properties": {
+          "system": {
+            "type": "string",
+            "pattern": "\\S*",
+            "description": "The identification of the code system that defines the meaning of the symbol in the code."
+          },
+          "version": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+          },
+          "code": {
+            "type": "string",
+            "pattern": "[^\\s]+(\\s[^\\s]+)*",
+            "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+          },
+          "display": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "A representation of the meaning of the code in the system, following the rules of the system."
+          },
+          "userSelected": {
+            "type": "boolean",
+            "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+          }
+        }
+      }
+    },
+    "prefix": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "A short label for a particular group, question or set of display text within the questionnaire used for reference by the individual completing the questionnaire."
+    },
+    "text": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "The name of a section, the text of a question or text content for a display item."
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "group",
+        "display",
+        "question",
+        "boolean",
+        "decimal",
+        "integer",
+        "date",
+        "dateTime",
+        "time",
+        "string",
+        "text",
+        "url",
+        "choice",
+        "open-choice",
+        "attachment",
+        "reference",
+        "quantity"
+      ],
+      "description": "The type of questionnaire item this is &ndash; whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.)."
+    },
+    "enableWhen": {
+      "type": "array",
+      "items": {
+        "description": "A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true.",
+        "type": "object",
+        "properties": {
+          "modifierExtension": {
+            "type": "array",
+            "items": {
+              "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "question": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "The linkId for the question whose answer (or lack of answer) governs whether this item is enabled."
+          },
+          "operator": {
+            "type": "string",
+            "enum": [
+              "exists",
+              "=",
+              "!=",
+              ">",
+              "<",
+              ">=",
+              "<="
+            ],
+            "description": "Specifies the criteria by which the question is enabled."
+          },
+          "answerBoolean": {
+            "type": "boolean",
+            "description": "A value that the referenced question is tested using the specified operator in order for the item to be enabled."
+          },
+          "answerDecimal": {
+            "type": "number",
+            "description": "A value that the referenced question is tested using the specified operator in order for the item to be enabled."
+          },
+          "answerInteger": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A value that the referenced question is tested using the specified operator in order for the item to be enabled."
+          },
+          "answerDate": {
+            "type": "string",
+            "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?",
+            "description": "A value that the referenced question is tested using the specified operator in order for the item to be enabled."
+          },
+          "answerDateTime": {
+            "type": "string",
+            "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+            "description": "A value that the referenced question is tested using the specified operator in order for the item to be enabled."
+          },
+          "answerTime": {
+            "type": "string",
+            "pattern": "([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?",
+            "description": "A value that the referenced question is tested using the specified operator in order for the item to be enabled."
+          },
+          "answerString": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "A value that the referenced question is tested using the specified operator in order for the item to be enabled."
+          },
+          "answerCoding": {
+            "description": "A value that the referenced question is tested using the specified operator in order for the item to be enabled.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+              },
+              "version": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+              },
+              "userSelected": {
+                "type": "boolean",
+                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+              }
+            }
+          },
+          "answerQuantity": {
+            "description": "A value that the referenced question is tested using the specified operator in order for the item to be enabled.",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+              },
+              "comparator": {
+                "type": "string",
+                "enum": [
+                  "<",
+                  "<=",
+                  ">=",
+                  ">"
+                ],
+                "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+              },
+              "unit": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human&ndash;readable form of the unit."
+              },
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the system that provides the coded form of the unit."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A computer processable form of the unit in some unit representation system."
+              }
+            }
+          },
+          "answerReference": {
+            "description": "A value that the referenced question is tested using the specified operator in order for the item to be enabled.",
+            "type": "object",
+            "properties": {
+              "reference": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+              },
+              "type": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+              },
+              "identifier": {
+                "type": "object",
+                "additionalProperties": true,
+                "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+              }
+            }
+          }
+        },
+        "required": [
+          "question",
+          "operator"
+        ]
+      }
+    },
+    "enableBehavior": {
+      "type": "string",
+      "enum": [
+        "all",
+        "any"
+      ],
+      "description": "Controls how multiple enableWhen values are interpreted &ndash;  whether all or any must be true."
+    },
+    "required": {
+      "type": "boolean",
+      "description": "An indication, if true, that the item must be present in a \"completed\" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire."
+    },
+    "repeats": {
+      "type": "boolean",
+      "description": "An indication, if true, that the item may occur multiple times in the response, collecting multiple answers for questions or multiple sets of answers for groups."
+    },
+    "readOnly": {
+      "type": "boolean",
+      "description": "An indication, when true, that the value cannot be changed by a human respondent to the Questionnaire."
+    },
+    "maxLength": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The maximum number of characters that are permitted in the answer to be considered a \"valid\" QuestionnaireResponse."
+    },
+    "answerValueSet": {
+      "type": "string",
+      "pattern": "\\S*",
+      "description": "A reference to a value set containing a list of codes representing permitted answers for a \"choice\" or \"open&ndash;choice\" question."
+    },
+    "answerOption": {
+      "type": "array",
+      "items": {
+        "description": "One of the permitted answers for a \"choice\" or \"open&ndash;choice\" question.",
+        "type": "object",
+        "properties": {
+          "modifierExtension": {
+            "type": "array",
+            "items": {
+              "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "valueInteger": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A potential answer that's allowed as the answer to this question."
+          },
+          "valueDate": {
+            "type": "string",
+            "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?",
+            "description": "A potential answer that's allowed as the answer to this question."
+          },
+          "valueTime": {
+            "type": "string",
+            "pattern": "([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?",
+            "description": "A potential answer that's allowed as the answer to this question."
+          },
+          "valueString": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "A potential answer that's allowed as the answer to this question."
+          },
+          "valueCoding": {
+            "description": "A potential answer that's allowed as the answer to this question.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+              },
+              "version": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+              },
+              "userSelected": {
+                "type": "boolean",
+                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+              }
+            }
+          },
+          "valueReference": {
+            "description": "A potential answer that's allowed as the answer to this question.",
+            "type": "object",
+            "properties": {
+              "reference": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+              },
+              "type": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+              },
+              "identifier": {
+                "type": "object",
+                "additionalProperties": true,
+                "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+              }
+            }
+          },
+          "initialSelected": {
+            "type": "boolean",
+            "description": "Indicates whether the answer value is selected when the list of possible answers is initially shown."
+          }
+        }
+      }
+    },
+    "initial": {
+      "type": "array",
+      "items": {
+        "description": "One or more values that should be pre&ndash;populated in the answer when initially rendering the questionnaire for user input.",
+        "type": "object",
+        "properties": {
+          "modifierExtension": {
+            "type": "array",
+            "items": {
+              "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "valueBoolean": {
+            "type": "boolean",
+            "description": "The actual value to for an initial answer."
+          },
+          "valueDecimal": {
+            "type": "number",
+            "description": "The actual value to for an initial answer."
+          },
+          "valueInteger": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The actual value to for an initial answer."
+          },
+          "valueDate": {
+            "type": "string",
+            "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?",
+            "description": "The actual value to for an initial answer."
+          },
+          "valueDateTime": {
+            "type": "string",
+            "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+            "description": "The actual value to for an initial answer."
+          },
+          "valueTime": {
+            "type": "string",
+            "pattern": "([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?",
+            "description": "The actual value to for an initial answer."
+          },
+          "valueString": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "The actual value to for an initial answer."
+          },
+          "valueUri": {
+            "type": "string",
+            "pattern": "\\S*",
+            "description": "The actual value to for an initial answer."
+          },
+          "valueAttachment": {
+            "description": "The actual value to for an initial answer.",
+            "type": "object",
+            "properties": {
+              "contentType": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate."
+              },
+              "language": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "The human language of the content. The value can be any valid value according to BCP 47."
+              },
+              "data": {
+                "type": "string",
+                "pattern": "(\\s*([0-9a-zA-Z\\+/=]){4}\\s*)+",
+                "description": "The actual data of the attachment &ndash; a sequence of bytes, base64 encoded."
+              },
+              "url": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "A location where the data can be accessed."
+              },
+              "size": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The number of bytes of data that make up this attachment (before base64 encoding, if that is done)."
+              },
+              "hash": {
+                "type": "string",
+                "pattern": "(\\s*([0-9a-zA-Z\\+/=]){4}\\s*)+",
+                "description": "The calculated hash of the data using SHA&ndash;1. Represented using base64."
+              },
+              "title": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A label or set of text to display in place of the data."
+              },
+              "creation": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                "description": "The date that the attachment was first created."
+              }
+            }
+          },
+          "valueCoding": {
+            "description": "The actual value to for an initial answer.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+              },
+              "version": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+              },
+              "userSelected": {
+                "type": "boolean",
+                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+              }
+            }
+          },
+          "valueQuantity": {
+            "description": "The actual value to for an initial answer.",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+              },
+              "comparator": {
+                "type": "string",
+                "enum": [
+                  "<",
+                  "<=",
+                  ">=",
+                  ">"
+                ],
+                "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+              },
+              "unit": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human&ndash;readable form of the unit."
+              },
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the system that provides the coded form of the unit."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A computer processable form of the unit in some unit representation system."
+              }
+            }
+          },
+          "valueReference": {
+            "description": "The actual value to for an initial answer.",
+            "type": "object",
+            "properties": {
+              "reference": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+              },
+              "type": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+              },
+              "identifier": {
+                "type": "object",
+                "additionalProperties": true,
+                "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+              }
+            }
+          }
+        }
+      }
+    },
+    "item": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "description": "Text, questions and other groups to be nested beneath a question or group."
+      }
+    }
+  },
+  "required": [
+    "linkId",
+    "type"
+  ]
+}

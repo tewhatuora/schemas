@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "origin": {
+      "description": "The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+        },
+        "comparator": {
+          "type": "string",
+          "enum": [
+            "<",
+            "<=",
+            ">=",
+            ">"
+          ],
+          "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+        },
+        "unit": {
+          "type": "string",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "description": "A human&ndash;readable form of the unit."
+        },
+        "system": {
+          "type": "string",
+          "pattern": "\\S*",
+          "description": "The identification of the system that provides the coded form of the unit."
+        },
+        "code": {
+          "type": "string",
+          "pattern": "[^\\s]+(\\s[^\\s]+)*",
+          "description": "A computer processable form of the unit in some unit representation system."
+        }
+      }
+    },
+    "period": {
+      "type": "number",
+      "description": "The length of time between sampling times, measured in milliseconds."
+    },
+    "factor": {
+      "type": "number",
+      "description": "A correction factor that is applied to the sampled data points before they are added to the origin."
+    },
+    "lowerLimit": {
+      "type": "number",
+      "description": "The lower limit of detection of the measured points. This is needed if any of the data points have the value \"L\" (lower than detection limit)."
+    },
+    "upperLimit": {
+      "type": "number",
+      "description": "The upper limit of detection of the measured points. This is needed if any of the data points have the value \"U\" (higher than detection limit)."
+    },
+    "dimensions": {
+      "type": "integer",
+      "format": "int32",
+      "description": "The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced &ndash; all the sample points for a point in time will be recorded at once."
+    },
+    "data": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "A series of data points which are decimal values separated by a single space (character u20). The special values \"E\" (error), \"L\" (below detection limit) and \"U\" (above detection limit) can also be used in place of a decimal value."
+    }
+  },
+  "required": [
+    "origin",
+    "period",
+    "dimensions"
+  ]
+}

@@ -1,0 +1,2234 @@
+{
+  "type": "object",
+  "properties": {
+    "modifierExtension": {
+      "type": "array",
+      "items": {
+        "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "name": {
+      "type": "string",
+      "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+      "description": "Name of the rule for internal references."
+    },
+    "source": {
+      "type": "array",
+      "items": {
+        "description": "Source inputs to the mapping.",
+        "type": "object",
+        "properties": {
+          "modifierExtension": {
+            "type": "array",
+            "items": {
+              "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "context": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+            "description": "Type or variable this rule applies to."
+          },
+          "min": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Specified minimum cardinality for the element. This is optional; if present, it acts an implicit check on the input content."
+          },
+          "max": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "Specified maximum cardinality for the element &ndash; a number or a \"*\". This is optional; if present, it acts an implicit check on the input content (* just serves as documentation; it's the default value)."
+          },
+          "type": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "Specified type for the element. This works as a condition on the mapping &ndash; use for polymorphic elements."
+          },
+          "defaultValueBase64Binary": {
+            "type": "string",
+            "pattern": "(\\s*([0-9a-zA-Z\\+/=]){4}\\s*)+",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValueBoolean": {
+            "type": "boolean",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValueCanonical": {
+            "type": "string",
+            "pattern": "\\S*",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValueCode": {
+            "type": "string",
+            "pattern": "[^\\s]+(\\s[^\\s]+)*",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValueDate": {
+            "type": "string",
+            "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValueDateTime": {
+            "type": "string",
+            "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValueDecimal": {
+            "type": "number",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValueId": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValueInstant": {
+            "type": "string",
+            "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValueInteger": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValueMarkdown": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValueOid": {
+            "type": "string",
+            "pattern": "urn:oid:[0-2](\\.(0|[1-9][0-9]*))+",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValuePositiveInt": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValueString": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValueTime": {
+            "type": "string",
+            "pattern": "([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValueUnsignedInt": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValueUri": {
+            "type": "string",
+            "pattern": "\\S*",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValueUrl": {
+            "type": "string",
+            "pattern": "\\S*",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValueUuid": {
+            "type": "string",
+            "pattern": "urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+            "description": "A value to use if there is no existing value in the source object."
+          },
+          "defaultValueAddress": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "use": {
+                "type": "string",
+                "enum": [
+                  "home",
+                  "work",
+                  "temp",
+                  "old",
+                  "billing"
+                ],
+                "description": "The purpose of this address."
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "postal",
+                  "physical",
+                  "both"
+                ],
+                "description": "Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care&ndash;of addresses). Most addresses are both."
+              },
+              "text": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "Specifies the entire address as it should be displayed e.g. on a postal label. This may be provided instead of or as well as the specific parts."
+              },
+              "line": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information."
+                }
+              },
+              "city": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The name of the city, town, suburb, village or other community or delivery center."
+              },
+              "district": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The name of the administrative area (county)."
+              },
+              "state": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "Sub&ndash;unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (e.g. US 2 letter state codes)."
+              },
+              "postalCode": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A postal code designating a region defined by the postal service."
+              },
+              "country": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "Country &ndash; a nation as commonly understood or generally accepted."
+              },
+              "period": {
+                "description": "Time period when address was/is in use.",
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "string",
+                    "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                    "description": "The start of the period. The boundary is inclusive."
+                  },
+                  "end": {
+                    "type": "string",
+                    "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                    "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+                  }
+                }
+              }
+            }
+          },
+          "defaultValueAge": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+              },
+              "comparator": {
+                "type": "string",
+                "enum": [
+                  "<",
+                  "<=",
+                  ">=",
+                  ">"
+                ],
+                "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+              },
+              "unit": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human&ndash;readable form of the unit."
+              },
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the system that provides the coded form of the unit."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A computer processable form of the unit in some unit representation system."
+              }
+            }
+          },
+          "defaultValueAnnotation": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "authorReference": {
+                "description": "The individual responsible for making the annotation.",
+                "type": "object",
+                "properties": {
+                  "reference": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+                  },
+                  "type": {
+                    "type": "string",
+                    "pattern": "\\S*",
+                    "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+                  },
+                  "identifier": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+                  },
+                  "display": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+                  }
+                }
+              },
+              "authorString": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The individual responsible for making the annotation."
+              },
+              "time": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                "description": "Indicates when this particular annotation was made."
+              },
+              "text": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The text of the annotation in markdown format."
+              }
+            },
+            "required": [
+              "text"
+            ]
+          },
+          "defaultValueAttachment": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "contentType": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate."
+              },
+              "language": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "The human language of the content. The value can be any valid value according to BCP 47."
+              },
+              "data": {
+                "type": "string",
+                "pattern": "(\\s*([0-9a-zA-Z\\+/=]){4}\\s*)+",
+                "description": "The actual data of the attachment &ndash; a sequence of bytes, base64 encoded."
+              },
+              "url": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "A location where the data can be accessed."
+              },
+              "size": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The number of bytes of data that make up this attachment (before base64 encoding, if that is done)."
+              },
+              "hash": {
+                "type": "string",
+                "pattern": "(\\s*([0-9a-zA-Z\\+/=]){4}\\s*)+",
+                "description": "The calculated hash of the data using SHA&ndash;1. Represented using base64."
+              },
+              "title": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A label or set of text to display in place of the data."
+              },
+              "creation": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                "description": "The date that the attachment was first created."
+              }
+            }
+          },
+          "defaultValueCodeableConcept": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "coding": {
+                "type": "array",
+                "items": {
+                  "description": "A reference to a code defined by a terminology system.",
+                  "type": "object",
+                  "properties": {
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                    },
+                    "display": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                    },
+                    "userSelected": {
+                      "type": "boolean",
+                      "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                    }
+                  }
+                }
+              },
+              "text": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+              }
+            }
+          },
+          "defaultValueCoding": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+              },
+              "version": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+              },
+              "userSelected": {
+                "type": "boolean",
+                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+              }
+            }
+          },
+          "defaultValueContactPoint": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "enum": [
+                  "phone",
+                  "fax",
+                  "email",
+                  "pager",
+                  "url",
+                  "sms",
+                  "other"
+                ],
+                "description": "Telecommunications form for contact point &ndash; what communications system is required to make use of the contact."
+              },
+              "value": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address)."
+              },
+              "use": {
+                "type": "string",
+                "enum": [
+                  "home",
+                  "work",
+                  "temp",
+                  "old",
+                  "mobile"
+                ],
+                "description": "Identifies the purpose for the contact point."
+              },
+              "rank": {
+                "type": "integer",
+                "format": "int32",
+                "description": "Specifies a preferred order in which to use a set of contacts. ContactPoints with lower rank values are more preferred than those with higher rank values."
+              },
+              "period": {
+                "description": "Time period when the contact point was/is in use.",
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "string",
+                    "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                    "description": "The start of the period. The boundary is inclusive."
+                  },
+                  "end": {
+                    "type": "string",
+                    "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                    "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+                  }
+                }
+              }
+            }
+          },
+          "defaultValueCount": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+              },
+              "comparator": {
+                "type": "string",
+                "enum": [
+                  "<",
+                  "<=",
+                  ">=",
+                  ">"
+                ],
+                "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+              },
+              "unit": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human&ndash;readable form of the unit."
+              },
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the system that provides the coded form of the unit."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A computer processable form of the unit in some unit representation system."
+              }
+            }
+          },
+          "defaultValueDistance": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+              },
+              "comparator": {
+                "type": "string",
+                "enum": [
+                  "<",
+                  "<=",
+                  ">=",
+                  ">"
+                ],
+                "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+              },
+              "unit": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human&ndash;readable form of the unit."
+              },
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the system that provides the coded form of the unit."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A computer processable form of the unit in some unit representation system."
+              }
+            }
+          },
+          "defaultValueDuration": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+              },
+              "comparator": {
+                "type": "string",
+                "enum": [
+                  "<",
+                  "<=",
+                  ">=",
+                  ">"
+                ],
+                "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+              },
+              "unit": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human&ndash;readable form of the unit."
+              },
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the system that provides the coded form of the unit."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A computer processable form of the unit in some unit representation system."
+              }
+            }
+          },
+          "defaultValueHumanName": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "use": {
+                "type": "string",
+                "enum": [
+                  "usual",
+                  "official",
+                  "temp",
+                  "nickname",
+                  "anonymous",
+                  "old",
+                  "maiden"
+                ],
+                "description": "Identifies the purpose for this name."
+              },
+              "text": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "Specifies the entire name as it should be displayed e.g. on an application UI. This may be provided instead of or as well as the specific parts."
+              },
+              "family": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father."
+              },
+              "given": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "Given name."
+                }
+              },
+              "prefix": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name."
+                }
+              },
+              "suffix": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name."
+                }
+              },
+              "period": {
+                "description": "Indicates the period of time when this name was valid for the named person.",
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "string",
+                    "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                    "description": "The start of the period. The boundary is inclusive."
+                  },
+                  "end": {
+                    "type": "string",
+                    "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                    "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+                  }
+                }
+              }
+            }
+          },
+          "defaultValueIdentifier": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "use": {
+                "type": "string",
+                "enum": [
+                  "usual",
+                  "official",
+                  "temp",
+                  "secondary",
+                  "old"
+                ],
+                "description": "The purpose of this identifier."
+              },
+              "type": {
+                "description": "A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.",
+                "type": "object",
+                "properties": {
+                  "coding": {
+                    "type": "array",
+                    "items": {
+                      "description": "A reference to a code defined by a terminology system.",
+                      "type": "object",
+                      "properties": {
+                        "system": {
+                          "type": "string",
+                          "pattern": "\\S*",
+                          "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                        },
+                        "version": {
+                          "type": "string",
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                        },
+                        "code": {
+                          "type": "string",
+                          "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                        },
+                        "display": {
+                          "type": "string",
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                        },
+                        "userSelected": {
+                          "type": "boolean",
+                          "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                        }
+                      }
+                    }
+                  },
+                  "text": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+                  }
+                }
+              },
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "Establishes the namespace for the value &ndash; that is, a URL that describes a set values that are unique."
+              },
+              "value": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The portion of the identifier typically relevant to the user and which is unique within the context of the system."
+              },
+              "period": {
+                "description": "Time period during which identifier is/was valid for use.",
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "string",
+                    "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                    "description": "The start of the period. The boundary is inclusive."
+                  },
+                  "end": {
+                    "type": "string",
+                    "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                    "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+                  }
+                }
+              },
+              "assigner": {
+                "description": "Organization that issued/manages the identifier.",
+                "type": "object",
+                "properties": {
+                  "reference": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+                  },
+                  "type": {
+                    "type": "string",
+                    "pattern": "\\S*",
+                    "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+                  },
+                  "identifier": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+                  },
+                  "display": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+                  }
+                }
+              }
+            }
+          },
+          "defaultValueMoney": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "Numerical value (with implicit precision)."
+              },
+              "currency": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "ISO 4217 Currency Code."
+              }
+            }
+          },
+          "defaultValuePeriod": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                "description": "The start of the period. The boundary is inclusive."
+              },
+              "end": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+              }
+            }
+          },
+          "defaultValueQuantity": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+              },
+              "comparator": {
+                "type": "string",
+                "enum": [
+                  "<",
+                  "<=",
+                  ">=",
+                  ">"
+                ],
+                "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+              },
+              "unit": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human&ndash;readable form of the unit."
+              },
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the system that provides the coded form of the unit."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A computer processable form of the unit in some unit representation system."
+              }
+            }
+          },
+          "defaultValueRange": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "low": {
+                "description": "The low limit. The boundary is inclusive.",
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                  },
+                  "comparator": {
+                    "type": "string",
+                    "enum": [
+                      "<",
+                      "<=",
+                      ">=",
+                      ">"
+                    ],
+                    "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                  },
+                  "unit": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A human&ndash;readable form of the unit."
+                  },
+                  "system": {
+                    "type": "string",
+                    "pattern": "\\S*",
+                    "description": "The identification of the system that provides the coded form of the unit."
+                  },
+                  "code": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "A computer processable form of the unit in some unit representation system."
+                  }
+                }
+              },
+              "high": {
+                "description": "The high limit. The boundary is inclusive.",
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                  },
+                  "comparator": {
+                    "type": "string",
+                    "enum": [
+                      "<",
+                      "<=",
+                      ">=",
+                      ">"
+                    ],
+                    "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                  },
+                  "unit": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A human&ndash;readable form of the unit."
+                  },
+                  "system": {
+                    "type": "string",
+                    "pattern": "\\S*",
+                    "description": "The identification of the system that provides the coded form of the unit."
+                  },
+                  "code": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "A computer processable form of the unit in some unit representation system."
+                  }
+                }
+              }
+            }
+          },
+          "defaultValueRatio": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "numerator": {
+                "description": "The value of the numerator.",
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                  },
+                  "comparator": {
+                    "type": "string",
+                    "enum": [
+                      "<",
+                      "<=",
+                      ">=",
+                      ">"
+                    ],
+                    "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                  },
+                  "unit": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A human&ndash;readable form of the unit."
+                  },
+                  "system": {
+                    "type": "string",
+                    "pattern": "\\S*",
+                    "description": "The identification of the system that provides the coded form of the unit."
+                  },
+                  "code": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "A computer processable form of the unit in some unit representation system."
+                  }
+                }
+              },
+              "denominator": {
+                "description": "The value of the denominator.",
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                  },
+                  "comparator": {
+                    "type": "string",
+                    "enum": [
+                      "<",
+                      "<=",
+                      ">=",
+                      ">"
+                    ],
+                    "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                  },
+                  "unit": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A human&ndash;readable form of the unit."
+                  },
+                  "system": {
+                    "type": "string",
+                    "pattern": "\\S*",
+                    "description": "The identification of the system that provides the coded form of the unit."
+                  },
+                  "code": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "A computer processable form of the unit in some unit representation system."
+                  }
+                }
+              }
+            }
+          },
+          "defaultValueReference": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "reference": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+              },
+              "type": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+              },
+              "identifier": {
+                "type": "object",
+                "additionalProperties": true,
+                "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+              }
+            }
+          },
+          "defaultValueSampledData": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "origin": {
+                "description": "The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series.",
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                  },
+                  "comparator": {
+                    "type": "string",
+                    "enum": [
+                      "<",
+                      "<=",
+                      ">=",
+                      ">"
+                    ],
+                    "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                  },
+                  "unit": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A human&ndash;readable form of the unit."
+                  },
+                  "system": {
+                    "type": "string",
+                    "pattern": "\\S*",
+                    "description": "The identification of the system that provides the coded form of the unit."
+                  },
+                  "code": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "A computer processable form of the unit in some unit representation system."
+                  }
+                }
+              },
+              "period": {
+                "type": "number",
+                "description": "The length of time between sampling times, measured in milliseconds."
+              },
+              "factor": {
+                "type": "number",
+                "description": "A correction factor that is applied to the sampled data points before they are added to the origin."
+              },
+              "lowerLimit": {
+                "type": "number",
+                "description": "The lower limit of detection of the measured points. This is needed if any of the data points have the value \"L\" (lower than detection limit)."
+              },
+              "upperLimit": {
+                "type": "number",
+                "description": "The upper limit of detection of the measured points. This is needed if any of the data points have the value \"U\" (higher than detection limit)."
+              },
+              "dimensions": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced &ndash; all the sample points for a point in time will be recorded at once."
+              },
+              "data": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A series of data points which are decimal values separated by a single space (character u20). The special values \"E\" (error), \"L\" (below detection limit) and \"U\" (above detection limit) can also be used in place of a decimal value."
+              }
+            },
+            "required": [
+              "origin",
+              "period",
+              "dimensions"
+            ]
+          },
+          "defaultValueSignature": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "array",
+                "items": {
+                  "description": "An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document.",
+                  "type": "object",
+                  "properties": {
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                    },
+                    "display": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                    },
+                    "userSelected": {
+                      "type": "boolean",
+                      "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                    }
+                  }
+                },
+                "minItems": 1
+              },
+              "when": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))",
+                "description": "When the digital signature was signed."
+              },
+              "who": {
+                "description": "A reference to an application&ndash;usable description of the identity that signed  (e.g. the signature used their private key).",
+                "type": "object",
+                "properties": {
+                  "reference": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+                  },
+                  "type": {
+                    "type": "string",
+                    "pattern": "\\S*",
+                    "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+                  },
+                  "identifier": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+                  },
+                  "display": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+                  }
+                }
+              },
+              "onBehalfOf": {
+                "description": "A reference to an application&ndash;usable description of the identity that is represented by the signature.",
+                "type": "object",
+                "properties": {
+                  "reference": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+                  },
+                  "type": {
+                    "type": "string",
+                    "pattern": "\\S*",
+                    "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+                  },
+                  "identifier": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+                  },
+                  "display": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+                  }
+                }
+              },
+              "targetFormat": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A mime type that indicates the technical format of the target resources signed by the signature."
+              },
+              "sigFormat": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc."
+              },
+              "data": {
+                "type": "string",
+                "pattern": "(\\s*([0-9a-zA-Z\\+/=]){4}\\s*)+",
+                "description": "The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty."
+              }
+            },
+            "required": [
+              "type",
+              "when",
+              "who"
+            ]
+          },
+          "defaultValueTiming": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "modifierExtension": {
+                "type": "array",
+                "items": {
+                  "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              },
+              "event": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                  "description": "Identifies specific times when the event occurs."
+                }
+              },
+              "repeat": {
+                "description": "A set of rules that describe when the event is scheduled.",
+                "type": "object",
+                "properties": {
+                  "modifierExtension": {
+                    "type": "array",
+                    "items": {
+                      "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "boundsDuration": {
+                    "description": "Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.",
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "number",
+                        "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                      },
+                      "comparator": {
+                        "type": "string",
+                        "enum": [
+                          "<",
+                          "<=",
+                          ">=",
+                          ">"
+                        ],
+                        "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                      },
+                      "unit": {
+                        "type": "string",
+                        "pattern": "[ \\r\\n\\t\\S]+",
+                        "description": "A human&ndash;readable form of the unit."
+                      },
+                      "system": {
+                        "type": "string",
+                        "pattern": "\\S*",
+                        "description": "The identification of the system that provides the coded form of the unit."
+                      },
+                      "code": {
+                        "type": "string",
+                        "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                        "description": "A computer processable form of the unit in some unit representation system."
+                      }
+                    }
+                  },
+                  "boundsRange": {
+                    "description": "Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.",
+                    "type": "object",
+                    "properties": {
+                      "low": {
+                        "description": "The low limit. The boundary is inclusive.",
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "number",
+                            "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                          },
+                          "comparator": {
+                            "type": "string",
+                            "enum": [
+                              "<",
+                              "<=",
+                              ">=",
+                              ">"
+                            ],
+                            "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                          },
+                          "unit": {
+                            "type": "string",
+                            "pattern": "[ \\r\\n\\t\\S]+",
+                            "description": "A human&ndash;readable form of the unit."
+                          },
+                          "system": {
+                            "type": "string",
+                            "pattern": "\\S*",
+                            "description": "The identification of the system that provides the coded form of the unit."
+                          },
+                          "code": {
+                            "type": "string",
+                            "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                            "description": "A computer processable form of the unit in some unit representation system."
+                          }
+                        }
+                      },
+                      "high": {
+                        "description": "The high limit. The boundary is inclusive.",
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "number",
+                            "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                          },
+                          "comparator": {
+                            "type": "string",
+                            "enum": [
+                              "<",
+                              "<=",
+                              ">=",
+                              ">"
+                            ],
+                            "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                          },
+                          "unit": {
+                            "type": "string",
+                            "pattern": "[ \\r\\n\\t\\S]+",
+                            "description": "A human&ndash;readable form of the unit."
+                          },
+                          "system": {
+                            "type": "string",
+                            "pattern": "\\S*",
+                            "description": "The identification of the system that provides the coded form of the unit."
+                          },
+                          "code": {
+                            "type": "string",
+                            "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                            "description": "A computer processable form of the unit in some unit representation system."
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "boundsPeriod": {
+                    "description": "Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.",
+                    "type": "object",
+                    "properties": {
+                      "start": {
+                        "type": "string",
+                        "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                        "description": "The start of the period. The boundary is inclusive."
+                      },
+                      "end": {
+                        "type": "string",
+                        "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                        "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+                      }
+                    }
+                  },
+                  "count": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "A total count of the desired number of repetitions across the duration of the entire timing specification. If countMax is present, this element indicates the lower bound of the allowed range of count values."
+                  },
+                  "countMax": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "If present, indicates that the count is a range &ndash; so to perform the action between [count] and [countMax] times."
+                  },
+                  "duration": {
+                    "type": "number",
+                    "description": "How long this thing happens for when it happens. If durationMax is present, this element indicates the lower bound of the allowed range of the duration."
+                  },
+                  "durationMax": {
+                    "type": "number",
+                    "description": "If present, indicates that the duration is a range &ndash; so to perform the action between [duration] and [durationMax] time length."
+                  },
+                  "durationUnit": {
+                    "type": "string",
+                    "enum": [
+                      "s",
+                      "min",
+                      "h",
+                      "d",
+                      "wk",
+                      "mo",
+                      "a"
+                    ],
+                    "description": "The units of time for the duration, in UCUM units."
+                  },
+                  "frequency": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The number of times to repeat the action within the specified period. If frequencyMax is present, this element indicates the lower bound of the allowed range of the frequency."
+                  },
+                  "frequencyMax": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "If present, indicates that the frequency is a range &ndash; so to repeat between [frequency] and [frequencyMax] times within the period or period range."
+                  },
+                  "period": {
+                    "type": "number",
+                    "description": "Indicates the duration of time over which repetitions are to occur; e.g. to express \"3 times per day\", 3 would be the frequency and \"1 day\" would be the period. If periodMax is present, this element indicates the lower bound of the allowed range of the period length."
+                  },
+                  "periodMax": {
+                    "type": "number",
+                    "description": "If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as \"do this once every 3&ndash;5 days."
+                  },
+                  "periodUnit": {
+                    "type": "string",
+                    "enum": [
+                      "s",
+                      "min",
+                      "h",
+                      "d",
+                      "wk",
+                      "mo",
+                      "a"
+                    ],
+                    "description": "The units of time for the period in UCUM units."
+                  },
+                  "dayOfWeek": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "mon",
+                        "tue",
+                        "wed",
+                        "thu",
+                        "fri",
+                        "sat",
+                        "sun"
+                      ],
+                      "description": "If one or more days of week is provided, then the action happens only on the specified day(s)."
+                    }
+                  },
+                  "timeOfDay": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?",
+                      "description": "Specified time of day for action to take place."
+                    }
+                  },
+                  "when": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "MORN",
+                        "MORN.early",
+                        "MORN.late",
+                        "NOON",
+                        "AFT",
+                        "AFT.early",
+                        "AFT.late",
+                        "EVE",
+                        "EVE.early",
+                        "EVE.late",
+                        "NIGHT",
+                        "PHS",
+                        "HS",
+                        "WAKE",
+                        "C",
+                        "CM",
+                        "CD",
+                        "CV",
+                        "AC",
+                        "ACM",
+                        "ACD",
+                        "ACV",
+                        "PC",
+                        "PCM",
+                        "PCD",
+                        "PCV"
+                      ],
+                      "description": "An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur."
+                    }
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The number of minutes from the event. If the event code does not indicate whether the minutes is before or after the event, then the offset is assumed to be after the event."
+                  }
+                }
+              },
+              "code": {
+                "description": "A code for the timing schedule (or just text in code.text). Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).",
+                "type": "object",
+                "properties": {
+                  "coding": {
+                    "type": "array",
+                    "items": {
+                      "description": "A reference to a code defined by a terminology system.",
+                      "type": "object",
+                      "properties": {
+                        "system": {
+                          "type": "string",
+                          "pattern": "\\S*",
+                          "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                        },
+                        "version": {
+                          "type": "string",
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                        },
+                        "code": {
+                          "type": "string",
+                          "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                        },
+                        "display": {
+                          "type": "string",
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                        },
+                        "userSelected": {
+                          "type": "boolean",
+                          "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                        }
+                      }
+                    }
+                  },
+                  "text": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+                  }
+                }
+              }
+            }
+          },
+          "defaultValueContactDetail": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The name of an individual to contact."
+              },
+              "telecom": {
+                "type": "array",
+                "items": {
+                  "description": "The contact details for the individual (if a name was provided) or the organization.",
+                  "type": "object",
+                  "properties": {
+                    "system": {
+                      "type": "string",
+                      "enum": [
+                        "phone",
+                        "fax",
+                        "email",
+                        "pager",
+                        "url",
+                        "sms",
+                        "other"
+                      ],
+                      "description": "Telecommunications form for contact point &ndash; what communications system is required to make use of the contact."
+                    },
+                    "value": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address)."
+                    },
+                    "use": {
+                      "type": "string",
+                      "enum": [
+                        "home",
+                        "work",
+                        "temp",
+                        "old",
+                        "mobile"
+                      ],
+                      "description": "Identifies the purpose for the contact point."
+                    },
+                    "rank": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "Specifies a preferred order in which to use a set of contacts. ContactPoints with lower rank values are more preferred than those with higher rank values."
+                    },
+                    "period": {
+                      "description": "Time period when the contact point was/is in use.",
+                      "type": "object",
+                      "properties": {
+                        "start": {
+                          "type": "string",
+                          "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                          "description": "The start of the period. The boundary is inclusive."
+                        },
+                        "end": {
+                          "type": "string",
+                          "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                          "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "defaultValueRelatedArtifact": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "documentation",
+                  "justification",
+                  "citation",
+                  "predecessor",
+                  "successor",
+                  "derived-from",
+                  "depends-on",
+                  "composed-of"
+                ],
+                "description": "The type of relationship to the related artifact."
+              },
+              "label": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A short label that can be used to reference the citation from elsewhere in the containing artifact, such as a footnote index."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A brief description of the document or knowledge resource being referenced, suitable for display to a consumer."
+              },
+              "citation": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format."
+              },
+              "url": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "A url for the artifact that can be followed to access the actual content."
+              },
+              "document": {
+                "description": "The document being referenced, represented as an attachment. This is exclusive with the resource element.",
+                "type": "object",
+                "properties": {
+                  "contentType": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate."
+                  },
+                  "language": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "The human language of the content. The value can be any valid value according to BCP 47."
+                  },
+                  "data": {
+                    "type": "string",
+                    "pattern": "(\\s*([0-9a-zA-Z\\+/=]){4}\\s*)+",
+                    "description": "The actual data of the attachment &ndash; a sequence of bytes, base64 encoded."
+                  },
+                  "url": {
+                    "type": "string",
+                    "pattern": "\\S*",
+                    "description": "A location where the data can be accessed."
+                  },
+                  "size": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The number of bytes of data that make up this attachment (before base64 encoding, if that is done)."
+                  },
+                  "hash": {
+                    "type": "string",
+                    "pattern": "(\\s*([0-9a-zA-Z\\+/=]){4}\\s*)+",
+                    "description": "The calculated hash of the data using SHA&ndash;1. Represented using base64."
+                  },
+                  "title": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A label or set of text to display in place of the data."
+                  },
+                  "creation": {
+                    "type": "string",
+                    "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                    "description": "The date that the attachment was first created."
+                  }
+                }
+              },
+              "resource": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The related resource, such as a library, value set, profile, or other knowledge resource."
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "defaultValueUsageContext": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "code": {
+                "description": "A code that identifies the type of context being specified by this usage context.",
+                "type": "object",
+                "properties": {
+                  "system": {
+                    "type": "string",
+                    "pattern": "\\S*",
+                    "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                  },
+                  "version": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                  },
+                  "code": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                  },
+                  "display": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                  },
+                  "userSelected": {
+                    "type": "boolean",
+                    "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                  }
+                }
+              },
+              "valueCodeableConcept": {
+                "description": "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.",
+                "type": "object",
+                "properties": {
+                  "coding": {
+                    "type": "array",
+                    "items": {
+                      "description": "A reference to a code defined by a terminology system.",
+                      "type": "object",
+                      "properties": {
+                        "system": {
+                          "type": "string",
+                          "pattern": "\\S*",
+                          "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                        },
+                        "version": {
+                          "type": "string",
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                        },
+                        "code": {
+                          "type": "string",
+                          "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                        },
+                        "display": {
+                          "type": "string",
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                        },
+                        "userSelected": {
+                          "type": "boolean",
+                          "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                        }
+                      }
+                    }
+                  },
+                  "text": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+                  }
+                }
+              },
+              "valueQuantity": {
+                "description": "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.",
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                  },
+                  "comparator": {
+                    "type": "string",
+                    "enum": [
+                      "<",
+                      "<=",
+                      ">=",
+                      ">"
+                    ],
+                    "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                  },
+                  "unit": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A human&ndash;readable form of the unit."
+                  },
+                  "system": {
+                    "type": "string",
+                    "pattern": "\\S*",
+                    "description": "The identification of the system that provides the coded form of the unit."
+                  },
+                  "code": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "A computer processable form of the unit in some unit representation system."
+                  }
+                }
+              },
+              "valueRange": {
+                "description": "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.",
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "description": "The low limit. The boundary is inclusive.",
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "number",
+                        "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                      },
+                      "comparator": {
+                        "type": "string",
+                        "enum": [
+                          "<",
+                          "<=",
+                          ">=",
+                          ">"
+                        ],
+                        "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                      },
+                      "unit": {
+                        "type": "string",
+                        "pattern": "[ \\r\\n\\t\\S]+",
+                        "description": "A human&ndash;readable form of the unit."
+                      },
+                      "system": {
+                        "type": "string",
+                        "pattern": "\\S*",
+                        "description": "The identification of the system that provides the coded form of the unit."
+                      },
+                      "code": {
+                        "type": "string",
+                        "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                        "description": "A computer processable form of the unit in some unit representation system."
+                      }
+                    }
+                  },
+                  "high": {
+                    "description": "The high limit. The boundary is inclusive.",
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "number",
+                        "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                      },
+                      "comparator": {
+                        "type": "string",
+                        "enum": [
+                          "<",
+                          "<=",
+                          ">=",
+                          ">"
+                        ],
+                        "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                      },
+                      "unit": {
+                        "type": "string",
+                        "pattern": "[ \\r\\n\\t\\S]+",
+                        "description": "A human&ndash;readable form of the unit."
+                      },
+                      "system": {
+                        "type": "string",
+                        "pattern": "\\S*",
+                        "description": "The identification of the system that provides the coded form of the unit."
+                      },
+                      "code": {
+                        "type": "string",
+                        "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                        "description": "A computer processable form of the unit in some unit representation system."
+                      }
+                    }
+                  }
+                }
+              },
+              "valueReference": {
+                "description": "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.",
+                "type": "object",
+                "properties": {
+                  "reference": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+                  },
+                  "type": {
+                    "type": "string",
+                    "pattern": "\\S*",
+                    "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+                  },
+                  "identifier": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+                  },
+                  "display": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+                  }
+                }
+              }
+            },
+            "required": [
+              "code"
+            ]
+          },
+          "defaultValueMeta": {
+            "description": "A value to use if there is no existing value in the source object.",
+            "type": "object",
+            "properties": {
+              "versionId": {
+                "type": "string",
+                "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                "description": "The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted."
+              },
+              "lastUpdated": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))",
+                "description": "When the resource last changed &ndash; e.g. when the version changed."
+              },
+              "source": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "A uri that identifies the source system of the resource. This provides a minimal amount of [Provenance](provenance.html#) information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc."
+              },
+              "profile": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "\\S*",
+                  "description": "A list of profiles (references to [StructureDefinition](structuredefinition.html#) resources) that this resource claims to conform to. The URL is a reference to [StructureDefinition.url](structuredefinition&ndash;definitions.html#StructureDefinition.url)."
+                }
+              },
+              "security": {
+                "type": "array",
+                "items": {
+                  "description": "Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.",
+                  "type": "object",
+                  "properties": {
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                    },
+                    "display": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                    },
+                    "userSelected": {
+                      "type": "boolean",
+                      "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                    }
+                  }
+                }
+              },
+              "tag": {
+                "type": "array",
+                "items": {
+                  "description": "Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.",
+                  "type": "object",
+                  "properties": {
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                    },
+                    "display": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                    },
+                    "userSelected": {
+                      "type": "boolean",
+                      "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "element": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "Optional field for this source."
+          },
+          "listMode": {
+            "type": "string",
+            "enum": [
+              "first",
+              "not_first",
+              "last",
+              "not_last",
+              "only_one"
+            ],
+            "description": "How to handle the list mode for this element."
+          },
+          "variable": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+            "description": "Named context for field, if a field is specified."
+          },
+          "condition": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "FHIRPath expression  &ndash; must be true or the rule does not apply."
+          },
+          "check": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "FHIRPath expression  &ndash; must be true or the mapping engine throws an error instead of completing."
+          },
+          "logMessage": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "A FHIRPath expression which specifies a message to put in the transform log when content matching the source rule is found."
+          }
+        },
+        "required": [
+          "context"
+        ]
+      },
+      "minItems": 1
+    },
+    "target": {
+      "type": "array",
+      "items": {
+        "description": "Content to create because of this mapping rule.",
+        "type": "object",
+        "properties": {
+          "modifierExtension": {
+            "type": "array",
+            "items": {
+              "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "context": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+            "description": "Type or variable this rule applies to."
+          },
+          "contextType": {
+            "type": "string",
+            "enum": [
+              "type",
+              "variable"
+            ],
+            "description": "How to interpret the context."
+          },
+          "element": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "Field to create in the context."
+          },
+          "variable": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+            "description": "Named context for field, if desired, and a field is specified."
+          },
+          "listMode": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "first",
+                "share",
+                "last",
+                "collate"
+              ],
+              "description": "If field is a list, how to manage the list."
+            }
+          },
+          "listRuleId": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+            "description": "Internal rule reference for shared list items."
+          },
+          "transform": {
+            "type": "string",
+            "enum": [
+              "create",
+              "copy",
+              "truncate",
+              "escape",
+              "cast",
+              "append",
+              "translate",
+              "reference",
+              "dateOp",
+              "uuid",
+              "pointer",
+              "evaluate",
+              "cc",
+              "c",
+              "qty",
+              "id",
+              "cp"
+            ],
+            "description": "How the data is copied / created."
+          },
+          "parameter": {
+            "type": "array",
+            "items": {
+              "description": "Parameters to the transform.",
+              "type": "object",
+              "properties": {
+                "modifierExtension": {
+                  "type": "array",
+                  "items": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                },
+                "valueId": {
+                  "type": "string",
+                  "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                  "description": "Parameter value &ndash; variable or literal."
+                },
+                "valueString": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "Parameter value &ndash; variable or literal."
+                },
+                "valueBoolean": {
+                  "type": "boolean",
+                  "description": "Parameter value &ndash; variable or literal."
+                },
+                "valueInteger": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Parameter value &ndash; variable or literal."
+                },
+                "valueDecimal": {
+                  "type": "number",
+                  "description": "Parameter value &ndash; variable or literal."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "rule": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "description": "Rules contained in this rule."
+      }
+    },
+    "dependent": {
+      "type": "array",
+      "items": {
+        "description": "Which other rules to apply in the context of this rule.",
+        "type": "object",
+        "properties": {
+          "modifierExtension": {
+            "type": "array",
+            "items": {
+              "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "name": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+            "description": "Name of a rule or group to apply."
+          },
+          "variable": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "description": "Variable to pass to the rule or group."
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "name",
+          "variable"
+        ]
+      }
+    },
+    "documentation": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "Documentation for this instance of data."
+    }
+  },
+  "required": [
+    "name",
+    "source"
+  ]
+}

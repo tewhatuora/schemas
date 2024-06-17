@@ -145,7 +145,6 @@
       "type": "array",
       "items": {
         "type": "object",
-        "discriminator": "resourceType",
         "properties": {
           "resourceType": {
             "type": "string",

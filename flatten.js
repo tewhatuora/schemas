@@ -72,6 +72,9 @@ fs.readdir(inputFolder, (err, files) => {
         console.log(`No match for file ${filePath}`);
       }
     }
+    if (flattenedSchema.properties?.contained?.items?.discriminator) {
+      delete flattenedSchema.properties.contained.items.discriminator;
+    }
     // Save the flattened schema to a new file
     const flattenedFilePath = path.join(outputFolder, file);
     fs.writeFileSync(flattenedFilePath, JSON.stringify(flattenedSchema, null, 2));

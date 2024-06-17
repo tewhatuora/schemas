@@ -1,0 +1,3306 @@
+{
+  "type": "object",
+  "properties": {
+    "resourceType": {
+      "type": "string",
+      "enum": [
+        "TestScript"
+      ]
+    },
+    "id": {
+      "type": "string",
+      "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+      "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."
+    },
+    "meta": {
+      "description": "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.",
+      "type": "object",
+      "properties": {
+        "versionId": {
+          "type": "string",
+          "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+          "description": "The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted."
+        },
+        "lastUpdated": {
+          "type": "string",
+          "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))",
+          "description": "When the resource last changed &ndash; e.g. when the version changed."
+        },
+        "source": {
+          "type": "string",
+          "pattern": "\\S*",
+          "description": "A uri that identifies the source system of the resource. This provides a minimal amount of [Provenance](provenance.html#) information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc."
+        },
+        "profile": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "\\S*",
+            "description": "A list of profiles (references to [StructureDefinition](structuredefinition.html#) resources) that this resource claims to conform to. The URL is a reference to [StructureDefinition.url](structuredefinition&ndash;definitions.html#StructureDefinition.url)."
+          }
+        },
+        "security": {
+          "type": "array",
+          "items": {
+            "description": "Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+              },
+              "version": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+              },
+              "userSelected": {
+                "type": "boolean",
+                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+              }
+            }
+          }
+        },
+        "tag": {
+          "type": "array",
+          "items": {
+            "description": "Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+              },
+              "version": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+              },
+              "userSelected": {
+                "type": "boolean",
+                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+              }
+            }
+          }
+        }
+      }
+    },
+    "implicitRules": {
+      "type": "string",
+      "pattern": "\\S*",
+      "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc."
+    },
+    "language": {
+      "type": "string",
+      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+      "description": "The base language in which the resource is written."
+    },
+    "text": {
+      "description": "A human&ndash;readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "generated",
+            "extensions",
+            "additional",
+            "empty"
+          ],
+          "description": "The status of the narrative &ndash; whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data."
+        },
+        "div": {
+          "type": "string",
+          "description": "The actual narrative content, a stripped down version of XHTML."
+        }
+      },
+      "required": [
+        "status",
+        "div"
+      ]
+    },
+    "contained": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "resourceType": {
+            "type": "string",
+            "enum": [
+              "Account",
+              "ActivityDefinition",
+              "AdverseEvent",
+              "AllergyIntolerance",
+              "Appointment",
+              "AppointmentResponse",
+              "AuditEvent",
+              "Basic",
+              "Binary",
+              "BiologicallyDerivedProduct",
+              "BodyStructure",
+              "Bundle",
+              "CapabilityStatement",
+              "CarePlan",
+              "CareTeam",
+              "CatalogEntry",
+              "ChargeItem",
+              "ChargeItemDefinition",
+              "Claim",
+              "ClaimResponse",
+              "ClinicalImpression",
+              "CodeSystem",
+              "Communication",
+              "CommunicationRequest",
+              "CompartmentDefinition",
+              "Composition",
+              "ConceptMap",
+              "Condition",
+              "Consent",
+              "Contract",
+              "Coverage",
+              "CoverageEligibilityRequest",
+              "CoverageEligibilityResponse",
+              "DetectedIssue",
+              "Device",
+              "DeviceDefinition",
+              "DeviceMetric",
+              "DeviceRequest",
+              "DeviceUseStatement",
+              "DiagnosticReport",
+              "DocumentManifest",
+              "DocumentReference",
+              "DomainResource",
+              "EffectEvidenceSynthesis",
+              "Encounter",
+              "Endpoint",
+              "EnrollmentRequest",
+              "EnrollmentResponse",
+              "EpisodeOfCare",
+              "EventDefinition",
+              "Evidence",
+              "EvidenceVariable",
+              "ExampleScenario",
+              "ExplanationOfBenefit",
+              "FamilyMemberHistory",
+              "Flag",
+              "Goal",
+              "GraphDefinition",
+              "Group",
+              "GuidanceResponse",
+              "HealthcareService",
+              "ImagingStudy",
+              "Immunization",
+              "ImmunizationEvaluation",
+              "ImmunizationRecommendation",
+              "ImplementationGuide",
+              "InsurancePlan",
+              "Invoice",
+              "Library",
+              "Linkage",
+              "List",
+              "Location",
+              "Measure",
+              "MeasureReport",
+              "Media",
+              "Medication",
+              "MedicationAdministration",
+              "MedicationDispense",
+              "MedicationKnowledge",
+              "MedicationRequest",
+              "MedicationStatement",
+              "MedicinalProduct",
+              "MedicinalProductAuthorization",
+              "MedicinalProductContraindication",
+              "MedicinalProductIndication",
+              "MedicinalProductIngredient",
+              "MedicinalProductInteraction",
+              "MedicinalProductManufactured",
+              "MedicinalProductPackaged",
+              "MedicinalProductPharmaceutical",
+              "MedicinalProductUndesirableEffect",
+              "MessageDefinition",
+              "MessageHeader",
+              "MolecularSequence",
+              "NamingSystem",
+              "NutritionOrder",
+              "Observation",
+              "ObservationDefinition",
+              "OperationDefinition",
+              "OperationOutcome",
+              "Organization",
+              "OrganizationAffiliation",
+              "Parameters",
+              "Patient",
+              "PaymentNotice",
+              "PaymentReconciliation",
+              "Person",
+              "PlanDefinition",
+              "Practitioner",
+              "PractitionerRole",
+              "Procedure",
+              "Provenance",
+              "Questionnaire",
+              "QuestionnaireResponse",
+              "RelatedPerson",
+              "RequestGroup",
+              "ResearchDefinition",
+              "ResearchElementDefinition",
+              "ResearchStudy",
+              "ResearchSubject",
+              "Resource",
+              "RiskAssessment",
+              "RiskEvidenceSynthesis",
+              "Schedule",
+              "SearchParameter",
+              "ServiceRequest",
+              "Slot",
+              "Specimen",
+              "SpecimenDefinition",
+              "StructureDefinition",
+              "StructureMap",
+              "Subscription",
+              "Substance",
+              "SubstanceNucleicAcid",
+              "SubstancePolymer",
+              "SubstanceProtein",
+              "SubstanceReferenceInformation",
+              "SubstanceSourceMaterial",
+              "SubstanceSpecification",
+              "SupplyDelivery",
+              "SupplyRequest",
+              "Task",
+              "TerminologyCapabilities",
+              "TestReport",
+              "TestScript",
+              "ValueSet",
+              "VerificationResult",
+              "VisionPrescription"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+            "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."
+          },
+          "meta": {
+            "description": "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.",
+            "type": "object",
+            "properties": {
+              "versionId": {
+                "type": "string",
+                "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                "description": "The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted."
+              },
+              "lastUpdated": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))",
+                "description": "When the resource last changed &ndash; e.g. when the version changed."
+              },
+              "source": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "A uri that identifies the source system of the resource. This provides a minimal amount of [Provenance](provenance.html#) information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc."
+              },
+              "profile": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "\\S*",
+                  "description": "A list of profiles (references to [StructureDefinition](structuredefinition.html#) resources) that this resource claims to conform to. The URL is a reference to [StructureDefinition.url](structuredefinition&ndash;definitions.html#StructureDefinition.url)."
+                }
+              },
+              "security": {
+                "type": "array",
+                "items": {
+                  "description": "Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.",
+                  "type": "object",
+                  "properties": {
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                    },
+                    "display": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                    },
+                    "userSelected": {
+                      "type": "boolean",
+                      "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                    }
+                  }
+                }
+              },
+              "tag": {
+                "type": "array",
+                "items": {
+                  "description": "Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.",
+                  "type": "object",
+                  "properties": {
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                    },
+                    "display": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                    },
+                    "userSelected": {
+                      "type": "boolean",
+                      "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "implicitRules": {
+            "type": "string",
+            "pattern": "\\S*",
+            "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc."
+          },
+          "language": {
+            "type": "string",
+            "pattern": "[^\\s]+(\\s[^\\s]+)*",
+            "description": "The base language in which the resource is written."
+          }
+        },
+        "required": [
+          "resourceType"
+        ],
+        "description": "These resources do not have an independent existence apart from the resource that contains them &ndash; they cannot be identified independently, and nor can they have their own independent transaction scope."
+      }
+    },
+    "extension": {
+      "type": "array",
+      "items": {
+        "description": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "modifierExtension": {
+      "type": "array",
+      "items": {
+        "description": "May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "url": {
+      "type": "string",
+      "pattern": "\\S*",
+      "description": "An absolute URI that is used to identify this test script when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this test script is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the test script is stored on different servers."
+    },
+    "identifier": {
+      "description": "A formal identifier that is used to identify this test script when it is represented in other formats, or referenced in a specification, model, design or an instance.",
+      "type": "object",
+      "properties": {
+        "use": {
+          "type": "string",
+          "enum": [
+            "usual",
+            "official",
+            "temp",
+            "secondary",
+            "old"
+          ],
+          "description": "The purpose of this identifier."
+        },
+        "type": {
+          "description": "A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.",
+          "type": "object",
+          "properties": {
+            "coding": {
+              "type": "array",
+              "items": {
+                "description": "A reference to a code defined by a terminology system.",
+                "type": "object",
+                "properties": {
+                  "system": {
+                    "type": "string",
+                    "pattern": "\\S*",
+                    "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                  },
+                  "version": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                  },
+                  "code": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                  },
+                  "display": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                  },
+                  "userSelected": {
+                    "type": "boolean",
+                    "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                  }
+                }
+              }
+            },
+            "text": {
+              "type": "string",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+            }
+          }
+        },
+        "system": {
+          "type": "string",
+          "pattern": "\\S*",
+          "description": "Establishes the namespace for the value &ndash; that is, a URL that describes a set values that are unique."
+        },
+        "value": {
+          "type": "string",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "description": "The portion of the identifier typically relevant to the user and which is unique within the context of the system."
+        },
+        "period": {
+          "description": "Time period during which identifier is/was valid for use.",
+          "type": "object",
+          "properties": {
+            "start": {
+              "type": "string",
+              "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+              "description": "The start of the period. The boundary is inclusive."
+            },
+            "end": {
+              "type": "string",
+              "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+              "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+            }
+          }
+        },
+        "assigner": {
+          "description": "Organization that issued/manages the identifier.",
+          "type": "object",
+          "properties": {
+            "reference": {
+              "type": "string",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+            },
+            "type": {
+              "type": "string",
+              "pattern": "\\S*",
+              "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+            },
+            "identifier": {
+              "type": "object",
+              "additionalProperties": true,
+              "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+            },
+            "display": {
+              "type": "string",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+            }
+          }
+        }
+      }
+    },
+    "version": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "The identifier that is used to identify this version of the test script when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the test script author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."
+    },
+    "name": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "A natural language name identifying the test script. This name should be usable as an identifier for the module by machine processing applications such as code generation."
+    },
+    "title": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "A short, descriptive, user&ndash;friendly title for the test script."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "retired",
+        "unknown"
+      ],
+      "description": "The status of this test script. Enables tracking the life&ndash;cycle of the content."
+    },
+    "experimental": {
+      "type": "boolean",
+      "description": "A Boolean value to indicate that this test script is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."
+    },
+    "date": {
+      "type": "string",
+      "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+      "description": "The date  (and optionally time) when the test script was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the test script changes."
+    },
+    "publisher": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "The name of the organization or individual that published the test script."
+    },
+    "contact": {
+      "type": "array",
+      "items": {
+        "description": "Contact details to assist a user in finding and communicating with the publisher.",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "The name of an individual to contact."
+          },
+          "telecom": {
+            "type": "array",
+            "items": {
+              "description": "The contact details for the individual (if a name was provided) or the organization.",
+              "type": "object",
+              "properties": {
+                "system": {
+                  "type": "string",
+                  "enum": [
+                    "phone",
+                    "fax",
+                    "email",
+                    "pager",
+                    "url",
+                    "sms",
+                    "other"
+                  ],
+                  "description": "Telecommunications form for contact point &ndash; what communications system is required to make use of the contact."
+                },
+                "value": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address)."
+                },
+                "use": {
+                  "type": "string",
+                  "enum": [
+                    "home",
+                    "work",
+                    "temp",
+                    "old",
+                    "mobile"
+                  ],
+                  "description": "Identifies the purpose for the contact point."
+                },
+                "rank": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Specifies a preferred order in which to use a set of contacts. ContactPoints with lower rank values are more preferred than those with higher rank values."
+                },
+                "period": {
+                  "description": "Time period when the contact point was/is in use.",
+                  "type": "object",
+                  "properties": {
+                    "start": {
+                      "type": "string",
+                      "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                      "description": "The start of the period. The boundary is inclusive."
+                    },
+                    "end": {
+                      "type": "string",
+                      "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                      "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "description": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "A free text natural language description of the test script from a consumer's perspective."
+    },
+    "useContext": {
+      "type": "array",
+      "items": {
+        "description": "The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate test script instances.",
+        "type": "object",
+        "properties": {
+          "code": {
+            "description": "A code that identifies the type of context being specified by this usage context.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+              },
+              "version": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+              },
+              "userSelected": {
+                "type": "boolean",
+                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+              }
+            }
+          },
+          "valueCodeableConcept": {
+            "description": "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.",
+            "type": "object",
+            "properties": {
+              "coding": {
+                "type": "array",
+                "items": {
+                  "description": "A reference to a code defined by a terminology system.",
+                  "type": "object",
+                  "properties": {
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                    },
+                    "display": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                    },
+                    "userSelected": {
+                      "type": "boolean",
+                      "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                    }
+                  }
+                }
+              },
+              "text": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+              }
+            }
+          },
+          "valueQuantity": {
+            "description": "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+              },
+              "comparator": {
+                "type": "string",
+                "enum": [
+                  "<",
+                  "<=",
+                  ">=",
+                  ">"
+                ],
+                "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+              },
+              "unit": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human&ndash;readable form of the unit."
+              },
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the system that provides the coded form of the unit."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A computer processable form of the unit in some unit representation system."
+              }
+            }
+          },
+          "valueRange": {
+            "description": "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.",
+            "type": "object",
+            "properties": {
+              "low": {
+                "description": "The low limit. The boundary is inclusive.",
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                  },
+                  "comparator": {
+                    "type": "string",
+                    "enum": [
+                      "<",
+                      "<=",
+                      ">=",
+                      ">"
+                    ],
+                    "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                  },
+                  "unit": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A human&ndash;readable form of the unit."
+                  },
+                  "system": {
+                    "type": "string",
+                    "pattern": "\\S*",
+                    "description": "The identification of the system that provides the coded form of the unit."
+                  },
+                  "code": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "A computer processable form of the unit in some unit representation system."
+                  }
+                }
+              },
+              "high": {
+                "description": "The high limit. The boundary is inclusive.",
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                  },
+                  "comparator": {
+                    "type": "string",
+                    "enum": [
+                      "<",
+                      "<=",
+                      ">=",
+                      ">"
+                    ],
+                    "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                  },
+                  "unit": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "A human&ndash;readable form of the unit."
+                  },
+                  "system": {
+                    "type": "string",
+                    "pattern": "\\S*",
+                    "description": "The identification of the system that provides the coded form of the unit."
+                  },
+                  "code": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "A computer processable form of the unit in some unit representation system."
+                  }
+                }
+              }
+            }
+          },
+          "valueReference": {
+            "description": "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.",
+            "type": "object",
+            "properties": {
+              "reference": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+              },
+              "type": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+              },
+              "identifier": {
+                "type": "object",
+                "additionalProperties": true,
+                "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+              }
+            }
+          }
+        },
+        "required": [
+          "code"
+        ]
+      }
+    },
+    "jurisdiction": {
+      "type": "array",
+      "items": {
+        "description": "A legal or geographic region in which the test script is intended to be used.",
+        "type": "object",
+        "properties": {
+          "coding": {
+            "type": "array",
+            "items": {
+              "description": "A reference to a code defined by a terminology system.",
+              "type": "object",
+              "properties": {
+                "system": {
+                  "type": "string",
+                  "pattern": "\\S*",
+                  "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                },
+                "version": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                },
+                "code": {
+                  "type": "string",
+                  "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                  "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                },
+                "display": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                },
+                "userSelected": {
+                  "type": "boolean",
+                  "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                }
+              }
+            }
+          },
+          "text": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+          }
+        }
+      }
+    },
+    "purpose": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "Explanation of why this test script is needed and why it has been designed as it has."
+    },
+    "copyright": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "A copyright statement relating to the test script and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the test script."
+    },
+    "origin": {
+      "type": "array",
+      "items": {
+        "description": "An abstract server used in operations within this test script in the origin element.",
+        "type": "object",
+        "properties": {
+          "modifierExtension": {
+            "type": "array",
+            "items": {
+              "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "index": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1."
+          },
+          "profile": {
+            "description": "The type of origin profile the test system supports.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+              },
+              "version": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+              },
+              "userSelected": {
+                "type": "boolean",
+                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+              }
+            }
+          }
+        },
+        "required": [
+          "index",
+          "profile"
+        ]
+      }
+    },
+    "destination": {
+      "type": "array",
+      "items": {
+        "description": "An abstract server used in operations within this test script in the destination element.",
+        "type": "object",
+        "properties": {
+          "modifierExtension": {
+            "type": "array",
+            "items": {
+              "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "index": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1."
+          },
+          "profile": {
+            "description": "The type of destination profile the test system supports.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+              },
+              "version": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+              },
+              "userSelected": {
+                "type": "boolean",
+                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+              }
+            }
+          }
+        },
+        "required": [
+          "index",
+          "profile"
+        ]
+      }
+    },
+    "metadata": {
+      "description": "The required capability must exist and are assumed to function correctly on the FHIR server being tested.",
+      "type": "object",
+      "properties": {
+        "modifierExtension": {
+          "type": "array",
+          "items": {
+            "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "link": {
+          "type": "array",
+          "items": {
+            "description": "A link to the FHIR specification that this test is covering.",
+            "type": "object",
+            "properties": {
+              "modifierExtension": {
+                "type": "array",
+                "items": {
+                  "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              },
+              "url": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "URL to a particular requirement or feature within the FHIR specification."
+              },
+              "description": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "Short description of the link."
+              }
+            },
+            "required": [
+              "url"
+            ]
+          }
+        },
+        "capability": {
+          "type": "array",
+          "items": {
+            "description": "Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.",
+            "type": "object",
+            "properties": {
+              "modifierExtension": {
+                "type": "array",
+                "items": {
+                  "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              },
+              "required": {
+                "type": "boolean",
+                "description": "Whether or not the test execution will require the given capabilities of the server in order for this test script to execute."
+              },
+              "validated": {
+                "type": "boolean",
+                "description": "Whether or not the test execution will validate the given capabilities of the server in order for this test script to execute."
+              },
+              "description": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "Description of the capabilities that this test script is requiring the server to support."
+              },
+              "origin": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Which origin server these requirements apply to."
+                }
+              },
+              "destination": {
+                "type": "integer",
+                "format": "int32",
+                "description": "Which server these requirements apply to."
+              },
+              "link": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "\\S*",
+                  "description": "Links to the FHIR specification that describes this interaction and the resources involved in more detail."
+                }
+              },
+              "capabilities": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped."
+              }
+            },
+            "required": [
+              "required",
+              "validated",
+              "capabilities"
+            ]
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "capability"
+      ]
+    },
+    "fixture": {
+      "type": "array",
+      "items": {
+        "description": "Fixture in the test script &ndash; by reference (uri). All fixtures are required for the test script to execute.",
+        "type": "object",
+        "properties": {
+          "modifierExtension": {
+            "type": "array",
+            "items": {
+              "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "autocreate": {
+            "type": "boolean",
+            "description": "Whether or not to implicitly create the fixture during setup. If true, the fixture is automatically created on each server being tested during setup, therefore no create operation is required for this fixture in the TestScript.setup section."
+          },
+          "autodelete": {
+            "type": "boolean",
+            "description": "Whether or not to implicitly delete the fixture during teardown. If true, the fixture is automatically deleted on each server being tested during teardown, therefore no delete operation is required for this fixture in the TestScript.teardown section."
+          },
+          "resource": {
+            "description": "Reference to the resource (containing the contents of the resource needed for operations).",
+            "type": "object",
+            "properties": {
+              "reference": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+              },
+              "type": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+              },
+              "identifier": {
+                "type": "object",
+                "additionalProperties": true,
+                "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+              }
+            }
+          }
+        },
+        "required": [
+          "autocreate",
+          "autodelete"
+        ]
+      }
+    },
+    "profile": {
+      "type": "array",
+      "items": {
+        "description": "The type of origin profile the test system supports.",
+        "type": "object",
+        "properties": {
+          "reference": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+          },
+          "type": {
+            "type": "string",
+            "pattern": "\\S*",
+            "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+          },
+          "identifier": {
+            "type": "object",
+            "additionalProperties": true,
+            "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+          },
+          "display": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "variable": {
+      "type": "array",
+      "items": {
+        "description": "Variable is set based either on element value in response body or on header field value in the response headers.",
+        "type": "object",
+        "properties": {
+          "modifierExtension": {
+            "type": "array",
+            "items": {
+              "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "name": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "Descriptive name for this variable."
+          },
+          "defaultValue": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "A default, hard&ndash;coded, or user&ndash;defined value for this variable."
+          },
+          "description": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "A free text natural language description of the variable and its purpose."
+          },
+          "expression": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "The FHIRPath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified."
+          },
+          "headerField": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "Will be used to grab the HTTP header field value from the headers that sourceId is pointing to."
+          },
+          "hint": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "Displayable text string with hint help information to the user when entering a default value."
+          },
+          "path": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "XPath or JSONPath to evaluate against the fixture body.  When variables are defined, only one of either expression, headerField or path must be specified."
+          },
+          "sourceId": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+            "description": "Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable."
+          }
+        },
+        "required": [
+          "name"
+        ]
+      }
+    },
+    "setup": {
+      "description": "A series of required setup operations before tests are executed.",
+      "type": "object",
+      "properties": {
+        "modifierExtension": {
+          "type": "array",
+          "items": {
+            "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "action": {
+          "type": "array",
+          "items": {
+            "description": "Action would contain either an operation or an assertion.",
+            "type": "object",
+            "properties": {
+              "modifierExtension": {
+                "type": "array",
+                "items": {
+                  "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              },
+              "operation": {
+                "description": "The operation to perform.",
+                "type": "object",
+                "properties": {
+                  "modifierExtension": {
+                    "type": "array",
+                    "items": {
+                      "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "type": {
+                    "description": "Server interaction or operation type.",
+                    "type": "object",
+                    "properties": {
+                      "system": {
+                        "type": "string",
+                        "pattern": "\\S*",
+                        "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                      },
+                      "version": {
+                        "type": "string",
+                        "pattern": "[ \\r\\n\\t\\S]+",
+                        "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                      },
+                      "code": {
+                        "type": "string",
+                        "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                        "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                      },
+                      "display": {
+                        "type": "string",
+                        "pattern": "[ \\r\\n\\t\\S]+",
+                        "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                      },
+                      "userSelected": {
+                        "type": "boolean",
+                        "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                      }
+                    }
+                  },
+                  "resource": {
+                    "type": "string",
+                    "enum": [
+                      "Address",
+                      "Age",
+                      "Annotation",
+                      "Attachment",
+                      "BackboneElement",
+                      "CodeableConcept",
+                      "Coding",
+                      "ContactDetail",
+                      "ContactPoint",
+                      "Contributor",
+                      "Count",
+                      "DataRequirement",
+                      "Distance",
+                      "Dosage",
+                      "Duration",
+                      "Element",
+                      "ElementDefinition",
+                      "Expression",
+                      "Extension",
+                      "HumanName",
+                      "Identifier",
+                      "MarketingStatus",
+                      "Meta",
+                      "Money",
+                      "MoneyQuantity",
+                      "Narrative",
+                      "ParameterDefinition",
+                      "Period",
+                      "Population",
+                      "ProdCharacteristic",
+                      "ProductShelfLife",
+                      "Quantity",
+                      "Range",
+                      "Ratio",
+                      "Reference",
+                      "RelatedArtifact",
+                      "SampledData",
+                      "Signature",
+                      "SimpleQuantity",
+                      "SubstanceAmount",
+                      "Timing",
+                      "TriggerDefinition",
+                      "UsageContext",
+                      "base64Binary",
+                      "boolean",
+                      "canonical",
+                      "code",
+                      "date",
+                      "dateTime",
+                      "decimal",
+                      "id",
+                      "instant",
+                      "integer",
+                      "markdown",
+                      "oid",
+                      "positiveInt",
+                      "string",
+                      "time",
+                      "unsignedInt",
+                      "uri",
+                      "url",
+                      "uuid",
+                      "xhtml",
+                      "Account",
+                      "ActivityDefinition",
+                      "AdverseEvent",
+                      "AllergyIntolerance",
+                      "Appointment",
+                      "AppointmentResponse",
+                      "AuditEvent",
+                      "Basic",
+                      "Binary",
+                      "BiologicallyDerivedProduct",
+                      "BodyStructure",
+                      "Bundle",
+                      "CapabilityStatement",
+                      "CarePlan",
+                      "CareTeam",
+                      "CatalogEntry",
+                      "ChargeItem",
+                      "ChargeItemDefinition",
+                      "Claim",
+                      "ClaimResponse",
+                      "ClinicalImpression",
+                      "CodeSystem",
+                      "Communication",
+                      "CommunicationRequest",
+                      "CompartmentDefinition",
+                      "Composition",
+                      "ConceptMap",
+                      "Condition",
+                      "Consent",
+                      "Contract",
+                      "Coverage",
+                      "CoverageEligibilityRequest",
+                      "CoverageEligibilityResponse",
+                      "DetectedIssue",
+                      "Device",
+                      "DeviceDefinition",
+                      "DeviceMetric",
+                      "DeviceRequest",
+                      "DeviceUseStatement",
+                      "DiagnosticReport",
+                      "DocumentManifest",
+                      "DocumentReference",
+                      "DomainResource",
+                      "EffectEvidenceSynthesis",
+                      "Encounter",
+                      "Endpoint",
+                      "EnrollmentRequest",
+                      "EnrollmentResponse",
+                      "EpisodeOfCare",
+                      "EventDefinition",
+                      "Evidence",
+                      "EvidenceVariable",
+                      "ExampleScenario",
+                      "ExplanationOfBenefit",
+                      "FamilyMemberHistory",
+                      "Flag",
+                      "Goal",
+                      "GraphDefinition",
+                      "Group",
+                      "GuidanceResponse",
+                      "HealthcareService",
+                      "ImagingStudy",
+                      "Immunization",
+                      "ImmunizationEvaluation",
+                      "ImmunizationRecommendation",
+                      "ImplementationGuide",
+                      "InsurancePlan",
+                      "Invoice",
+                      "Library",
+                      "Linkage",
+                      "List",
+                      "Location",
+                      "Measure",
+                      "MeasureReport",
+                      "Media",
+                      "Medication",
+                      "MedicationAdministration",
+                      "MedicationDispense",
+                      "MedicationKnowledge",
+                      "MedicationRequest",
+                      "MedicationStatement",
+                      "MedicinalProduct",
+                      "MedicinalProductAuthorization",
+                      "MedicinalProductContraindication",
+                      "MedicinalProductIndication",
+                      "MedicinalProductIngredient",
+                      "MedicinalProductInteraction",
+                      "MedicinalProductManufactured",
+                      "MedicinalProductPackaged",
+                      "MedicinalProductPharmaceutical",
+                      "MedicinalProductUndesirableEffect",
+                      "MessageDefinition",
+                      "MessageHeader",
+                      "MolecularSequence",
+                      "NamingSystem",
+                      "NutritionOrder",
+                      "Observation",
+                      "ObservationDefinition",
+                      "OperationDefinition",
+                      "OperationOutcome",
+                      "Organization",
+                      "OrganizationAffiliation",
+                      "Parameters",
+                      "Patient",
+                      "PaymentNotice",
+                      "PaymentReconciliation",
+                      "Person",
+                      "PlanDefinition",
+                      "Practitioner",
+                      "PractitionerRole",
+                      "Procedure",
+                      "Provenance",
+                      "Questionnaire",
+                      "QuestionnaireResponse",
+                      "RelatedPerson",
+                      "RequestGroup",
+                      "ResearchDefinition",
+                      "ResearchElementDefinition",
+                      "ResearchStudy",
+                      "ResearchSubject",
+                      "Resource",
+                      "RiskAssessment",
+                      "RiskEvidenceSynthesis",
+                      "Schedule",
+                      "SearchParameter",
+                      "ServiceRequest",
+                      "Slot",
+                      "Specimen",
+                      "SpecimenDefinition",
+                      "StructureDefinition",
+                      "StructureMap",
+                      "Subscription",
+                      "Substance",
+                      "SubstanceNucleicAcid",
+                      "SubstancePolymer",
+                      "SubstanceProtein",
+                      "SubstanceReferenceInformation",
+                      "SubstanceSourceMaterial",
+                      "SubstanceSpecification",
+                      "SupplyDelivery",
+                      "SupplyRequest",
+                      "Task",
+                      "TerminologyCapabilities",
+                      "TestReport",
+                      "TestScript",
+                      "ValueSet",
+                      "VerificationResult",
+                      "VisionPrescription"
+                    ],
+                    "description": "The type of the resource.  See http://build.fhir.org/resourcelist.html."
+                  },
+                  "label": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "The label would be used for tracking/logging purposes by test engines."
+                  },
+                  "description": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "The description would be used by test engines for tracking and reporting purposes."
+                  },
+                  "accept": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "The mime&ndash;type to use for RESTful operation in the 'Accept' header."
+                  },
+                  "contentType": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "The mime&ndash;type to use for RESTful operation in the 'Content&ndash;Type' header."
+                  },
+                  "destination": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The server where the request message is destined for.  Must be one of the server numbers listed in TestScript.destination section."
+                  },
+                  "encodeRequestUrl": {
+                    "type": "boolean",
+                    "description": "Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths."
+                  },
+                  "method": {
+                    "type": "string",
+                    "enum": [
+                      "delete",
+                      "get",
+                      "options",
+                      "patch",
+                      "post",
+                      "put",
+                      "head"
+                    ],
+                    "description": "The HTTP method the test engine MUST use for this operation regardless of any other operation details."
+                  },
+                  "origin": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The server where the request message originates from.  Must be one of the server numbers listed in TestScript.origin section."
+                  },
+                  "params": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "Path plus parameters after [type].  Used to set parts of the request URL explicitly."
+                  },
+                  "requestHeader": {
+                    "type": "array",
+                    "items": {
+                      "description": "Header elements would be used to set HTTP headers.",
+                      "type": "object",
+                      "properties": {
+                        "modifierExtension": {
+                          "type": "array",
+                          "items": {
+                            "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                            "type": "object",
+                            "additionalProperties": true
+                          }
+                        },
+                        "field": {
+                          "type": "string",
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "description": "The HTTP header field e.g. \"Accept\"."
+                        },
+                        "value": {
+                          "type": "string",
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "description": "The value of the header e.g. \"application/fhir+xml\"."
+                        }
+                      },
+                      "required": [
+                        "field",
+                        "value"
+                      ]
+                    }
+                  },
+                  "requestId": {
+                    "type": "string",
+                    "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                    "description": "The fixture id (maybe new) to map to the request."
+                  },
+                  "responseId": {
+                    "type": "string",
+                    "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                    "description": "The fixture id (maybe new) to map to the response."
+                  },
+                  "sourceId": {
+                    "type": "string",
+                    "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                    "description": "The id of the fixture used as the body of a PUT or POST request."
+                  },
+                  "targetId": {
+                    "type": "string",
+                    "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                    "description": "Id of fixture used for extracting the [id],  [type], and [vid] for GET requests."
+                  },
+                  "url": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "Complete request URL."
+                  }
+                },
+                "required": [
+                  "encodeRequestUrl"
+                ]
+              },
+              "assert": {
+                "description": "Evaluates the results of previous operations to determine if the server under test behaves appropriately.",
+                "type": "object",
+                "properties": {
+                  "modifierExtension": {
+                    "type": "array",
+                    "items": {
+                      "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "label": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "The label would be used for tracking/logging purposes by test engines."
+                  },
+                  "description": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "The description would be used by test engines for tracking and reporting purposes."
+                  },
+                  "direction": {
+                    "type": "string",
+                    "enum": [
+                      "response",
+                      "request"
+                    ],
+                    "description": "The direction to use for the assertion."
+                  },
+                  "compareToSourceId": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "Id of the source fixture used as the contents to be evaluated by either the \"source/expression\" or \"sourceId/path\" definition."
+                  },
+                  "compareToSourceExpression": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "The FHIRPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both."
+                  },
+                  "compareToSourcePath": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "XPath or JSONPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both."
+                  },
+                  "contentType": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "The mime&ndash;type contents to compare against the request or response message 'Content&ndash;Type' header."
+                  },
+                  "expression": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "The FHIRPath expression to be evaluated against the request or response message contents &ndash; HTTP headers and payload."
+                  },
+                  "headerField": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "The HTTP header field name e.g. 'Location'."
+                  },
+                  "minimumId": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "The ID of a fixture.  Asserts that the response contains at a minimum the fixture specified by minimumId."
+                  },
+                  "navigationLinks": {
+                    "type": "boolean",
+                    "description": "Whether or not the test execution performs validation on the bundle navigation links."
+                  },
+                  "operator": {
+                    "type": "string",
+                    "enum": [
+                      "equals",
+                      "notEquals",
+                      "in",
+                      "notIn",
+                      "greaterThan",
+                      "lessThan",
+                      "empty",
+                      "notEmpty",
+                      "contains",
+                      "notContains",
+                      "eval"
+                    ],
+                    "description": "The operator type defines the conditional behavior of the assert. If not defined, the default is equals."
+                  },
+                  "path": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "The XPath or JSONPath expression to be evaluated against the fixture representing the response received from server."
+                  },
+                  "requestMethod": {
+                    "type": "string",
+                    "enum": [
+                      "delete",
+                      "get",
+                      "options",
+                      "patch",
+                      "post",
+                      "put",
+                      "head"
+                    ],
+                    "description": "The request method or HTTP operation code to compare against that used by the client system under test."
+                  },
+                  "requestURL": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "The value to use in a comparison against the request URL path string."
+                  },
+                  "resource": {
+                    "type": "string",
+                    "enum": [
+                      "Address",
+                      "Age",
+                      "Annotation",
+                      "Attachment",
+                      "BackboneElement",
+                      "CodeableConcept",
+                      "Coding",
+                      "ContactDetail",
+                      "ContactPoint",
+                      "Contributor",
+                      "Count",
+                      "DataRequirement",
+                      "Distance",
+                      "Dosage",
+                      "Duration",
+                      "Element",
+                      "ElementDefinition",
+                      "Expression",
+                      "Extension",
+                      "HumanName",
+                      "Identifier",
+                      "MarketingStatus",
+                      "Meta",
+                      "Money",
+                      "MoneyQuantity",
+                      "Narrative",
+                      "ParameterDefinition",
+                      "Period",
+                      "Population",
+                      "ProdCharacteristic",
+                      "ProductShelfLife",
+                      "Quantity",
+                      "Range",
+                      "Ratio",
+                      "Reference",
+                      "RelatedArtifact",
+                      "SampledData",
+                      "Signature",
+                      "SimpleQuantity",
+                      "SubstanceAmount",
+                      "Timing",
+                      "TriggerDefinition",
+                      "UsageContext",
+                      "base64Binary",
+                      "boolean",
+                      "canonical",
+                      "code",
+                      "date",
+                      "dateTime",
+                      "decimal",
+                      "id",
+                      "instant",
+                      "integer",
+                      "markdown",
+                      "oid",
+                      "positiveInt",
+                      "string",
+                      "time",
+                      "unsignedInt",
+                      "uri",
+                      "url",
+                      "uuid",
+                      "xhtml",
+                      "Account",
+                      "ActivityDefinition",
+                      "AdverseEvent",
+                      "AllergyIntolerance",
+                      "Appointment",
+                      "AppointmentResponse",
+                      "AuditEvent",
+                      "Basic",
+                      "Binary",
+                      "BiologicallyDerivedProduct",
+                      "BodyStructure",
+                      "Bundle",
+                      "CapabilityStatement",
+                      "CarePlan",
+                      "CareTeam",
+                      "CatalogEntry",
+                      "ChargeItem",
+                      "ChargeItemDefinition",
+                      "Claim",
+                      "ClaimResponse",
+                      "ClinicalImpression",
+                      "CodeSystem",
+                      "Communication",
+                      "CommunicationRequest",
+                      "CompartmentDefinition",
+                      "Composition",
+                      "ConceptMap",
+                      "Condition",
+                      "Consent",
+                      "Contract",
+                      "Coverage",
+                      "CoverageEligibilityRequest",
+                      "CoverageEligibilityResponse",
+                      "DetectedIssue",
+                      "Device",
+                      "DeviceDefinition",
+                      "DeviceMetric",
+                      "DeviceRequest",
+                      "DeviceUseStatement",
+                      "DiagnosticReport",
+                      "DocumentManifest",
+                      "DocumentReference",
+                      "DomainResource",
+                      "EffectEvidenceSynthesis",
+                      "Encounter",
+                      "Endpoint",
+                      "EnrollmentRequest",
+                      "EnrollmentResponse",
+                      "EpisodeOfCare",
+                      "EventDefinition",
+                      "Evidence",
+                      "EvidenceVariable",
+                      "ExampleScenario",
+                      "ExplanationOfBenefit",
+                      "FamilyMemberHistory",
+                      "Flag",
+                      "Goal",
+                      "GraphDefinition",
+                      "Group",
+                      "GuidanceResponse",
+                      "HealthcareService",
+                      "ImagingStudy",
+                      "Immunization",
+                      "ImmunizationEvaluation",
+                      "ImmunizationRecommendation",
+                      "ImplementationGuide",
+                      "InsurancePlan",
+                      "Invoice",
+                      "Library",
+                      "Linkage",
+                      "List",
+                      "Location",
+                      "Measure",
+                      "MeasureReport",
+                      "Media",
+                      "Medication",
+                      "MedicationAdministration",
+                      "MedicationDispense",
+                      "MedicationKnowledge",
+                      "MedicationRequest",
+                      "MedicationStatement",
+                      "MedicinalProduct",
+                      "MedicinalProductAuthorization",
+                      "MedicinalProductContraindication",
+                      "MedicinalProductIndication",
+                      "MedicinalProductIngredient",
+                      "MedicinalProductInteraction",
+                      "MedicinalProductManufactured",
+                      "MedicinalProductPackaged",
+                      "MedicinalProductPharmaceutical",
+                      "MedicinalProductUndesirableEffect",
+                      "MessageDefinition",
+                      "MessageHeader",
+                      "MolecularSequence",
+                      "NamingSystem",
+                      "NutritionOrder",
+                      "Observation",
+                      "ObservationDefinition",
+                      "OperationDefinition",
+                      "OperationOutcome",
+                      "Organization",
+                      "OrganizationAffiliation",
+                      "Parameters",
+                      "Patient",
+                      "PaymentNotice",
+                      "PaymentReconciliation",
+                      "Person",
+                      "PlanDefinition",
+                      "Practitioner",
+                      "PractitionerRole",
+                      "Procedure",
+                      "Provenance",
+                      "Questionnaire",
+                      "QuestionnaireResponse",
+                      "RelatedPerson",
+                      "RequestGroup",
+                      "ResearchDefinition",
+                      "ResearchElementDefinition",
+                      "ResearchStudy",
+                      "ResearchSubject",
+                      "Resource",
+                      "RiskAssessment",
+                      "RiskEvidenceSynthesis",
+                      "Schedule",
+                      "SearchParameter",
+                      "ServiceRequest",
+                      "Slot",
+                      "Specimen",
+                      "SpecimenDefinition",
+                      "StructureDefinition",
+                      "StructureMap",
+                      "Subscription",
+                      "Substance",
+                      "SubstanceNucleicAcid",
+                      "SubstancePolymer",
+                      "SubstanceProtein",
+                      "SubstanceReferenceInformation",
+                      "SubstanceSourceMaterial",
+                      "SubstanceSpecification",
+                      "SupplyDelivery",
+                      "SupplyRequest",
+                      "Task",
+                      "TerminologyCapabilities",
+                      "TestReport",
+                      "TestScript",
+                      "ValueSet",
+                      "VerificationResult",
+                      "VisionPrescription"
+                    ],
+                    "description": "The type of the resource.  See http://build.fhir.org/resourcelist.html."
+                  },
+                  "response": {
+                    "type": "string",
+                    "enum": [
+                      "okay",
+                      "created",
+                      "noContent",
+                      "notModified",
+                      "bad",
+                      "forbidden",
+                      "notFound",
+                      "methodNotAllowed",
+                      "conflict",
+                      "gone",
+                      "preconditionFailed",
+                      "unprocessable"
+                    ],
+                    "description": "okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable."
+                  },
+                  "responseCode": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "The value of the HTTP response code to be tested."
+                  },
+                  "sourceId": {
+                    "type": "string",
+                    "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                    "description": "Fixture to evaluate the XPath/JSONPath expression or the headerField  against."
+                  },
+                  "validateProfileId": {
+                    "type": "string",
+                    "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                    "description": "The ID of the Profile to validate against."
+                  },
+                  "value": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "The value to compare to."
+                  },
+                  "warningOnly": {
+                    "type": "boolean",
+                    "description": "Whether or not the test execution will produce a warning only on error for this assert."
+                  }
+                },
+                "required": [
+                  "warningOnly"
+                ]
+              }
+            }
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "test": {
+      "type": "array",
+      "items": {
+        "description": "A test in this script.",
+        "type": "object",
+        "properties": {
+          "modifierExtension": {
+            "type": "array",
+            "items": {
+              "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "name": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "The name of this test used for tracking/logging purposes by test engines."
+          },
+          "description": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "A short description of the test used by test engines for tracking and reporting purposes."
+          },
+          "action": {
+            "type": "array",
+            "items": {
+              "description": "Action would contain either an operation or an assertion.",
+              "type": "object",
+              "properties": {
+                "modifierExtension": {
+                  "type": "array",
+                  "items": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                },
+                "operation": {
+                  "description": "The operation to perform.",
+                  "type": "object",
+                  "properties": {
+                    "modifierExtension": {
+                      "type": "array",
+                      "items": {
+                        "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "type": {
+                      "description": "Server interaction or operation type.",
+                      "type": "object",
+                      "properties": {
+                        "system": {
+                          "type": "string",
+                          "pattern": "\\S*",
+                          "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                        },
+                        "version": {
+                          "type": "string",
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                        },
+                        "code": {
+                          "type": "string",
+                          "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                          "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                        },
+                        "display": {
+                          "type": "string",
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                        },
+                        "userSelected": {
+                          "type": "boolean",
+                          "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                        }
+                      }
+                    },
+                    "resource": {
+                      "type": "string",
+                      "enum": [
+                        "Address",
+                        "Age",
+                        "Annotation",
+                        "Attachment",
+                        "BackboneElement",
+                        "CodeableConcept",
+                        "Coding",
+                        "ContactDetail",
+                        "ContactPoint",
+                        "Contributor",
+                        "Count",
+                        "DataRequirement",
+                        "Distance",
+                        "Dosage",
+                        "Duration",
+                        "Element",
+                        "ElementDefinition",
+                        "Expression",
+                        "Extension",
+                        "HumanName",
+                        "Identifier",
+                        "MarketingStatus",
+                        "Meta",
+                        "Money",
+                        "MoneyQuantity",
+                        "Narrative",
+                        "ParameterDefinition",
+                        "Period",
+                        "Population",
+                        "ProdCharacteristic",
+                        "ProductShelfLife",
+                        "Quantity",
+                        "Range",
+                        "Ratio",
+                        "Reference",
+                        "RelatedArtifact",
+                        "SampledData",
+                        "Signature",
+                        "SimpleQuantity",
+                        "SubstanceAmount",
+                        "Timing",
+                        "TriggerDefinition",
+                        "UsageContext",
+                        "base64Binary",
+                        "boolean",
+                        "canonical",
+                        "code",
+                        "date",
+                        "dateTime",
+                        "decimal",
+                        "id",
+                        "instant",
+                        "integer",
+                        "markdown",
+                        "oid",
+                        "positiveInt",
+                        "string",
+                        "time",
+                        "unsignedInt",
+                        "uri",
+                        "url",
+                        "uuid",
+                        "xhtml",
+                        "Account",
+                        "ActivityDefinition",
+                        "AdverseEvent",
+                        "AllergyIntolerance",
+                        "Appointment",
+                        "AppointmentResponse",
+                        "AuditEvent",
+                        "Basic",
+                        "Binary",
+                        "BiologicallyDerivedProduct",
+                        "BodyStructure",
+                        "Bundle",
+                        "CapabilityStatement",
+                        "CarePlan",
+                        "CareTeam",
+                        "CatalogEntry",
+                        "ChargeItem",
+                        "ChargeItemDefinition",
+                        "Claim",
+                        "ClaimResponse",
+                        "ClinicalImpression",
+                        "CodeSystem",
+                        "Communication",
+                        "CommunicationRequest",
+                        "CompartmentDefinition",
+                        "Composition",
+                        "ConceptMap",
+                        "Condition",
+                        "Consent",
+                        "Contract",
+                        "Coverage",
+                        "CoverageEligibilityRequest",
+                        "CoverageEligibilityResponse",
+                        "DetectedIssue",
+                        "Device",
+                        "DeviceDefinition",
+                        "DeviceMetric",
+                        "DeviceRequest",
+                        "DeviceUseStatement",
+                        "DiagnosticReport",
+                        "DocumentManifest",
+                        "DocumentReference",
+                        "DomainResource",
+                        "EffectEvidenceSynthesis",
+                        "Encounter",
+                        "Endpoint",
+                        "EnrollmentRequest",
+                        "EnrollmentResponse",
+                        "EpisodeOfCare",
+                        "EventDefinition",
+                        "Evidence",
+                        "EvidenceVariable",
+                        "ExampleScenario",
+                        "ExplanationOfBenefit",
+                        "FamilyMemberHistory",
+                        "Flag",
+                        "Goal",
+                        "GraphDefinition",
+                        "Group",
+                        "GuidanceResponse",
+                        "HealthcareService",
+                        "ImagingStudy",
+                        "Immunization",
+                        "ImmunizationEvaluation",
+                        "ImmunizationRecommendation",
+                        "ImplementationGuide",
+                        "InsurancePlan",
+                        "Invoice",
+                        "Library",
+                        "Linkage",
+                        "List",
+                        "Location",
+                        "Measure",
+                        "MeasureReport",
+                        "Media",
+                        "Medication",
+                        "MedicationAdministration",
+                        "MedicationDispense",
+                        "MedicationKnowledge",
+                        "MedicationRequest",
+                        "MedicationStatement",
+                        "MedicinalProduct",
+                        "MedicinalProductAuthorization",
+                        "MedicinalProductContraindication",
+                        "MedicinalProductIndication",
+                        "MedicinalProductIngredient",
+                        "MedicinalProductInteraction",
+                        "MedicinalProductManufactured",
+                        "MedicinalProductPackaged",
+                        "MedicinalProductPharmaceutical",
+                        "MedicinalProductUndesirableEffect",
+                        "MessageDefinition",
+                        "MessageHeader",
+                        "MolecularSequence",
+                        "NamingSystem",
+                        "NutritionOrder",
+                        "Observation",
+                        "ObservationDefinition",
+                        "OperationDefinition",
+                        "OperationOutcome",
+                        "Organization",
+                        "OrganizationAffiliation",
+                        "Parameters",
+                        "Patient",
+                        "PaymentNotice",
+                        "PaymentReconciliation",
+                        "Person",
+                        "PlanDefinition",
+                        "Practitioner",
+                        "PractitionerRole",
+                        "Procedure",
+                        "Provenance",
+                        "Questionnaire",
+                        "QuestionnaireResponse",
+                        "RelatedPerson",
+                        "RequestGroup",
+                        "ResearchDefinition",
+                        "ResearchElementDefinition",
+                        "ResearchStudy",
+                        "ResearchSubject",
+                        "Resource",
+                        "RiskAssessment",
+                        "RiskEvidenceSynthesis",
+                        "Schedule",
+                        "SearchParameter",
+                        "ServiceRequest",
+                        "Slot",
+                        "Specimen",
+                        "SpecimenDefinition",
+                        "StructureDefinition",
+                        "StructureMap",
+                        "Subscription",
+                        "Substance",
+                        "SubstanceNucleicAcid",
+                        "SubstancePolymer",
+                        "SubstanceProtein",
+                        "SubstanceReferenceInformation",
+                        "SubstanceSourceMaterial",
+                        "SubstanceSpecification",
+                        "SupplyDelivery",
+                        "SupplyRequest",
+                        "Task",
+                        "TerminologyCapabilities",
+                        "TestReport",
+                        "TestScript",
+                        "ValueSet",
+                        "VerificationResult",
+                        "VisionPrescription"
+                      ],
+                      "description": "The type of the resource.  See http://build.fhir.org/resourcelist.html."
+                    },
+                    "label": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The label would be used for tracking/logging purposes by test engines."
+                    },
+                    "description": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The description would be used by test engines for tracking and reporting purposes."
+                    },
+                    "accept": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "The mime&ndash;type to use for RESTful operation in the 'Accept' header."
+                    },
+                    "contentType": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "The mime&ndash;type to use for RESTful operation in the 'Content&ndash;Type' header."
+                    },
+                    "destination": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The server where the request message is destined for.  Must be one of the server numbers listed in TestScript.destination section."
+                    },
+                    "encodeRequestUrl": {
+                      "type": "boolean",
+                      "description": "Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths."
+                    },
+                    "method": {
+                      "type": "string",
+                      "enum": [
+                        "delete",
+                        "get",
+                        "options",
+                        "patch",
+                        "post",
+                        "put",
+                        "head"
+                      ],
+                      "description": "The HTTP method the test engine MUST use for this operation regardless of any other operation details."
+                    },
+                    "origin": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The server where the request message originates from.  Must be one of the server numbers listed in TestScript.origin section."
+                    },
+                    "params": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "Path plus parameters after [type].  Used to set parts of the request URL explicitly."
+                    },
+                    "requestHeader": {
+                      "type": "array",
+                      "items": {
+                        "description": "Header elements would be used to set HTTP headers.",
+                        "type": "object",
+                        "properties": {
+                          "modifierExtension": {
+                            "type": "array",
+                            "items": {
+                              "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                              "type": "object",
+                              "additionalProperties": true
+                            }
+                          },
+                          "field": {
+                            "type": "string",
+                            "pattern": "[ \\r\\n\\t\\S]+",
+                            "description": "The HTTP header field e.g. \"Accept\"."
+                          },
+                          "value": {
+                            "type": "string",
+                            "pattern": "[ \\r\\n\\t\\S]+",
+                            "description": "The value of the header e.g. \"application/fhir+xml\"."
+                          }
+                        },
+                        "required": [
+                          "field",
+                          "value"
+                        ]
+                      }
+                    },
+                    "requestId": {
+                      "type": "string",
+                      "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                      "description": "The fixture id (maybe new) to map to the request."
+                    },
+                    "responseId": {
+                      "type": "string",
+                      "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                      "description": "The fixture id (maybe new) to map to the response."
+                    },
+                    "sourceId": {
+                      "type": "string",
+                      "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                      "description": "The id of the fixture used as the body of a PUT or POST request."
+                    },
+                    "targetId": {
+                      "type": "string",
+                      "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                      "description": "Id of fixture used for extracting the [id],  [type], and [vid] for GET requests."
+                    },
+                    "url": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "Complete request URL."
+                    }
+                  },
+                  "required": [
+                    "encodeRequestUrl"
+                  ]
+                },
+                "assert": {
+                  "description": "Evaluates the results of previous operations to determine if the server under test behaves appropriately.",
+                  "type": "object",
+                  "properties": {
+                    "modifierExtension": {
+                      "type": "array",
+                      "items": {
+                        "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "label": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The label would be used for tracking/logging purposes by test engines."
+                    },
+                    "description": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The description would be used by test engines for tracking and reporting purposes."
+                    },
+                    "direction": {
+                      "type": "string",
+                      "enum": [
+                        "response",
+                        "request"
+                      ],
+                      "description": "The direction to use for the assertion."
+                    },
+                    "compareToSourceId": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "Id of the source fixture used as the contents to be evaluated by either the \"source/expression\" or \"sourceId/path\" definition."
+                    },
+                    "compareToSourceExpression": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The FHIRPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both."
+                    },
+                    "compareToSourcePath": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "XPath or JSONPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both."
+                    },
+                    "contentType": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "The mime&ndash;type contents to compare against the request or response message 'Content&ndash;Type' header."
+                    },
+                    "expression": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The FHIRPath expression to be evaluated against the request or response message contents &ndash; HTTP headers and payload."
+                    },
+                    "headerField": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The HTTP header field name e.g. 'Location'."
+                    },
+                    "minimumId": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The ID of a fixture.  Asserts that the response contains at a minimum the fixture specified by minimumId."
+                    },
+                    "navigationLinks": {
+                      "type": "boolean",
+                      "description": "Whether or not the test execution performs validation on the bundle navigation links."
+                    },
+                    "operator": {
+                      "type": "string",
+                      "enum": [
+                        "equals",
+                        "notEquals",
+                        "in",
+                        "notIn",
+                        "greaterThan",
+                        "lessThan",
+                        "empty",
+                        "notEmpty",
+                        "contains",
+                        "notContains",
+                        "eval"
+                      ],
+                      "description": "The operator type defines the conditional behavior of the assert. If not defined, the default is equals."
+                    },
+                    "path": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The XPath or JSONPath expression to be evaluated against the fixture representing the response received from server."
+                    },
+                    "requestMethod": {
+                      "type": "string",
+                      "enum": [
+                        "delete",
+                        "get",
+                        "options",
+                        "patch",
+                        "post",
+                        "put",
+                        "head"
+                      ],
+                      "description": "The request method or HTTP operation code to compare against that used by the client system under test."
+                    },
+                    "requestURL": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The value to use in a comparison against the request URL path string."
+                    },
+                    "resource": {
+                      "type": "string",
+                      "enum": [
+                        "Address",
+                        "Age",
+                        "Annotation",
+                        "Attachment",
+                        "BackboneElement",
+                        "CodeableConcept",
+                        "Coding",
+                        "ContactDetail",
+                        "ContactPoint",
+                        "Contributor",
+                        "Count",
+                        "DataRequirement",
+                        "Distance",
+                        "Dosage",
+                        "Duration",
+                        "Element",
+                        "ElementDefinition",
+                        "Expression",
+                        "Extension",
+                        "HumanName",
+                        "Identifier",
+                        "MarketingStatus",
+                        "Meta",
+                        "Money",
+                        "MoneyQuantity",
+                        "Narrative",
+                        "ParameterDefinition",
+                        "Period",
+                        "Population",
+                        "ProdCharacteristic",
+                        "ProductShelfLife",
+                        "Quantity",
+                        "Range",
+                        "Ratio",
+                        "Reference",
+                        "RelatedArtifact",
+                        "SampledData",
+                        "Signature",
+                        "SimpleQuantity",
+                        "SubstanceAmount",
+                        "Timing",
+                        "TriggerDefinition",
+                        "UsageContext",
+                        "base64Binary",
+                        "boolean",
+                        "canonical",
+                        "code",
+                        "date",
+                        "dateTime",
+                        "decimal",
+                        "id",
+                        "instant",
+                        "integer",
+                        "markdown",
+                        "oid",
+                        "positiveInt",
+                        "string",
+                        "time",
+                        "unsignedInt",
+                        "uri",
+                        "url",
+                        "uuid",
+                        "xhtml",
+                        "Account",
+                        "ActivityDefinition",
+                        "AdverseEvent",
+                        "AllergyIntolerance",
+                        "Appointment",
+                        "AppointmentResponse",
+                        "AuditEvent",
+                        "Basic",
+                        "Binary",
+                        "BiologicallyDerivedProduct",
+                        "BodyStructure",
+                        "Bundle",
+                        "CapabilityStatement",
+                        "CarePlan",
+                        "CareTeam",
+                        "CatalogEntry",
+                        "ChargeItem",
+                        "ChargeItemDefinition",
+                        "Claim",
+                        "ClaimResponse",
+                        "ClinicalImpression",
+                        "CodeSystem",
+                        "Communication",
+                        "CommunicationRequest",
+                        "CompartmentDefinition",
+                        "Composition",
+                        "ConceptMap",
+                        "Condition",
+                        "Consent",
+                        "Contract",
+                        "Coverage",
+                        "CoverageEligibilityRequest",
+                        "CoverageEligibilityResponse",
+                        "DetectedIssue",
+                        "Device",
+                        "DeviceDefinition",
+                        "DeviceMetric",
+                        "DeviceRequest",
+                        "DeviceUseStatement",
+                        "DiagnosticReport",
+                        "DocumentManifest",
+                        "DocumentReference",
+                        "DomainResource",
+                        "EffectEvidenceSynthesis",
+                        "Encounter",
+                        "Endpoint",
+                        "EnrollmentRequest",
+                        "EnrollmentResponse",
+                        "EpisodeOfCare",
+                        "EventDefinition",
+                        "Evidence",
+                        "EvidenceVariable",
+                        "ExampleScenario",
+                        "ExplanationOfBenefit",
+                        "FamilyMemberHistory",
+                        "Flag",
+                        "Goal",
+                        "GraphDefinition",
+                        "Group",
+                        "GuidanceResponse",
+                        "HealthcareService",
+                        "ImagingStudy",
+                        "Immunization",
+                        "ImmunizationEvaluation",
+                        "ImmunizationRecommendation",
+                        "ImplementationGuide",
+                        "InsurancePlan",
+                        "Invoice",
+                        "Library",
+                        "Linkage",
+                        "List",
+                        "Location",
+                        "Measure",
+                        "MeasureReport",
+                        "Media",
+                        "Medication",
+                        "MedicationAdministration",
+                        "MedicationDispense",
+                        "MedicationKnowledge",
+                        "MedicationRequest",
+                        "MedicationStatement",
+                        "MedicinalProduct",
+                        "MedicinalProductAuthorization",
+                        "MedicinalProductContraindication",
+                        "MedicinalProductIndication",
+                        "MedicinalProductIngredient",
+                        "MedicinalProductInteraction",
+                        "MedicinalProductManufactured",
+                        "MedicinalProductPackaged",
+                        "MedicinalProductPharmaceutical",
+                        "MedicinalProductUndesirableEffect",
+                        "MessageDefinition",
+                        "MessageHeader",
+                        "MolecularSequence",
+                        "NamingSystem",
+                        "NutritionOrder",
+                        "Observation",
+                        "ObservationDefinition",
+                        "OperationDefinition",
+                        "OperationOutcome",
+                        "Organization",
+                        "OrganizationAffiliation",
+                        "Parameters",
+                        "Patient",
+                        "PaymentNotice",
+                        "PaymentReconciliation",
+                        "Person",
+                        "PlanDefinition",
+                        "Practitioner",
+                        "PractitionerRole",
+                        "Procedure",
+                        "Provenance",
+                        "Questionnaire",
+                        "QuestionnaireResponse",
+                        "RelatedPerson",
+                        "RequestGroup",
+                        "ResearchDefinition",
+                        "ResearchElementDefinition",
+                        "ResearchStudy",
+                        "ResearchSubject",
+                        "Resource",
+                        "RiskAssessment",
+                        "RiskEvidenceSynthesis",
+                        "Schedule",
+                        "SearchParameter",
+                        "ServiceRequest",
+                        "Slot",
+                        "Specimen",
+                        "SpecimenDefinition",
+                        "StructureDefinition",
+                        "StructureMap",
+                        "Subscription",
+                        "Substance",
+                        "SubstanceNucleicAcid",
+                        "SubstancePolymer",
+                        "SubstanceProtein",
+                        "SubstanceReferenceInformation",
+                        "SubstanceSourceMaterial",
+                        "SubstanceSpecification",
+                        "SupplyDelivery",
+                        "SupplyRequest",
+                        "Task",
+                        "TerminologyCapabilities",
+                        "TestReport",
+                        "TestScript",
+                        "ValueSet",
+                        "VerificationResult",
+                        "VisionPrescription"
+                      ],
+                      "description": "The type of the resource.  See http://build.fhir.org/resourcelist.html."
+                    },
+                    "response": {
+                      "type": "string",
+                      "enum": [
+                        "okay",
+                        "created",
+                        "noContent",
+                        "notModified",
+                        "bad",
+                        "forbidden",
+                        "notFound",
+                        "methodNotAllowed",
+                        "conflict",
+                        "gone",
+                        "preconditionFailed",
+                        "unprocessable"
+                      ],
+                      "description": "okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable."
+                    },
+                    "responseCode": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The value of the HTTP response code to be tested."
+                    },
+                    "sourceId": {
+                      "type": "string",
+                      "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                      "description": "Fixture to evaluate the XPath/JSONPath expression or the headerField  against."
+                    },
+                    "validateProfileId": {
+                      "type": "string",
+                      "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                      "description": "The ID of the Profile to validate against."
+                    },
+                    "value": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The value to compare to."
+                    },
+                    "warningOnly": {
+                      "type": "boolean",
+                      "description": "Whether or not the test execution will produce a warning only on error for this assert."
+                    }
+                  },
+                  "required": [
+                    "warningOnly"
+                  ]
+                }
+              }
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "action"
+        ]
+      }
+    },
+    "teardown": {
+      "description": "A series of operations required to clean up after all the tests are executed (successfully or otherwise).",
+      "type": "object",
+      "properties": {
+        "modifierExtension": {
+          "type": "array",
+          "items": {
+            "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "action": {
+          "type": "array",
+          "items": {
+            "description": "The teardown action will only contain an operation.",
+            "type": "object",
+            "properties": {
+              "modifierExtension": {
+                "type": "array",
+                "items": {
+                  "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              },
+              "operation": {
+                "description": "The operation to perform.",
+                "type": "object",
+                "properties": {
+                  "modifierExtension": {
+                    "type": "array",
+                    "items": {
+                      "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "type": {
+                    "description": "Server interaction or operation type.",
+                    "type": "object",
+                    "properties": {
+                      "system": {
+                        "type": "string",
+                        "pattern": "\\S*",
+                        "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                      },
+                      "version": {
+                        "type": "string",
+                        "pattern": "[ \\r\\n\\t\\S]+",
+                        "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                      },
+                      "code": {
+                        "type": "string",
+                        "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                        "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                      },
+                      "display": {
+                        "type": "string",
+                        "pattern": "[ \\r\\n\\t\\S]+",
+                        "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                      },
+                      "userSelected": {
+                        "type": "boolean",
+                        "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                      }
+                    }
+                  },
+                  "resource": {
+                    "type": "string",
+                    "enum": [
+                      "Address",
+                      "Age",
+                      "Annotation",
+                      "Attachment",
+                      "BackboneElement",
+                      "CodeableConcept",
+                      "Coding",
+                      "ContactDetail",
+                      "ContactPoint",
+                      "Contributor",
+                      "Count",
+                      "DataRequirement",
+                      "Distance",
+                      "Dosage",
+                      "Duration",
+                      "Element",
+                      "ElementDefinition",
+                      "Expression",
+                      "Extension",
+                      "HumanName",
+                      "Identifier",
+                      "MarketingStatus",
+                      "Meta",
+                      "Money",
+                      "MoneyQuantity",
+                      "Narrative",
+                      "ParameterDefinition",
+                      "Period",
+                      "Population",
+                      "ProdCharacteristic",
+                      "ProductShelfLife",
+                      "Quantity",
+                      "Range",
+                      "Ratio",
+                      "Reference",
+                      "RelatedArtifact",
+                      "SampledData",
+                      "Signature",
+                      "SimpleQuantity",
+                      "SubstanceAmount",
+                      "Timing",
+                      "TriggerDefinition",
+                      "UsageContext",
+                      "base64Binary",
+                      "boolean",
+                      "canonical",
+                      "code",
+                      "date",
+                      "dateTime",
+                      "decimal",
+                      "id",
+                      "instant",
+                      "integer",
+                      "markdown",
+                      "oid",
+                      "positiveInt",
+                      "string",
+                      "time",
+                      "unsignedInt",
+                      "uri",
+                      "url",
+                      "uuid",
+                      "xhtml",
+                      "Account",
+                      "ActivityDefinition",
+                      "AdverseEvent",
+                      "AllergyIntolerance",
+                      "Appointment",
+                      "AppointmentResponse",
+                      "AuditEvent",
+                      "Basic",
+                      "Binary",
+                      "BiologicallyDerivedProduct",
+                      "BodyStructure",
+                      "Bundle",
+                      "CapabilityStatement",
+                      "CarePlan",
+                      "CareTeam",
+                      "CatalogEntry",
+                      "ChargeItem",
+                      "ChargeItemDefinition",
+                      "Claim",
+                      "ClaimResponse",
+                      "ClinicalImpression",
+                      "CodeSystem",
+                      "Communication",
+                      "CommunicationRequest",
+                      "CompartmentDefinition",
+                      "Composition",
+                      "ConceptMap",
+                      "Condition",
+                      "Consent",
+                      "Contract",
+                      "Coverage",
+                      "CoverageEligibilityRequest",
+                      "CoverageEligibilityResponse",
+                      "DetectedIssue",
+                      "Device",
+                      "DeviceDefinition",
+                      "DeviceMetric",
+                      "DeviceRequest",
+                      "DeviceUseStatement",
+                      "DiagnosticReport",
+                      "DocumentManifest",
+                      "DocumentReference",
+                      "DomainResource",
+                      "EffectEvidenceSynthesis",
+                      "Encounter",
+                      "Endpoint",
+                      "EnrollmentRequest",
+                      "EnrollmentResponse",
+                      "EpisodeOfCare",
+                      "EventDefinition",
+                      "Evidence",
+                      "EvidenceVariable",
+                      "ExampleScenario",
+                      "ExplanationOfBenefit",
+                      "FamilyMemberHistory",
+                      "Flag",
+                      "Goal",
+                      "GraphDefinition",
+                      "Group",
+                      "GuidanceResponse",
+                      "HealthcareService",
+                      "ImagingStudy",
+                      "Immunization",
+                      "ImmunizationEvaluation",
+                      "ImmunizationRecommendation",
+                      "ImplementationGuide",
+                      "InsurancePlan",
+                      "Invoice",
+                      "Library",
+                      "Linkage",
+                      "List",
+                      "Location",
+                      "Measure",
+                      "MeasureReport",
+                      "Media",
+                      "Medication",
+                      "MedicationAdministration",
+                      "MedicationDispense",
+                      "MedicationKnowledge",
+                      "MedicationRequest",
+                      "MedicationStatement",
+                      "MedicinalProduct",
+                      "MedicinalProductAuthorization",
+                      "MedicinalProductContraindication",
+                      "MedicinalProductIndication",
+                      "MedicinalProductIngredient",
+                      "MedicinalProductInteraction",
+                      "MedicinalProductManufactured",
+                      "MedicinalProductPackaged",
+                      "MedicinalProductPharmaceutical",
+                      "MedicinalProductUndesirableEffect",
+                      "MessageDefinition",
+                      "MessageHeader",
+                      "MolecularSequence",
+                      "NamingSystem",
+                      "NutritionOrder",
+                      "Observation",
+                      "ObservationDefinition",
+                      "OperationDefinition",
+                      "OperationOutcome",
+                      "Organization",
+                      "OrganizationAffiliation",
+                      "Parameters",
+                      "Patient",
+                      "PaymentNotice",
+                      "PaymentReconciliation",
+                      "Person",
+                      "PlanDefinition",
+                      "Practitioner",
+                      "PractitionerRole",
+                      "Procedure",
+                      "Provenance",
+                      "Questionnaire",
+                      "QuestionnaireResponse",
+                      "RelatedPerson",
+                      "RequestGroup",
+                      "ResearchDefinition",
+                      "ResearchElementDefinition",
+                      "ResearchStudy",
+                      "ResearchSubject",
+                      "Resource",
+                      "RiskAssessment",
+                      "RiskEvidenceSynthesis",
+                      "Schedule",
+                      "SearchParameter",
+                      "ServiceRequest",
+                      "Slot",
+                      "Specimen",
+                      "SpecimenDefinition",
+                      "StructureDefinition",
+                      "StructureMap",
+                      "Subscription",
+                      "Substance",
+                      "SubstanceNucleicAcid",
+                      "SubstancePolymer",
+                      "SubstanceProtein",
+                      "SubstanceReferenceInformation",
+                      "SubstanceSourceMaterial",
+                      "SubstanceSpecification",
+                      "SupplyDelivery",
+                      "SupplyRequest",
+                      "Task",
+                      "TerminologyCapabilities",
+                      "TestReport",
+                      "TestScript",
+                      "ValueSet",
+                      "VerificationResult",
+                      "VisionPrescription"
+                    ],
+                    "description": "The type of the resource.  See http://build.fhir.org/resourcelist.html."
+                  },
+                  "label": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "The label would be used for tracking/logging purposes by test engines."
+                  },
+                  "description": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "The description would be used by test engines for tracking and reporting purposes."
+                  },
+                  "accept": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "The mime&ndash;type to use for RESTful operation in the 'Accept' header."
+                  },
+                  "contentType": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "The mime&ndash;type to use for RESTful operation in the 'Content&ndash;Type' header."
+                  },
+                  "destination": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The server where the request message is destined for.  Must be one of the server numbers listed in TestScript.destination section."
+                  },
+                  "encodeRequestUrl": {
+                    "type": "boolean",
+                    "description": "Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths."
+                  },
+                  "method": {
+                    "type": "string",
+                    "enum": [
+                      "delete",
+                      "get",
+                      "options",
+                      "patch",
+                      "post",
+                      "put",
+                      "head"
+                    ],
+                    "description": "The HTTP method the test engine MUST use for this operation regardless of any other operation details."
+                  },
+                  "origin": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The server where the request message originates from.  Must be one of the server numbers listed in TestScript.origin section."
+                  },
+                  "params": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "Path plus parameters after [type].  Used to set parts of the request URL explicitly."
+                  },
+                  "requestHeader": {
+                    "type": "array",
+                    "items": {
+                      "description": "Header elements would be used to set HTTP headers.",
+                      "type": "object",
+                      "properties": {
+                        "modifierExtension": {
+                          "type": "array",
+                          "items": {
+                            "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                            "type": "object",
+                            "additionalProperties": true
+                          }
+                        },
+                        "field": {
+                          "type": "string",
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "description": "The HTTP header field e.g. \"Accept\"."
+                        },
+                        "value": {
+                          "type": "string",
+                          "pattern": "[ \\r\\n\\t\\S]+",
+                          "description": "The value of the header e.g. \"application/fhir+xml\"."
+                        }
+                      },
+                      "required": [
+                        "field",
+                        "value"
+                      ]
+                    }
+                  },
+                  "requestId": {
+                    "type": "string",
+                    "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                    "description": "The fixture id (maybe new) to map to the request."
+                  },
+                  "responseId": {
+                    "type": "string",
+                    "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                    "description": "The fixture id (maybe new) to map to the response."
+                  },
+                  "sourceId": {
+                    "type": "string",
+                    "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                    "description": "The id of the fixture used as the body of a PUT or POST request."
+                  },
+                  "targetId": {
+                    "type": "string",
+                    "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                    "description": "Id of fixture used for extracting the [id],  [type], and [vid] for GET requests."
+                  },
+                  "url": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "Complete request URL."
+                  }
+                },
+                "required": [
+                  "encodeRequestUrl"
+                ]
+              }
+            },
+            "required": [
+              "operation"
+            ]
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "action"
+      ]
+    }
+  },
+  "required": [
+    "resourceType",
+    "url",
+    "name",
+    "status"
+  ]
+}

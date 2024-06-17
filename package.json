@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@apidevtools/json-schema-ref-parser": "^11.6.4",
+    "json-schema-ref-parser": "9.0.9",
     "json-schema-to-openapi-schema": "^0.4.0"
   }
 }

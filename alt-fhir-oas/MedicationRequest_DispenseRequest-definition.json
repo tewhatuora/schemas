@@ -1,0 +1,351 @@
+{
+  "allOf": [
+    {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "modifierExtension": {
+              "type": "array",
+              "items": {
+                "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                "allOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "initialFill": {
+          "description": "Indicates the quantity or duration for the first dispense of the medication.",
+          "allOf": [
+            {
+              "allOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "modifierExtension": {
+                      "type": "array",
+                      "items": {
+                        "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                        "allOf": [
+                          {
+                            "type": "object",
+                            "additionalProperties": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "quantity": {
+                  "description": "The amount or quantity to provide as part of the first dispense.",
+                  "allOf": [
+                    {
+                      "allOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": "number",
+                              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                            },
+                            "comparator": {
+                              "type": "string",
+                              "enum": [
+                                "<",
+                                "<=",
+                                ">=",
+                                ">"
+                              ],
+                              "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                            },
+                            "unit": {
+                              "type": "string",
+                              "pattern": "[ \\r\\n\\t\\S]+",
+                              "description": "A human&ndash;readable form of the unit."
+                            },
+                            "system": {
+                              "type": "string",
+                              "pattern": "\\S*",
+                              "description": "The identification of the system that provides the coded form of the unit."
+                            },
+                            "code": {
+                              "type": "string",
+                              "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                              "description": "A computer processable form of the unit in some unit representation system."
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  ]
+                },
+                "duration": {
+                  "description": "The length of time that the first dispense is expected to last.",
+                  "allOf": [
+                    {
+                      "allOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": "number",
+                              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                            },
+                            "comparator": {
+                              "type": "string",
+                              "enum": [
+                                "<",
+                                "<=",
+                                ">=",
+                                ">"
+                              ],
+                              "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                            },
+                            "unit": {
+                              "type": "string",
+                              "pattern": "[ \\r\\n\\t\\S]+",
+                              "description": "A human&ndash;readable form of the unit."
+                            },
+                            "system": {
+                              "type": "string",
+                              "pattern": "\\S*",
+                              "description": "The identification of the system that provides the coded form of the unit."
+                            },
+                            "code": {
+                              "type": "string",
+                              "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                              "description": "A computer processable form of the unit in some unit representation system."
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "dispenseInterval": {
+          "description": "The minimum period of time that must occur between dispenses of the medication.",
+          "allOf": [
+            {
+              "allOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "number",
+                      "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                    },
+                    "comparator": {
+                      "type": "string",
+                      "enum": [
+                        "<",
+                        "<=",
+                        ">=",
+                        ">"
+                      ],
+                      "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                    },
+                    "unit": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A human&ndash;readable form of the unit."
+                    },
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the system that provides the coded form of the unit."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A computer processable form of the unit in some unit representation system."
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {}
+            }
+          ]
+        },
+        "validityPeriod": {
+          "description": "This indicates the validity period of a prescription (stale dating the Prescription).",
+          "allOf": [
+            {
+              "type": "object",
+              "properties": {
+                "start": {
+                  "type": "string",
+                  "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                  "description": "The start of the period. The boundary is inclusive."
+                },
+                "end": {
+                  "type": "string",
+                  "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                  "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+                }
+              }
+            }
+          ]
+        },
+        "numberOfRepeatsAllowed": {
+          "type": "integer",
+          "format": "int32",
+          "description": "An integer indicating the number of times, in addition to the original dispense, (aka refills or repeats) that the patient can receive the prescribed medication. Usage Notes: This integer does not include the original order dispense. This means that if an order indicates dispense 30 tablets plus \"3 repeats\", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.  A prescriber may explicitly say that zero refills are permitted after the initial dispense."
+        },
+        "quantity": {
+          "description": "The amount that is to be dispensed for one fill.",
+          "allOf": [
+            {
+              "allOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "number",
+                      "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                    },
+                    "comparator": {
+                      "type": "string",
+                      "enum": [
+                        "<",
+                        "<=",
+                        ">=",
+                        ">"
+                      ],
+                      "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                    },
+                    "unit": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A human&ndash;readable form of the unit."
+                    },
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the system that provides the coded form of the unit."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A computer processable form of the unit in some unit representation system."
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {}
+            }
+          ]
+        },
+        "expectedSupplyDuration": {
+          "description": "Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last.",
+          "allOf": [
+            {
+              "allOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "number",
+                      "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+                    },
+                    "comparator": {
+                      "type": "string",
+                      "enum": [
+                        "<",
+                        "<=",
+                        ">=",
+                        ">"
+                      ],
+                      "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+                    },
+                    "unit": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A human&ndash;readable form of the unit."
+                    },
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the system that provides the coded form of the unit."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A computer processable form of the unit in some unit representation system."
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {}
+            }
+          ]
+        },
+        "performer": {
+          "description": "Indicates the intended dispensing Organization specified by the prescriber.",
+          "allOf": [
+            {
+              "type": "object",
+              "properties": {
+                "reference": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+                },
+                "type": {
+                  "type": "string",
+                  "pattern": "\\S*",
+                  "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+                },
+                "identifier": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+                },
+                "display": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

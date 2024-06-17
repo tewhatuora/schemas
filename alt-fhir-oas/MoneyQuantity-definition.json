@@ -1,0 +1,46 @@
+{
+  "allOf": [
+    {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number",
+              "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+            },
+            "comparator": {
+              "type": "string",
+              "enum": [
+                "<",
+                "<=",
+                ">=",
+                ">"
+              ],
+              "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+            },
+            "unit": {
+              "type": "string",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "description": "A human&ndash;readable form of the unit."
+            },
+            "system": {
+              "type": "string",
+              "pattern": "\\S*",
+              "description": "The identification of the system that provides the coded form of the unit."
+            },
+            "code": {
+              "type": "string",
+              "pattern": "[^\\s]+(\\s[^\\s]+)*",
+              "description": "A computer processable form of the unit in some unit representation system."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {}
+    }
+  ]
+}

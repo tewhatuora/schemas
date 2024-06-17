@@ -1,0 +1,966 @@
+{
+  "type": "object",
+  "properties": {
+    "modifierExtension": {
+      "type": "array",
+      "items": {
+        "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "sequence": {
+      "type": "integer",
+      "format": "int32",
+      "description": "A claim detail line. Either a simple (a product or service) or a 'group' of sub&ndash;details which are simple items."
+    },
+    "revenue": {
+      "description": "The type of revenue or cost center providing the product and/or service.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "type": "array",
+          "items": {
+            "description": "A reference to a code defined by a terminology system.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+              },
+              "version": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+              },
+              "userSelected": {
+                "type": "boolean",
+                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+              }
+            }
+          }
+        },
+        "text": {
+          "type": "string",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+        }
+      }
+    },
+    "category": {
+      "description": "Code to identify the general type of benefits under which products and services are provided.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "type": "array",
+          "items": {
+            "description": "A reference to a code defined by a terminology system.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+              },
+              "version": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+              },
+              "userSelected": {
+                "type": "boolean",
+                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+              }
+            }
+          }
+        },
+        "text": {
+          "type": "string",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+        }
+      }
+    },
+    "productOrService": {
+      "description": "When the value is a group code then this item collects a set of related claim details, otherwise this contains the product, service, drug or other billing code for the item.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "type": "array",
+          "items": {
+            "description": "A reference to a code defined by a terminology system.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+              },
+              "version": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+              },
+              "userSelected": {
+                "type": "boolean",
+                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+              }
+            }
+          }
+        },
+        "text": {
+          "type": "string",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+        }
+      }
+    },
+    "modifier": {
+      "type": "array",
+      "items": {
+        "description": "Item typification or modifiers codes to convey additional context for the product or service.",
+        "type": "object",
+        "properties": {
+          "coding": {
+            "type": "array",
+            "items": {
+              "description": "A reference to a code defined by a terminology system.",
+              "type": "object",
+              "properties": {
+                "system": {
+                  "type": "string",
+                  "pattern": "\\S*",
+                  "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                },
+                "version": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                },
+                "code": {
+                  "type": "string",
+                  "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                  "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                },
+                "display": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                },
+                "userSelected": {
+                  "type": "boolean",
+                  "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                }
+              }
+            }
+          },
+          "text": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+          }
+        }
+      }
+    },
+    "programCode": {
+      "type": "array",
+      "items": {
+        "description": "Identifies the program under which this may be recovered.",
+        "type": "object",
+        "properties": {
+          "coding": {
+            "type": "array",
+            "items": {
+              "description": "A reference to a code defined by a terminology system.",
+              "type": "object",
+              "properties": {
+                "system": {
+                  "type": "string",
+                  "pattern": "\\S*",
+                  "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                },
+                "version": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                },
+                "code": {
+                  "type": "string",
+                  "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                  "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                },
+                "display": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                },
+                "userSelected": {
+                  "type": "boolean",
+                  "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                }
+              }
+            }
+          },
+          "text": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+          }
+        }
+      }
+    },
+    "quantity": {
+      "description": "The number of repetitions of a service or product.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+        },
+        "comparator": {
+          "type": "string",
+          "enum": [
+            "<",
+            "<=",
+            ">=",
+            ">"
+          ],
+          "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+        },
+        "unit": {
+          "type": "string",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "description": "A human&ndash;readable form of the unit."
+        },
+        "system": {
+          "type": "string",
+          "pattern": "\\S*",
+          "description": "The identification of the system that provides the coded form of the unit."
+        },
+        "code": {
+          "type": "string",
+          "pattern": "[^\\s]+(\\s[^\\s]+)*",
+          "description": "A computer processable form of the unit in some unit representation system."
+        }
+      }
+    },
+    "unitPrice": {
+      "description": "If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "Numerical value (with implicit precision)."
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "[^\\s]+(\\s[^\\s]+)*",
+          "description": "ISO 4217 Currency Code."
+        }
+      }
+    },
+    "factor": {
+      "type": "number",
+      "description": "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount."
+    },
+    "net": {
+      "description": "The quantity times the unit price for an additional service or product or charge.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "Numerical value (with implicit precision)."
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "[^\\s]+(\\s[^\\s]+)*",
+          "description": "ISO 4217 Currency Code."
+        }
+      }
+    },
+    "udi": {
+      "type": "array",
+      "items": {
+        "description": "Unique Device Identifiers associated with this line item.",
+        "type": "object",
+        "properties": {
+          "reference": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+          },
+          "type": {
+            "type": "string",
+            "pattern": "\\S*",
+            "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+          },
+          "identifier": {
+            "type": "object",
+            "additionalProperties": true,
+            "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+          },
+          "display": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+          }
+        }
+      }
+    },
+    "noteNumber": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32",
+        "description": "The numbers associated with notes below which apply to the adjudication of this item."
+      }
+    },
+    "adjudication": {
+      "type": "array",
+      "items": {
+        "description": "The adjudication results.",
+        "type": "object",
+        "properties": {
+          "modifierExtension": {
+            "type": "array",
+            "items": {
+              "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "category": {
+            "description": "A code to indicate the information type of this adjudication record. Information types may include: the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is responsible for in&ndash;aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.",
+            "type": "object",
+            "properties": {
+              "coding": {
+                "type": "array",
+                "items": {
+                  "description": "A reference to a code defined by a terminology system.",
+                  "type": "object",
+                  "properties": {
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                    },
+                    "display": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                    },
+                    "userSelected": {
+                      "type": "boolean",
+                      "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                    }
+                  }
+                }
+              },
+              "text": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+              }
+            }
+          },
+          "reason": {
+            "description": "A code supporting the understanding of the adjudication result and explaining variance from expected amount.",
+            "type": "object",
+            "properties": {
+              "coding": {
+                "type": "array",
+                "items": {
+                  "description": "A reference to a code defined by a terminology system.",
+                  "type": "object",
+                  "properties": {
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                    },
+                    "display": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                    },
+                    "userSelected": {
+                      "type": "boolean",
+                      "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                    }
+                  }
+                }
+              },
+              "text": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+              }
+            }
+          },
+          "amount": {
+            "description": "Monetary amount associated with the category.",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "Numerical value (with implicit precision)."
+              },
+              "currency": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "ISO 4217 Currency Code."
+              }
+            }
+          },
+          "value": {
+            "type": "number",
+            "description": "A non&ndash;monetary value associated with the category. Mutually exclusive to the amount element above."
+          }
+        },
+        "required": [
+          "category"
+        ]
+      }
+    },
+    "subDetail": {
+      "type": "array",
+      "items": {
+        "description": "Third&ndash;tier of goods and services.",
+        "type": "object",
+        "properties": {
+          "modifierExtension": {
+            "type": "array",
+            "items": {
+              "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "sequence": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A claim detail line. Either a simple (a product or service) or a 'group' of sub&ndash;details which are simple items."
+          },
+          "revenue": {
+            "description": "The type of revenue or cost center providing the product and/or service.",
+            "type": "object",
+            "properties": {
+              "coding": {
+                "type": "array",
+                "items": {
+                  "description": "A reference to a code defined by a terminology system.",
+                  "type": "object",
+                  "properties": {
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                    },
+                    "display": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                    },
+                    "userSelected": {
+                      "type": "boolean",
+                      "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                    }
+                  }
+                }
+              },
+              "text": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+              }
+            }
+          },
+          "category": {
+            "description": "Code to identify the general type of benefits under which products and services are provided.",
+            "type": "object",
+            "properties": {
+              "coding": {
+                "type": "array",
+                "items": {
+                  "description": "A reference to a code defined by a terminology system.",
+                  "type": "object",
+                  "properties": {
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                    },
+                    "display": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                    },
+                    "userSelected": {
+                      "type": "boolean",
+                      "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                    }
+                  }
+                }
+              },
+              "text": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+              }
+            }
+          },
+          "productOrService": {
+            "description": "When the value is a group code then this item collects a set of related claim details, otherwise this contains the product, service, drug or other billing code for the item.",
+            "type": "object",
+            "properties": {
+              "coding": {
+                "type": "array",
+                "items": {
+                  "description": "A reference to a code defined by a terminology system.",
+                  "type": "object",
+                  "properties": {
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                    },
+                    "display": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                    },
+                    "userSelected": {
+                      "type": "boolean",
+                      "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                    }
+                  }
+                }
+              },
+              "text": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+              }
+            }
+          },
+          "modifier": {
+            "type": "array",
+            "items": {
+              "description": "Item typification or modifiers codes to convey additional context for the product or service.",
+              "type": "object",
+              "properties": {
+                "coding": {
+                  "type": "array",
+                  "items": {
+                    "description": "A reference to a code defined by a terminology system.",
+                    "type": "object",
+                    "properties": {
+                      "system": {
+                        "type": "string",
+                        "pattern": "\\S*",
+                        "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                      },
+                      "version": {
+                        "type": "string",
+                        "pattern": "[ \\r\\n\\t\\S]+",
+                        "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                      },
+                      "code": {
+                        "type": "string",
+                        "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                        "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                      },
+                      "display": {
+                        "type": "string",
+                        "pattern": "[ \\r\\n\\t\\S]+",
+                        "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                      },
+                      "userSelected": {
+                        "type": "boolean",
+                        "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                      }
+                    }
+                  }
+                },
+                "text": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+                }
+              }
+            }
+          },
+          "programCode": {
+            "type": "array",
+            "items": {
+              "description": "Identifies the program under which this may be recovered.",
+              "type": "object",
+              "properties": {
+                "coding": {
+                  "type": "array",
+                  "items": {
+                    "description": "A reference to a code defined by a terminology system.",
+                    "type": "object",
+                    "properties": {
+                      "system": {
+                        "type": "string",
+                        "pattern": "\\S*",
+                        "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                      },
+                      "version": {
+                        "type": "string",
+                        "pattern": "[ \\r\\n\\t\\S]+",
+                        "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                      },
+                      "code": {
+                        "type": "string",
+                        "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                        "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                      },
+                      "display": {
+                        "type": "string",
+                        "pattern": "[ \\r\\n\\t\\S]+",
+                        "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                      },
+                      "userSelected": {
+                        "type": "boolean",
+                        "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                      }
+                    }
+                  }
+                },
+                "text": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+                }
+              }
+            }
+          },
+          "quantity": {
+            "description": "The number of repetitions of a service or product.",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value."
+              },
+              "comparator": {
+                "type": "string",
+                "enum": [
+                  "<",
+                  "<=",
+                  ">=",
+                  ">"
+                ],
+                "description": "How the value should be understood and represented &ndash; whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value."
+              },
+              "unit": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human&ndash;readable form of the unit."
+              },
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the system that provides the coded form of the unit."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A computer processable form of the unit in some unit representation system."
+              }
+            }
+          },
+          "unitPrice": {
+            "description": "If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group.",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "Numerical value (with implicit precision)."
+              },
+              "currency": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "ISO 4217 Currency Code."
+              }
+            }
+          },
+          "factor": {
+            "type": "number",
+            "description": "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount."
+          },
+          "net": {
+            "description": "The quantity times the unit price for an additional service or product or charge.",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "Numerical value (with implicit precision)."
+              },
+              "currency": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "ISO 4217 Currency Code."
+              }
+            }
+          },
+          "udi": {
+            "type": "array",
+            "items": {
+              "description": "Unique Device Identifiers associated with this line item.",
+              "type": "object",
+              "properties": {
+                "reference": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+                },
+                "type": {
+                  "type": "string",
+                  "pattern": "\\S*",
+                  "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+                },
+                "identifier": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+                },
+                "display": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+                }
+              }
+            }
+          },
+          "noteNumber": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32",
+              "description": "The numbers associated with notes below which apply to the adjudication of this item."
+            }
+          },
+          "adjudication": {
+            "type": "array",
+            "items": {
+              "description": "The adjudication results.",
+              "type": "object",
+              "properties": {
+                "modifierExtension": {
+                  "type": "array",
+                  "items": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                },
+                "category": {
+                  "description": "A code to indicate the information type of this adjudication record. Information types may include: the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is responsible for in&ndash;aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item.",
+                  "type": "object",
+                  "properties": {
+                    "coding": {
+                      "type": "array",
+                      "items": {
+                        "description": "A reference to a code defined by a terminology system.",
+                        "type": "object",
+                        "properties": {
+                          "system": {
+                            "type": "string",
+                            "pattern": "\\S*",
+                            "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                          },
+                          "version": {
+                            "type": "string",
+                            "pattern": "[ \\r\\n\\t\\S]+",
+                            "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                          },
+                          "code": {
+                            "type": "string",
+                            "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                            "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                          },
+                          "display": {
+                            "type": "string",
+                            "pattern": "[ \\r\\n\\t\\S]+",
+                            "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                          },
+                          "userSelected": {
+                            "type": "boolean",
+                            "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                          }
+                        }
+                      }
+                    },
+                    "text": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+                    }
+                  }
+                },
+                "reason": {
+                  "description": "A code supporting the understanding of the adjudication result and explaining variance from expected amount.",
+                  "type": "object",
+                  "properties": {
+                    "coding": {
+                      "type": "array",
+                      "items": {
+                        "description": "A reference to a code defined by a terminology system.",
+                        "type": "object",
+                        "properties": {
+                          "system": {
+                            "type": "string",
+                            "pattern": "\\S*",
+                            "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                          },
+                          "version": {
+                            "type": "string",
+                            "pattern": "[ \\r\\n\\t\\S]+",
+                            "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                          },
+                          "code": {
+                            "type": "string",
+                            "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                            "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                          },
+                          "display": {
+                            "type": "string",
+                            "pattern": "[ \\r\\n\\t\\S]+",
+                            "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                          },
+                          "userSelected": {
+                            "type": "boolean",
+                            "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                          }
+                        }
+                      }
+                    },
+                    "text": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+                    }
+                  }
+                },
+                "amount": {
+                  "description": "Monetary amount associated with the category.",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "number",
+                      "description": "Numerical value (with implicit precision)."
+                    },
+                    "currency": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "ISO 4217 Currency Code."
+                    }
+                  }
+                },
+                "value": {
+                  "type": "number",
+                  "description": "A non&ndash;monetary value associated with the category. Mutually exclusive to the amount element above."
+                }
+              },
+              "required": [
+                "category"
+              ]
+            }
+          }
+        },
+        "required": [
+          "sequence",
+          "productOrService"
+        ]
+      }
+    }
+  },
+  "required": [
+    "sequence",
+    "productOrService"
+  ]
+}

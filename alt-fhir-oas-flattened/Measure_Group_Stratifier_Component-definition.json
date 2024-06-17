@@ -1,0 +1,99 @@
+{
+  "type": "object",
+  "properties": {
+    "modifierExtension": {
+      "type": "array",
+      "items": {
+        "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "code": {
+      "description": "Indicates a meaning for the stratifier component. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing stratifiers to be correlated across measures.",
+      "type": "object",
+      "properties": {
+        "coding": {
+          "type": "array",
+          "items": {
+            "description": "A reference to a code defined by a terminology system.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+              },
+              "version": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+              },
+              "userSelected": {
+                "type": "boolean",
+                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+              }
+            }
+          }
+        },
+        "text": {
+          "type": "string",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+        }
+      }
+    },
+    "description": {
+      "type": "string",
+      "pattern": "[ \\r\\n\\t\\S]+",
+      "description": "The human readable description of this stratifier criteria component."
+    },
+    "criteria": {
+      "description": "An expression that specifies the criteria for this component of the stratifier. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element.",
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "description": "A brief, natural language description of the condition that effectively communicates the intended semantics."
+        },
+        "name": {
+          "type": "string",
+          "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+          "description": "A short name assigned to the expression to allow for multiple reuse of the expression in the context where it is defined."
+        },
+        "language": {
+          "type": "string",
+          "pattern": "[^\\s]+(\\s[^\\s]+)*",
+          "description": "The media type of the language for the expression."
+        },
+        "expression": {
+          "type": "string",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "description": "An expression in the specified language that returns a value."
+        },
+        "reference": {
+          "type": "string",
+          "pattern": "\\S*",
+          "description": "A URI that defines where the expression is found."
+        }
+      },
+      "required": [
+        "language"
+      ]
+    }
+  },
+  "required": [
+    "criteria"
+  ]
+}

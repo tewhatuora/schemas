@@ -1,0 +1,240 @@
+{
+  "allOf": [
+    {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "modifierExtension": {
+              "type": "array",
+              "items": {
+                "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                "allOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "system": {
+          "type": "string",
+          "pattern": "\\S*",
+          "description": "An absolute URI which is the code system from which the selected codes come from."
+        },
+        "version": {
+          "type": "string",
+          "pattern": "[ \\r\\n\\t\\S]+",
+          "description": "The version of the code system that the codes are selected from, or the special version '*' for all versions."
+        },
+        "concept": {
+          "type": "array",
+          "items": {
+            "description": "Specifies a concept to be included or excluded.",
+            "allOf": [
+              {
+                "allOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "modifierExtension": {
+                        "type": "array",
+                        "items": {
+                          "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                          "allOf": [
+                            {
+                              "type": "object",
+                              "additionalProperties": true
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "Specifies a code for the concept to be included or excluded."
+                  },
+                  "display": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system."
+                  },
+                  "designation": {
+                    "type": "array",
+                    "items": {
+                      "description": "Additional representations for this concept when used in this value set &ndash; other languages, aliases, specialized purposes, used for particular purposes, etc.",
+                      "allOf": [
+                        {
+                          "allOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "modifierExtension": {
+                                  "type": "array",
+                                  "items": {
+                                    "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                                    "allOf": [
+                                      {
+                                        "type": "object",
+                                        "additionalProperties": true
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "language": {
+                              "type": "string",
+                              "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                              "description": "The language this designation is defined for."
+                            },
+                            "use": {
+                              "description": "A code that represents types of uses of designations.",
+                              "allOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "system": {
+                                      "type": "string",
+                                      "pattern": "\\S*",
+                                      "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                                    },
+                                    "version": {
+                                      "type": "string",
+                                      "pattern": "[ \\r\\n\\t\\S]+",
+                                      "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                                    },
+                                    "code": {
+                                      "type": "string",
+                                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                                      "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                                    },
+                                    "display": {
+                                      "type": "string",
+                                      "pattern": "[ \\r\\n\\t\\S]+",
+                                      "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                                    },
+                                    "userSelected": {
+                                      "type": "boolean",
+                                      "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            "value": {
+                              "type": "string",
+                              "pattern": "[ \\r\\n\\t\\S]+",
+                              "description": "The text value for this designation."
+                            }
+                          },
+                          "required": [
+                            "value"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "code"
+                ]
+              }
+            ]
+          }
+        },
+        "filter": {
+          "type": "array",
+          "items": {
+            "description": "Select concepts by specify a matching criterion based on the properties (including relationships) defined by the system, or on filters defined by the system. If multiple filters are specified, they SHALL all be true.",
+            "allOf": [
+              {
+                "allOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "modifierExtension": {
+                        "type": "array",
+                        "items": {
+                          "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                          "allOf": [
+                            {
+                              "type": "object",
+                              "additionalProperties": true
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "property": {
+                    "type": "string",
+                    "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                    "description": "A code that identifies a property or a filter defined in the code system."
+                  },
+                  "op": {
+                    "type": "string",
+                    "enum": [
+                      "=",
+                      "is-a",
+                      "descendent-of",
+                      "is-not-a",
+                      "regex",
+                      "in",
+                      "not-in",
+                      "generalizes",
+                      "exists"
+                    ],
+                    "description": "The kind of operation to perform as a part of the filter criteria."
+                  },
+                  "value": {
+                    "type": "string",
+                    "pattern": "[ \\r\\n\\t\\S]+",
+                    "description": "The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value  (if the filter represents a property defined in CodeSystem) or of the system filter value (if the filter represents a filter defined in CodeSystem) when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'."
+                  }
+                },
+                "required": [
+                  "property",
+                  "op",
+                  "value"
+                ]
+              }
+            ]
+          }
+        },
+        "valueSet": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "\\S*",
+            "description": "Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets."
+          }
+        }
+      }
+    }
+  ]
+}

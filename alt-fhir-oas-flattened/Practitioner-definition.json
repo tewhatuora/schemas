@@ -1,0 +1,1106 @@
+{
+  "type": "object",
+  "properties": {
+    "resourceType": {
+      "type": "string",
+      "enum": [
+        "Practitioner"
+      ]
+    },
+    "id": {
+      "type": "string",
+      "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+      "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."
+    },
+    "meta": {
+      "description": "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.",
+      "type": "object",
+      "properties": {
+        "versionId": {
+          "type": "string",
+          "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+          "description": "The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted."
+        },
+        "lastUpdated": {
+          "type": "string",
+          "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))",
+          "description": "When the resource last changed &ndash; e.g. when the version changed."
+        },
+        "source": {
+          "type": "string",
+          "pattern": "\\S*",
+          "description": "A uri that identifies the source system of the resource. This provides a minimal amount of [Provenance](provenance.html#) information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc."
+        },
+        "profile": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "\\S*",
+            "description": "A list of profiles (references to [StructureDefinition](structuredefinition.html#) resources) that this resource claims to conform to. The URL is a reference to [StructureDefinition.url](structuredefinition&ndash;definitions.html#StructureDefinition.url)."
+          }
+        },
+        "security": {
+          "type": "array",
+          "items": {
+            "description": "Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+              },
+              "version": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+              },
+              "userSelected": {
+                "type": "boolean",
+                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+              }
+            }
+          }
+        },
+        "tag": {
+          "type": "array",
+          "items": {
+            "description": "Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.",
+            "type": "object",
+            "properties": {
+              "system": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The identification of the code system that defines the meaning of the symbol in the code."
+              },
+              "version": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+              },
+              "code": {
+                "type": "string",
+                "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A representation of the meaning of the code in the system, following the rules of the system."
+              },
+              "userSelected": {
+                "type": "boolean",
+                "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+              }
+            }
+          }
+        }
+      }
+    },
+    "implicitRules": {
+      "type": "string",
+      "pattern": "\\S*",
+      "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc."
+    },
+    "language": {
+      "type": "string",
+      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+      "description": "The base language in which the resource is written."
+    },
+    "text": {
+      "description": "A human&ndash;readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "generated",
+            "extensions",
+            "additional",
+            "empty"
+          ],
+          "description": "The status of the narrative &ndash; whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data."
+        },
+        "div": {
+          "type": "string",
+          "description": "The actual narrative content, a stripped down version of XHTML."
+        }
+      },
+      "required": [
+        "status",
+        "div"
+      ]
+    },
+    "contained": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "resourceType": {
+            "type": "string",
+            "enum": [
+              "Account",
+              "ActivityDefinition",
+              "AdverseEvent",
+              "AllergyIntolerance",
+              "Appointment",
+              "AppointmentResponse",
+              "AuditEvent",
+              "Basic",
+              "Binary",
+              "BiologicallyDerivedProduct",
+              "BodyStructure",
+              "Bundle",
+              "CapabilityStatement",
+              "CarePlan",
+              "CareTeam",
+              "CatalogEntry",
+              "ChargeItem",
+              "ChargeItemDefinition",
+              "Claim",
+              "ClaimResponse",
+              "ClinicalImpression",
+              "CodeSystem",
+              "Communication",
+              "CommunicationRequest",
+              "CompartmentDefinition",
+              "Composition",
+              "ConceptMap",
+              "Condition",
+              "Consent",
+              "Contract",
+              "Coverage",
+              "CoverageEligibilityRequest",
+              "CoverageEligibilityResponse",
+              "DetectedIssue",
+              "Device",
+              "DeviceDefinition",
+              "DeviceMetric",
+              "DeviceRequest",
+              "DeviceUseStatement",
+              "DiagnosticReport",
+              "DocumentManifest",
+              "DocumentReference",
+              "DomainResource",
+              "EffectEvidenceSynthesis",
+              "Encounter",
+              "Endpoint",
+              "EnrollmentRequest",
+              "EnrollmentResponse",
+              "EpisodeOfCare",
+              "EventDefinition",
+              "Evidence",
+              "EvidenceVariable",
+              "ExampleScenario",
+              "ExplanationOfBenefit",
+              "FamilyMemberHistory",
+              "Flag",
+              "Goal",
+              "GraphDefinition",
+              "Group",
+              "GuidanceResponse",
+              "HealthcareService",
+              "ImagingStudy",
+              "Immunization",
+              "ImmunizationEvaluation",
+              "ImmunizationRecommendation",
+              "ImplementationGuide",
+              "InsurancePlan",
+              "Invoice",
+              "Library",
+              "Linkage",
+              "List",
+              "Location",
+              "Measure",
+              "MeasureReport",
+              "Media",
+              "Medication",
+              "MedicationAdministration",
+              "MedicationDispense",
+              "MedicationKnowledge",
+              "MedicationRequest",
+              "MedicationStatement",
+              "MedicinalProduct",
+              "MedicinalProductAuthorization",
+              "MedicinalProductContraindication",
+              "MedicinalProductIndication",
+              "MedicinalProductIngredient",
+              "MedicinalProductInteraction",
+              "MedicinalProductManufactured",
+              "MedicinalProductPackaged",
+              "MedicinalProductPharmaceutical",
+              "MedicinalProductUndesirableEffect",
+              "MessageDefinition",
+              "MessageHeader",
+              "MolecularSequence",
+              "NamingSystem",
+              "NutritionOrder",
+              "Observation",
+              "ObservationDefinition",
+              "OperationDefinition",
+              "OperationOutcome",
+              "Organization",
+              "OrganizationAffiliation",
+              "Parameters",
+              "Patient",
+              "PaymentNotice",
+              "PaymentReconciliation",
+              "Person",
+              "PlanDefinition",
+              "Practitioner",
+              "PractitionerRole",
+              "Procedure",
+              "Provenance",
+              "Questionnaire",
+              "QuestionnaireResponse",
+              "RelatedPerson",
+              "RequestGroup",
+              "ResearchDefinition",
+              "ResearchElementDefinition",
+              "ResearchStudy",
+              "ResearchSubject",
+              "Resource",
+              "RiskAssessment",
+              "RiskEvidenceSynthesis",
+              "Schedule",
+              "SearchParameter",
+              "ServiceRequest",
+              "Slot",
+              "Specimen",
+              "SpecimenDefinition",
+              "StructureDefinition",
+              "StructureMap",
+              "Subscription",
+              "Substance",
+              "SubstanceNucleicAcid",
+              "SubstancePolymer",
+              "SubstanceProtein",
+              "SubstanceReferenceInformation",
+              "SubstanceSourceMaterial",
+              "SubstanceSpecification",
+              "SupplyDelivery",
+              "SupplyRequest",
+              "Task",
+              "TerminologyCapabilities",
+              "TestReport",
+              "TestScript",
+              "ValueSet",
+              "VerificationResult",
+              "VisionPrescription"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+            "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."
+          },
+          "meta": {
+            "description": "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.",
+            "type": "object",
+            "properties": {
+              "versionId": {
+                "type": "string",
+                "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+                "description": "The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted."
+              },
+              "lastUpdated": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))",
+                "description": "When the resource last changed &ndash; e.g. when the version changed."
+              },
+              "source": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "A uri that identifies the source system of the resource. This provides a minimal amount of [Provenance](provenance.html#) information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc."
+              },
+              "profile": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "\\S*",
+                  "description": "A list of profiles (references to [StructureDefinition](structuredefinition.html#) resources) that this resource claims to conform to. The URL is a reference to [StructureDefinition.url](structuredefinition&ndash;definitions.html#StructureDefinition.url)."
+                }
+              },
+              "security": {
+                "type": "array",
+                "items": {
+                  "description": "Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.",
+                  "type": "object",
+                  "properties": {
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                    },
+                    "display": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                    },
+                    "userSelected": {
+                      "type": "boolean",
+                      "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                    }
+                  }
+                }
+              },
+              "tag": {
+                "type": "array",
+                "items": {
+                  "description": "Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.",
+                  "type": "object",
+                  "properties": {
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                    },
+                    "display": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                    },
+                    "userSelected": {
+                      "type": "boolean",
+                      "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "implicitRules": {
+            "type": "string",
+            "pattern": "\\S*",
+            "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc."
+          },
+          "language": {
+            "type": "string",
+            "pattern": "[^\\s]+(\\s[^\\s]+)*",
+            "description": "The base language in which the resource is written."
+          }
+        },
+        "required": [
+          "resourceType"
+        ],
+        "description": "These resources do not have an independent existence apart from the resource that contains them &ndash; they cannot be identified independently, and nor can they have their own independent transaction scope."
+      }
+    },
+    "extension": {
+      "type": "array",
+      "items": {
+        "description": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "modifierExtension": {
+      "type": "array",
+      "items": {
+        "description": "May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "identifier": {
+      "type": "array",
+      "items": {
+        "description": "An identifier that applies to this person in this role.",
+        "type": "object",
+        "properties": {
+          "use": {
+            "type": "string",
+            "enum": [
+              "usual",
+              "official",
+              "temp",
+              "secondary",
+              "old"
+            ],
+            "description": "The purpose of this identifier."
+          },
+          "type": {
+            "description": "A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.",
+            "type": "object",
+            "properties": {
+              "coding": {
+                "type": "array",
+                "items": {
+                  "description": "A reference to a code defined by a terminology system.",
+                  "type": "object",
+                  "properties": {
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                    },
+                    "display": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                    },
+                    "userSelected": {
+                      "type": "boolean",
+                      "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                    }
+                  }
+                }
+              },
+              "text": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+              }
+            }
+          },
+          "system": {
+            "type": "string",
+            "pattern": "\\S*",
+            "description": "Establishes the namespace for the value &ndash; that is, a URL that describes a set values that are unique."
+          },
+          "value": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "The portion of the identifier typically relevant to the user and which is unique within the context of the system."
+          },
+          "period": {
+            "description": "Time period during which identifier is/was valid for use.",
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                "description": "The start of the period. The boundary is inclusive."
+              },
+              "end": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+              }
+            }
+          },
+          "assigner": {
+            "description": "Organization that issued/manages the identifier.",
+            "type": "object",
+            "properties": {
+              "reference": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+              },
+              "type": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+              },
+              "identifier": {
+                "type": "object",
+                "additionalProperties": true,
+                "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+              }
+            }
+          }
+        }
+      }
+    },
+    "active": {
+      "type": "boolean",
+      "description": "Whether this practitioner's record is in active use."
+    },
+    "name": {
+      "type": "array",
+      "items": {
+        "description": "The name(s) associated with the practitioner.",
+        "type": "object",
+        "properties": {
+          "use": {
+            "type": "string",
+            "enum": [
+              "usual",
+              "official",
+              "temp",
+              "nickname",
+              "anonymous",
+              "old",
+              "maiden"
+            ],
+            "description": "Identifies the purpose for this name."
+          },
+          "text": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "Specifies the entire name as it should be displayed e.g. on an application UI. This may be provided instead of or as well as the specific parts."
+          },
+          "family": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father."
+          },
+          "given": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "description": "Given name."
+            }
+          },
+          "prefix": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "description": "Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name."
+            }
+          },
+          "suffix": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "description": "Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name."
+            }
+          },
+          "period": {
+            "description": "Indicates the period of time when this name was valid for the named person.",
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                "description": "The start of the period. The boundary is inclusive."
+              },
+              "end": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+              }
+            }
+          }
+        }
+      }
+    },
+    "telecom": {
+      "type": "array",
+      "items": {
+        "description": "A contact detail for the practitioner, e.g. a telephone number or an email address.",
+        "type": "object",
+        "properties": {
+          "system": {
+            "type": "string",
+            "enum": [
+              "phone",
+              "fax",
+              "email",
+              "pager",
+              "url",
+              "sms",
+              "other"
+            ],
+            "description": "Telecommunications form for contact point &ndash; what communications system is required to make use of the contact."
+          },
+          "value": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address)."
+          },
+          "use": {
+            "type": "string",
+            "enum": [
+              "home",
+              "work",
+              "temp",
+              "old",
+              "mobile"
+            ],
+            "description": "Identifies the purpose for the contact point."
+          },
+          "rank": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Specifies a preferred order in which to use a set of contacts. ContactPoints with lower rank values are more preferred than those with higher rank values."
+          },
+          "period": {
+            "description": "Time period when the contact point was/is in use.",
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                "description": "The start of the period. The boundary is inclusive."
+              },
+              "end": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+              }
+            }
+          }
+        }
+      }
+    },
+    "address": {
+      "type": "array",
+      "items": {
+        "description": "Address(es) of the practitioner that are not role specific (typically home address). \rWork addresses are not typically entered in this property as they are usually role dependent.",
+        "type": "object",
+        "properties": {
+          "use": {
+            "type": "string",
+            "enum": [
+              "home",
+              "work",
+              "temp",
+              "old",
+              "billing"
+            ],
+            "description": "The purpose of this address."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "postal",
+              "physical",
+              "both"
+            ],
+            "description": "Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care&ndash;of addresses). Most addresses are both."
+          },
+          "text": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "Specifies the entire address as it should be displayed e.g. on a postal label. This may be provided instead of or as well as the specific parts."
+          },
+          "line": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "[ \\r\\n\\t\\S]+",
+              "description": "This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information."
+            }
+          },
+          "city": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "The name of the city, town, suburb, village or other community or delivery center."
+          },
+          "district": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "The name of the administrative area (county)."
+          },
+          "state": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "Sub&ndash;unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (e.g. US 2 letter state codes)."
+          },
+          "postalCode": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "A postal code designating a region defined by the postal service."
+          },
+          "country": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "Country &ndash; a nation as commonly understood or generally accepted."
+          },
+          "period": {
+            "description": "Time period when address was/is in use.",
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                "description": "The start of the period. The boundary is inclusive."
+              },
+              "end": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+              }
+            }
+          }
+        }
+      }
+    },
+    "gender": {
+      "type": "string",
+      "enum": [
+        "male",
+        "female",
+        "other",
+        "unknown"
+      ],
+      "description": "Administrative Gender &ndash; the gender that the person is considered to have for administration and record keeping purposes."
+    },
+    "birthDate": {
+      "type": "string",
+      "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?",
+      "description": "The date of birth for the practitioner."
+    },
+    "photo": {
+      "type": "array",
+      "items": {
+        "description": "Image of the person.",
+        "type": "object",
+        "properties": {
+          "contentType": {
+            "type": "string",
+            "pattern": "[^\\s]+(\\s[^\\s]+)*",
+            "description": "Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate."
+          },
+          "language": {
+            "type": "string",
+            "pattern": "[^\\s]+(\\s[^\\s]+)*",
+            "description": "The human language of the content. The value can be any valid value according to BCP 47."
+          },
+          "data": {
+            "type": "string",
+            "pattern": "(\\s*([0-9a-zA-Z\\+/=]){4}\\s*)+",
+            "description": "The actual data of the attachment &ndash; a sequence of bytes, base64 encoded."
+          },
+          "url": {
+            "type": "string",
+            "pattern": "\\S*",
+            "description": "A location where the data can be accessed."
+          },
+          "size": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The number of bytes of data that make up this attachment (before base64 encoding, if that is done)."
+          },
+          "hash": {
+            "type": "string",
+            "pattern": "(\\s*([0-9a-zA-Z\\+/=]){4}\\s*)+",
+            "description": "The calculated hash of the data using SHA&ndash;1. Represented using base64."
+          },
+          "title": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "A label or set of text to display in place of the data."
+          },
+          "creation": {
+            "type": "string",
+            "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+            "description": "The date that the attachment was first created."
+          }
+        }
+      }
+    },
+    "qualification": {
+      "type": "array",
+      "items": {
+        "description": "The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality.",
+        "type": "object",
+        "properties": {
+          "modifierExtension": {
+            "type": "array",
+            "items": {
+              "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "identifier": {
+            "type": "array",
+            "items": {
+              "description": "An identifier that applies to this person's qualification in this role.",
+              "type": "object",
+              "properties": {
+                "use": {
+                  "type": "string",
+                  "enum": [
+                    "usual",
+                    "official",
+                    "temp",
+                    "secondary",
+                    "old"
+                  ],
+                  "description": "The purpose of this identifier."
+                },
+                "type": {
+                  "description": "A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.",
+                  "type": "object",
+                  "properties": {
+                    "coding": {
+                      "type": "array",
+                      "items": {
+                        "description": "A reference to a code defined by a terminology system.",
+                        "type": "object",
+                        "properties": {
+                          "system": {
+                            "type": "string",
+                            "pattern": "\\S*",
+                            "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                          },
+                          "version": {
+                            "type": "string",
+                            "pattern": "[ \\r\\n\\t\\S]+",
+                            "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                          },
+                          "code": {
+                            "type": "string",
+                            "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                            "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                          },
+                          "display": {
+                            "type": "string",
+                            "pattern": "[ \\r\\n\\t\\S]+",
+                            "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                          },
+                          "userSelected": {
+                            "type": "boolean",
+                            "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                          }
+                        }
+                      }
+                    },
+                    "text": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+                    }
+                  }
+                },
+                "system": {
+                  "type": "string",
+                  "pattern": "\\S*",
+                  "description": "Establishes the namespace for the value &ndash; that is, a URL that describes a set values that are unique."
+                },
+                "value": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "The portion of the identifier typically relevant to the user and which is unique within the context of the system."
+                },
+                "period": {
+                  "description": "Time period during which identifier is/was valid for use.",
+                  "type": "object",
+                  "properties": {
+                    "start": {
+                      "type": "string",
+                      "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                      "description": "The start of the period. The boundary is inclusive."
+                    },
+                    "end": {
+                      "type": "string",
+                      "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                      "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+                    }
+                  }
+                },
+                "assigner": {
+                  "description": "Organization that issued/manages the identifier.",
+                  "type": "object",
+                  "properties": {
+                    "reference": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+                    },
+                    "type": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+                    },
+                    "identifier": {
+                      "type": "object",
+                      "additionalProperties": true,
+                      "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+                    },
+                    "display": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "code": {
+            "description": "Coded representation of the qualification.",
+            "type": "object",
+            "properties": {
+              "coding": {
+                "type": "array",
+                "items": {
+                  "description": "A reference to a code defined by a terminology system.",
+                  "type": "object",
+                  "properties": {
+                    "system": {
+                      "type": "string",
+                      "pattern": "\\S*",
+                      "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                    },
+                    "code": {
+                      "type": "string",
+                      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                      "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                    },
+                    "display": {
+                      "type": "string",
+                      "pattern": "[ \\r\\n\\t\\S]+",
+                      "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                    },
+                    "userSelected": {
+                      "type": "boolean",
+                      "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                    }
+                  }
+                }
+              },
+              "text": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+              }
+            }
+          },
+          "period": {
+            "description": "Period during which the qualification is valid.",
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                "description": "The start of the period. The boundary is inclusive."
+              },
+              "end": {
+                "type": "string",
+                "pattern": "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?",
+                "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+              }
+            }
+          },
+          "issuer": {
+            "description": "Organization that regulates and issues the qualification.",
+            "type": "object",
+            "properties": {
+              "reference": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
+              },
+              "type": {
+                "type": "string",
+                "pattern": "\\S*",
+                "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
+              },
+              "identifier": {
+                "type": "object",
+                "additionalProperties": true,
+                "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
+              },
+              "display": {
+                "type": "string",
+                "pattern": "[ \\r\\n\\t\\S]+",
+                "description": "Plain text narrative that identifies the resource in addition to the resource reference."
+              }
+            }
+          }
+        },
+        "required": [
+          "code"
+        ]
+      }
+    },
+    "communication": {
+      "type": "array",
+      "items": {
+        "description": "A language the practitioner can use in patient communication.",
+        "type": "object",
+        "properties": {
+          "coding": {
+            "type": "array",
+            "items": {
+              "description": "A reference to a code defined by a terminology system.",
+              "type": "object",
+              "properties": {
+                "system": {
+                  "type": "string",
+                  "pattern": "\\S*",
+                  "description": "The identification of the code system that defines the meaning of the symbol in the code."
+                },
+                "version": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "The version of the code system which was used when choosing this code. Note that a well&ndash;maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
+                },
+                "code": {
+                  "type": "string",
+                  "pattern": "[^\\s]+(\\s[^\\s]+)*",
+                  "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post&ndash;coordination)."
+                },
+                "display": {
+                  "type": "string",
+                  "pattern": "[ \\r\\n\\t\\S]+",
+                  "description": "A representation of the meaning of the code in the system, following the rules of the system."
+                },
+                "userSelected": {
+                  "type": "boolean",
+                  "description": "Indicates that this coding was chosen by a user directly &ndash; e.g. off a pick list of available items (codes or displays)."
+                }
+              }
+            }
+          },
+          "text": {
+            "type": "string",
+            "pattern": "[ \\r\\n\\t\\S]+",
+            "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "resourceType"
+  ]
+}

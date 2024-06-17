@@ -1,0 +1,18 @@
+{
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "Numerical value (with implicit precision)."
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "[^\\s]+(\\s[^\\s]+)*",
+          "description": "ISO 4217 Currency Code."
+        }
+      }
+    }
+  ]
+}

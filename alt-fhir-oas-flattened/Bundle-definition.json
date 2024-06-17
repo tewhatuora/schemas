@@ -338,7 +338,6 @@
           },
           "resource": {
             "type": "object",
-            "discriminator": "resourceType",
             "properties": {
               "resourceType": {
                 "type": "string",
@@ -725,7 +724,6 @@
               },
               "outcome": {
                 "type": "object",
-                "discriminator": "resourceType",
                 "properties": {
                   "resourceType": {
                     "type": "string",

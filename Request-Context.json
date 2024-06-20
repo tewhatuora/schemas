@@ -48,10 +48,6 @@
         "facilityIdentifier": {
             "type": "string",
             "example": "F12345"
-        },
-        "endConsumerIpAddress": {
-            "type": "string",
-            "example": "1.2.3.4"
         }
     },
     "required": [

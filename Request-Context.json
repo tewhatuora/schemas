@@ -55,9 +55,7 @@
         "userRole",
         "secondaryIdentifier",
         "purposeOfUse",
-        "userFullName",
-        "orgIdentifier",
-        "facilityIdentifier"
+        "userFullName"
     ],
     "definitions": {
         "purposeOfUseTypes": {

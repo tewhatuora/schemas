@@ -34,6 +34,32 @@
             ]
         },
         "purposeOfUse": {
+            "type": "array",
+            "items": { "$ref": "purposeOfUseTypes" }
+        },
+        "userFullName": {
+            "type": "string",
+            "example": "Dr. Jane Doe"
+        },
+        "orgIdentifier": {
+            "type": "string",
+            "example": "O12345"
+        },
+        "facilityIdentifier": {
+            "type": "string",
+            "example": "F12345"
+        }
+    },
+    "required": [
+        "userIdentifier",
+        "userRole",
+        "secondaryIdentifier",
+        "purposeOfUse",
+        "userFullName"
+    ],
+    "definitions": {
+        "purposeOfUseTypes": {
+        	"id": "purposeOfUseTypes",
             "type": "string",
             "enum": [
                 "PATRQT",
@@ -44,11 +70,5 @@
                 "SYSDEV"
             ]
         }
-    },
-    "required": [
-        "userIdentifier",
-        "userRole",
-        "secondaryIdentifier",
-        "purposeOfUse"
-    ]
+    }
 }

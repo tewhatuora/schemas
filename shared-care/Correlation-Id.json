@@ -1,0 +1,4 @@
+{
+  "type": "string",
+  "description": "A string representing the Correlation ID for the current request. This ID is used to correlate logs and other data across services."
+}

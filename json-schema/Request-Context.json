@@ -1,0 +1,74 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "HNZ | Te Whatu Ora request context header schema definition",
+    "type": "object",
+    "properties": {
+        "userIdentifier": {
+            "type": "string",
+            "example": "AABBCC"
+        },
+        "userRole": {
+            "type": "string",
+            "enum": [
+                "PAT",
+                "PROV"
+            ]
+        },
+        "secondaryIdentifier": {
+            "type": "object",
+            "properties": {
+                "use": {
+                    "type": "string"
+                },
+                "system": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "use",
+                "system",
+                "value"
+            ]
+        },
+        "purposeOfUse": {
+            "type": "array",
+            "items": { "$ref": "purposeOfUseTypes" }
+        },
+        "userFullName": {
+            "type": "string",
+            "example": "Dr. Jane Doe"
+        },
+        "orgIdentifier": {
+            "type": "string",
+            "example": "O12345"
+        },
+        "facilityIdentifier": {
+            "type": "string",
+            "example": "F12345"
+        }
+    },
+    "required": [
+        "userIdentifier",
+        "userRole",
+        "secondaryIdentifier",
+        "purposeOfUse",
+        "userFullName"
+    ],
+    "definitions": {
+        "purposeOfUseTypes": {
+        	"id": "purposeOfUseTypes",
+            "type": "string",
+            "enum": [
+                "PATRQT",
+                "POPHLTH",
+                "TREAT",
+                "ETREAT",
+                "PUBHLTH",
+                "SYSDEV"
+            ]
+        }
+    }
+}

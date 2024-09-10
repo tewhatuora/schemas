@@ -101,7 +101,7 @@
     "required": [
         "userIdentifier",
         "userRole",
-        "registrationCouncilNumber",
+        "registrationAuthorityIdentifier",
         "hpiFacilityIdentifier",
         "facilityName",
         "purposeOfUse",

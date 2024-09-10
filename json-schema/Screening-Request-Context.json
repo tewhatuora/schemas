@@ -103,7 +103,6 @@
         "userRole",
         "registrationAuthorityIdentifier",
         "hpiFacilityIdentifier",
-        "facilityName",
         "purposeOfUse",
         "userFullName"
     ],

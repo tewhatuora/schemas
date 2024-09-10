@@ -1,0 +1,125 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "HNZ | Te Whatu Ora request context header schema for screening application integration",
+    "type": "object",
+    "properties": {
+        "userIdentifier": {
+            "type": "string",
+            "example": "90ZZLP"
+        },
+        "userRole": {
+            "type": "string",
+            "enum": [
+                "PAT",
+                "PROV"
+            ]
+        },
+        "secondaryIdentifier": {
+            "type": "object",
+            "properties": {
+                "use": {
+                    "type": "string"
+                },
+                "system": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "use",
+                "system",
+                "value"
+            ]
+        },
+        "hpiFacilityIdentifier": {
+          "type": "object",
+          "properties": {
+              "use": {
+                "type": "string",
+                "example": "official"
+              },
+              "system": {
+                  "type": "string",
+                  "example": "https://standards.digital.health.nz/ns/hpi-facility-id"
+              },
+              "value": {
+                  "type": "string",
+                  "example": "FZZ958-K"
+              }
+          },
+          "required": [
+              "use",
+              "system",
+              "value"
+          ]
+        },
+        "facilityName": {
+          "type": "string",
+          "example": "Medical Centre Flat-Unit"
+        },
+        "registrationAuthorityIdentifier": {
+          "type": "object",
+          "properties": {
+              "use": {
+                  "type": "string",
+                  "example": "official"
+              },  
+              "system": {
+                  "type": "string",
+                  "example": "https://standards.digital.health.nz/ns/medical-council-id"
+              },
+              "value": {
+                  "type": "string",
+                  "example": "123456"
+              }
+          },
+          "required": [
+              "use",
+              "system",
+              "value"
+          ]
+        },
+        "purposeOfUse": {
+            "type": "array",
+            "items": { "$ref": "purposeOfUseTypes" }
+        },
+        "userFullName": {
+            "type": "string",
+            "example": "Dr. Jane Doe"
+        },
+        "orgIdentifier": {
+            "type": "string",
+            "example": "O12345"
+        },
+        "facilityIdentifier": {
+            "type": "string",
+            "example": "F12345"
+        }
+    },
+    "required": [
+        "userIdentifier",
+        "userRole",
+        "registrationCouncilNumber",
+        "hpiFacilityIdentifier",
+        "facilityName",
+        "purposeOfUse",
+        "userFullName"
+    ],
+    "definitions": {
+        "purposeOfUseTypes": {
+        	"id": "purposeOfUseTypes",
+            "type": "string",
+            "enum": [
+                "PATRQT",
+                "POPHLTH",
+                "TREAT",
+                "ETREAT",
+                "PUBHLTH",
+                "SCREENING",
+                "SYSDEV"
+            ]
+        }
+    }
+}

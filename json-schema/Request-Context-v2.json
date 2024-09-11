@@ -6,8 +6,8 @@
     "properties": {
       "userIdentifier": {
         "type": "string",
-        "description": "Identifies the user by their HPI Common Person Number (aka health practitioner index)",
-        "example": "90ZZLP"
+        "description": "The user Id as known to the system they have signed into (which is consuming the FHIR API)",
+        "example": "janedoe@bigmedicalcentre.co.nz"
       },
       "userRole": {
         "type": "string",
@@ -16,10 +16,15 @@
             "PROV"
         ]
       },
-      "practitionerRegistration": {
+      "hpiPractitioner": {
         "type": "object",
-        "description": "The health practitioner's professional registration details",
+        "description": "The user's HPI health practitioner identification",
         "properties": {
+          "cpnNumber": {
+            "type": "string",
+            "description": "The HPI Common Person Number (aka HPI Practitioner Index) in the form NNXXXX where N is numeric and X is Alphabetic",
+            "example": "90ZZLP"
+          },
           "registrationAuthorityNumber": {
             "type": "string",
             "description": "The number issued to the practitioner by their registration authority",
@@ -37,7 +42,7 @@
             }
           }
         },
-        "required": [ "registrationAuthorityNumber", "registrationAuthority" ]        
+        "required": [ "cpnNUmber", "registrationAuthorityNumber", "registrationAuthority" ]        
       },
       "hpiFacility": {
         "type": "object",

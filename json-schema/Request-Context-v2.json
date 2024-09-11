@@ -1,43 +1,43 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "$id": "https://github.com/tewhatuora/schemas/json-schema/Screening-Request-Context",
-    "description": "JSON schema for request context custom header schema for apps integrating with HNZ / Te Whatu Ora Screening FHIR API",
+    "$id": "https://github.com/tewhatuora/schemas/json-schema/Request-Context",
+    "description": "JSON schema for request context custom header schema for apps integrating with HNZ FHIR APIs",
     "type": "object",
     "properties": {
-      "practitionerIdentifiers": {
+      "userIdentifier": {
+        "type": "string",
+        "description": "Identifies the user by their HPI Common Person Number (aka health practitioner index)",
+        "example": "90ZZLP"
+      },
+      "userRole": {
+        "type": "string",
+        "enum": [
+            "PAT",
+            "PROV"
+        ]
+      },
+      "practitionerRegistration": {
         "type": "object",
-        "description": "Identifies the practitioner using the application to access screening information",
+        "description": "The health practitioner's professional registration details",
         "properties": {
-          "cpnNumber": {
-              "type": "string",
-              "description": "The user's Common Person Number (also known as HPI Practitioner Index) in the form NNXXXX where N is numeric and X is Alphabetic",
-              "example": "90ZZLP"
-          },
           "registrationAuthorityNumber": {
+            "type": "string",
+            "description": "The number issued to the practitioner by their registration authority",
+            "example": "123456"
+          },
+          "registrationAuthority": {
             "type": "object",
-            "description": "Identifies the practitioner by their registration authority/council number",
+            "description": "Details of the registration authority aka registration council",
             "properties": {
-              "raSystem": {
+              "raUrl": {
                 "type": "string",
                 "description": "The system Url for the practitioner's registration authority/council",
                 "example": "https://standards.digital.health.nz/ns/medical-council-id"
-              },
-              "raNumber": {
-                  "type": "string",
-                  "description": "The number issued to the practitioner by their registration authority",
-                  "example": "123456"
               }
-            },
-            "required": [
-              "raSystem",
-              "raNumber"
-            ]
+            }
           }
         },
-        "required": [
-          "cpnNumber",
-          "registrationAuthorityNumber"
-        ]
+        "required": [ "registrationAuthorityNumber", "registrationAuthority" ]        
       },
       "hpiFacility": {
         "type": "object",
@@ -65,6 +65,25 @@
             "name"
         ]
       },
+      "secondaryIdentifier": {
+        "type": "object",
+        "properties": {
+            "use": {
+                "type": "string"
+            },
+            "system": {
+                "type": "string"
+            },
+            "value": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "use",
+            "system",
+            "value"
+        ]
+      },
       "purposeOfUse": {
           "type": "array",
           "items": { "$ref": "purposeOfUseTypes" }
@@ -72,12 +91,18 @@
       "userFullName": {
           "type": "string",
           "example": "Dr. Jane Doe"
+      },
+      "orgIdentifier": {
+        "type": "string",
+          "example": "O12345"
+      },
+      "facilityIdentifier": {
+          "type": "string",
+          "example": "F12345"
       }
     },
     "required": [
-        "practitionerIdentifiers",
-        "registrationAuthorityNumber",
-        "hpiFacility",
+        "userIdentifier",
         "purposeOfUse",
         "userFullName"
     ],

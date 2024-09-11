@@ -6,8 +6,8 @@
     "properties": {
       "userIdentifier": {
         "type": "string",
-        "description": "The user Id as known to the system they have signed into (which is consuming the FHIR API)",
-        "example": "janedoe@bigmedicalcentre.co.nz"
+        "description": "The alphanumeric user id as known to the system they have signed into (which is consuming the FHIR API)",
+        "example": "janed55"
       },
       "userRole": {
         "type": "string",

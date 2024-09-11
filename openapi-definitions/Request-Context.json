@@ -1,5 +1,5 @@
 {
   "type": "string",
   "format": "base64",
-  "description": "A base64 encoded JSON object that represents the request context for the current request. See the applicable schema in https://github.com/tewhatuora/schemas/ for definitions of context attributes"
+  "description": "A base64 encoded JSON object that represents the request context for the current request. See the schema https://github.com/tewhatuora/schemas/Request-Context-v2 for context properties"
 }

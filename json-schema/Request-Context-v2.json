@@ -2,6 +2,7 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "$id": "https://github.com/tewhatuora/schemas/json-schema/Request-Context",
   "description": "JSON schema for request context custom header schema for apps integrating with HNZ FHIR APIs",
+  "$comment": "This schema version 2.0 extends the original Request-Context.json public schema, adding new properties.  Properties from the original version remain but some have been deprecated due to the improved support for HPI references in this version",
   "type": "object",
   "properties": {
     "userIdentifier": {

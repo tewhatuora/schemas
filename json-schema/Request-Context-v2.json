@@ -1,0 +1,267 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "https://github.com/tewhatuora/schemas/json-schema/Request-Context",
+  "description": "JSON schema for request context custom header schema for apps integrating with HNZ FHIR APIs",
+  "$comment": "This schema version 2.0 extends the original Request-Context.json public schema, adding new properties.  Properties from the original version remain but some have been deprecated due to the improved support for HPI references in this version",
+  "type": "object",
+  "properties": {
+    "userIdentifier": {
+      "type": "string",
+      "description": "The alphanumeric user id as known to the system they have signed into (which is consuming the FHIR API)",
+      "example": "LJRHODE"
+    },
+    "userRole": {
+      "type": "string",
+      "enum": [
+          "PAT",
+          "PROV"
+      ]
+    },
+    "hpiPractitioner": {
+      "type": "object",
+      "description": "User health practitioner identification as an HPI FHIR reference",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Fixed to refer to FHIR Practitioner resource type",
+          "example": "Practitioner",
+          "pattern": "^Practitioner$"
+        },
+        "identifier": {
+          "type": "object",
+          "description": "These attributes constitute a FHIR Identifier for an HPI Practitioner resource",
+          "properties": {
+            "use": {
+              "type": "string",
+              "description": "Fixed to official",
+              "const": "official"
+            },
+            "system": {
+              "type": "string",
+              "description": "Url that identifies a HPI Practitioner resource",
+              "const": "https://standards.digital.health.nz/ns/hpi-person-id"
+            },
+            "value": {
+              "type": "string",
+              "description": "The practitioner's Common Person Number or CPN as defined by the HPI Practitioner Index) in the form NNXXXX where N is numeric and X is Alphabetic",
+              "pattern": "^[0-9]{2}[A-Z0-9]{4}$",
+              "example": "91ZABY"
+            }
+          },
+          "required": [ "use", "system", "value"]
+        },
+        "display": {
+          "type": "string",
+          "description": "The full name of the practitioner", 
+          "example": "Lyndi Jane Rhode"
+        }
+      },
+      "required": ["type","identifier","display"]
+    },          
+    "registrationAuthorityNumber": {
+      "type": "object",
+      "description": "These three attributes constitute a FHIR Identifier defining the registration number issued to a practitioner by their RA",
+      "properties": {
+        "use": {
+          "type": "string",
+          "description": "Fixed to official",
+          "const": "official"
+        },
+        "system": {
+          "type": "string",
+          "description": "Url identifying the practitioner's registration authority/council from https://standards.digital.health.nz/ns/hpi-ra-identifier-code",
+          "example": "https://standards.digital.health.nz/ns/medical-council-id"
+        },
+        "value": {
+          "type": "string",
+          "description": "Number issued to the practitioner by their registration authority",
+          "example": "123456"
+        }
+      },
+      "required": ["use","system","value"]
+    },
+    "hpiFacility": {
+      "type": "object",
+      "description": "Identifies the health facility where the practitioner is located, as an HPI Facility (Location) FHIR Reference",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Fixed to refer to a FHIR Location resource type",
+          "example": "Location",
+          "pattern": "^Location$"
+        },
+        "identifier": {
+          "type": "object",
+          "description": "These three attributes constitute a FHIR Identifier for an HPI Facility (Location) resource",
+          "properties": {
+            "use": {
+              "type": "string",
+              "description": "Fixed to official",
+              "const": "official"
+            },
+            "system": {
+              "type": "string",
+              "description": "Url that identifies HPI Facility resource type",
+              "const": "https://standards.digital.health.nz/ns/hpi-facility-id"
+            },
+            "value": {
+              "type": "string",
+              "description": "HPI Facility Id in the form FXXNNN-C where X is alphanumeric, N is numeric and C is a check character",
+              "pattern": "^F[A-Z0-9]{2}[0-9]{3}-[A-Z]{1}$",
+              "example": "FZZ958-K"
+            }
+          },
+          "required": [ "use", "system", "value"]
+        },
+        "display": {
+          "type": "string",
+          "description": "The display name of the health facility", 
+          "example": "Medical Centre Flat-Unit"
+        }
+      },
+      "required": ["type","identifier","display"]
+    },
+    "hpiOrganisation": {
+      "type": "object",
+      "description": "Defines the health provider the user is currently working in, as an HPI Organisation FHIR Reference",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Fixed to refer to FHIR Organization resources",
+          "example": "Organization",
+          "pattern": "^Organization$"
+        },
+        "identifier": {
+          "type": "object",
+          "description": "These three attributes constitute a FHIR Identifier for an HPI Organisation resource",
+          "properties": {
+            "use": {
+              "type": "string",
+              "description": "Fixed to official",
+              "const": "official"
+            },
+            "system": {
+              "type": "string",
+              "description": "Url that identifies a HPI Organisation resource type",
+              "const": "https://standards.digital.health.nz/ns/hpi-organisation-id"
+            },
+            "value": {
+              "type": "string",
+              "description": "HPI Organisation Id in the form GXXNNN-C where X is alphanumeric, N is numeric and C is a check character",
+              "pattern": "^G[A-Z0-9]{2}[0-9]{3}-[A-Z]{1}$",
+              "example": "GZZ956-B"
+            }
+          },
+          "required": [ "use", "system", "value"]
+        },
+        "display": {
+          "type": "string",
+          "description": "The display name of the organisation", 
+          "example": "Flat-Unit Address Org"
+        }
+      },
+      "required": ["type","identifier","display"]
+    },
+    "secondaryIdentifier": {
+      "type": "object",
+      "properties": {
+          "use": {
+              "type": "string"
+          },
+          "system": {
+              "type": "string"
+          },
+          "value": {
+              "type": "string"
+          }
+      },
+      "required": [
+          "use",
+          "system",
+          "value"
+      ]
+    },
+    "purposeOfUse": {
+        "type": "array",
+        "items": { "$ref": "#/definitions/purposeOfUseTypes" }
+    },
+    "userFullName": {
+        "type": "string",
+        "example": "Dr. Jane Doe"
+    },
+    "orgIdentifier": {
+      "type": "string",
+      "example": "O12345",
+      "deprecated": true
+    },
+  "facilityIdentifier": {
+      "type": "string",
+      "example": "F12345",
+      "deprecated": true
+    }
+  },
+  "required": [
+      "userIdentifier",
+      "purposeOfUse",
+      "userFullName"
+  ],
+  "definitions": {
+    "purposeOfUseTypes": {
+      "$id": "purposeOfUseTypes",
+        "type": "string",
+        "enum": [
+            "PATRQT",
+            "POPHLTH",
+            "TREAT",
+            "ETREAT",
+            "PUBHLTH",
+            "SCREENING",
+            "SYSDEV"
+        ]
+    }
+  },
+  "examples": [
+    {
+      "userIdentifier": "aute laborum",
+      "userRole": "PAT",
+      "registrationAuthorityNumber": {
+        "use": "official",
+        "system": "Lorem",
+        "value": "quis nulla sunt"
+      },
+      "hpiFacility": {
+        "type": "Location",
+        "identifier": {
+          "use": "official",
+          "system": "https://standards.digital.health.nz/ns/hpi-facility-id",
+          "value": "FRZ738-R"
+        },
+        "display": "cillum tempor quis"
+      },
+      "hpiOrganisation": {
+        "type": "Organization",
+        "identifier": {
+          "use": "official",
+          "system": "https://standards.digital.health.nz/ns/hpi-organisation-id",
+          "value": "GO0518-X"
+        },
+        "display": "Excepteur do consequat reprehenderit magna"
+      },
+      "secondaryIdentifier": {
+        "use": "adipisicing sit dolor nostrud",
+        "system": "adipisicing laborum",
+        "value": "commodo"
+      },
+      "purposeOfUse": [
+        "SYSDEV",
+        "PATRQT",
+        "ETREAT",
+        "SYSDEV",
+        "PUBHLTH"
+      ],
+      "userFullName": "amet esse ipsum ullamco",
+      "orgIdentifier": "veniam deserunt",
+      "facilityIdentifier": "qui proident non irure"
+    }
+  ]
+}

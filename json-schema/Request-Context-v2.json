@@ -183,7 +183,7 @@
     },
     "purposeOfUse": {
         "type": "array",
-        "items": { "$ref": "purposeOfUseTypes" }
+        "items": { "$ref": "#/definitions/purposeOfUseTypes" }
     },
     "userFullName": {
         "type": "string",

@@ -38,7 +38,7 @@
             },
             "system": {
               "type": "string",
-              "description": "Url that identifies a HPI Practitioner resource",
+              "description": "Fixed to HPI Practitioner identifier system",
               "const": "https://standards.digital.health.nz/ns/hpi-person-id"
             },
             "value": {
@@ -48,7 +48,7 @@
               "example": "91ZABY"
             }
           },
-          "required": [ "use", "system", "value"]
+          "required": ["value"]
         },
         "display": {
           "type": "string",
@@ -78,7 +78,7 @@
           "example": "123456"
         }
       },
-      "required": ["use","system","value"]
+      "required": ["system","value"]
     },
     "hpiFacility": {
       "type": "object",
@@ -101,7 +101,7 @@
             },
             "system": {
               "type": "string",
-              "description": "Url that identifies HPI Facility resource type",
+              "description": "Fixed to HPI Facility identifier system",
               "const": "https://standards.digital.health.nz/ns/hpi-facility-id"
             },
             "value": {
@@ -111,7 +111,7 @@
               "example": "FZZ958-K"
             }
           },
-          "required": [ "use", "system", "value"]
+          "required": ["value"]
         },
         "display": {
           "type": "string",
@@ -142,7 +142,7 @@
             },
             "system": {
               "type": "string",
-              "description": "Url that identifies a HPI Organisation resource type",
+              "description": "Fixwed to HPI Organisation identifier system",
               "const": "https://standards.digital.health.nz/ns/hpi-organisation-id"
             },
             "value": {
@@ -152,7 +152,7 @@
               "example": "GZZ956-B"
             }
           },
-          "required": [ "use", "system", "value"]
+          "required": [ "value"]
         },
         "display": {
           "type": "string",
@@ -222,46 +222,86 @@
   },
   "examples": [
     {
-      "userIdentifier": "aute laborum",
+      "userIdentifier": "minimal",
+      "purposeOfUse": [
+        "ETREAT"
+      ],
+      "userFullName": "mini mouse"
+    },
+    {
+      "userIdentifier": "LJRHODE",
+      "userRole": "PROVIDER",
+      "registrationAuthorityNumber": {
+        "system" : "https://standards.digital.health.nz/ns/occupational-therapy-board-id",
+        "value" : "96-20154"
+      },
+      "hpiFacility": {
+        "type": "Location",
+        "identifier": {
+          "value": "GZZ956-B"
+        },
+        "display": "Medical Centre Flat-Unit"
+      },
+      "hpiPractitioner": {
+        "type": "Practitioner",
+        "identifier": {
+          "value" : "91ZABY"
+        },
+        "display": "Lyndi Jane Rhode"
+      },
+      "purposeOfUse": [
+        "SCREENING"
+      ],
+      "userFullName": "Lyndi Jane Rhode"
+    },
+    {
+      "userIdentifier": "eu occaecat eiusmod",
       "userRole": "PAT",
+      "hpiPractitioner": {
+        "type": "Practitioner",
+        "identifier": {
+          "use": "official",
+          "system": "https://standards.digital.health.nz/ns/hpi-person-id",
+          "value": "00N2PO"
+        },
+        "display": "ut amet cupidatat in"
+      },
       "registrationAuthorityNumber": {
         "use": "official",
-        "system": "Lorem",
-        "value": "quis nulla sunt"
+        "system": "voluptate in",
+        "value": "consequat"
       },
       "hpiFacility": {
         "type": "Location",
         "identifier": {
           "use": "official",
           "system": "https://standards.digital.health.nz/ns/hpi-facility-id",
-          "value": "FRZ738-R"
+          "value": "FS6482-U"
         },
-        "display": "cillum tempor quis"
+        "display": "esse quis"
       },
       "hpiOrganisation": {
         "type": "Organization",
         "identifier": {
           "use": "official",
           "system": "https://standards.digital.health.nz/ns/hpi-organisation-id",
-          "value": "GO0518-X"
+          "value": "G02793-L"
         },
-        "display": "Excepteur do consequat reprehenderit magna"
+        "display": "proident minim exercitation aliqua"
       },
       "secondaryIdentifier": {
-        "use": "adipisicing sit dolor nostrud",
-        "system": "adipisicing laborum",
-        "value": "commodo"
+        "use": "esse",
+        "system": "in",
+        "value": "do et adipisicing Duis eiusmod"
       },
       "purposeOfUse": [
-        "SYSDEV",
         "PATRQT",
-        "ETREAT",
-        "SYSDEV",
+        "PUBHLTH",
         "PUBHLTH"
       ],
-      "userFullName": "amet esse ipsum ullamco",
-      "orgIdentifier": "veniam deserunt",
-      "facilityIdentifier": "qui proident non irure"
+      "userFullName": "Lorem aute veniam",
+      "orgIdentifier": "fugiat ut",
+      "facilityIdentifier": "sunt in ut minim nostrud"
     }
   ]
 }

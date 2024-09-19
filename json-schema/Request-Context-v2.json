@@ -232,8 +232,8 @@
       "userIdentifier": "LJRHODE",
       "userRole": "PROVIDER",
       "registrationAuthorityNumber": {
-        "system" : "https://standards.digital.health.nz/ns/occupational-therapy-board-id",
-        "value" : "96-20154"
+        "system" : "https://standards.digital.health.nz/ns/medical-council-id",
+        "value" : "123456"
       },
       "hpiFacility": {
         "type": "Location",

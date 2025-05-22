@@ -1,14 +1,16 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "description": "HNZ | Te Whatu Ora request context header schema definition",
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "description": "HNZ | Te Whatu Ora Request-Context header schema definition",
     "type": "object",
     "properties": {
         "userIdentifier": {
             "type": "string",
-            "example": "AABBCC"
+            "description": "The userid of the user as authenticated by the PMS/health application (e.g. a local PMS identifier)",
+            "example": "pms-id-123"
         },
         "userRole": {
             "type": "string",
+            "description": "Role of the user of the PMS/health application. Set to \"PROV\" (Provider) or \"PAT\" (Patient)",
             "enum": [
                 "PAT",
                 "PROV"
@@ -16,6 +18,7 @@
         },
         "secondaryIdentifier": {
             "type": "object",
+            "description": "The secondary identifier for the user - this MUST be the end users Common Person Number (aka HPI Practitioner identifier) of the practitioner using the application",
             "properties": {
                 "use": {
                     "type": "string"
@@ -35,18 +38,24 @@
         },
         "purposeOfUse": {
             "type": "array",
-            "items": { "$ref": "purposeOfUseTypes" }
+            "description": "The purpose of use for the data returned by this request. For a description of the purpose of use codes, see https://fhir-ig.digital.health.nz/auditevents/ValueSet-purposeofuse.html",
+            "items": {
+                "$ref": "purposeOfUseTypes"
+            }
         },
         "userFullName": {
             "type": "string",
+            "description": "Full name of the user of the PMS/health application",
             "example": "Dr. Jane Doe"
         },
         "orgIdentifier": {
             "type": "string",
+            "description": "HPI Organisation identifierfor the facility of user of the PMS/health application",
             "example": "O12345"
         },
         "facilityIdentifier": {
             "type": "string",
+            "description": "HPI identifier for the facility of user of the PMS/health application",
             "example": "F12345"
         }
     },
@@ -59,7 +68,7 @@
     ],
     "definitions": {
         "purposeOfUseTypes": {
-        	"id": "purposeOfUseTypes",
+            "id": "purposeOfUseTypes",
             "type": "string",
             "enum": [
                 "PATRQT",
@@ -70,5 +79,35 @@
                 "SYSDEV"
             ]
         }
-    }
+    },
+    "examples": [
+        {
+            "userIdentifier": "pms-id-123",
+            "userRole": "PROV",
+            "secondaryIdentifier": {
+                "use": "official",
+                "system": "https://standards.digital.health.nz/ns/hpi-person-id",
+                "value": "99ZZZS"
+            },
+            "purposeOfUse": [
+                "POPHLTH"
+            ],
+            "userFullName": "Beverly Crusher",
+            "orgIdentifier": "G00001-G",
+            "facilityIdentifier": "FZZ999-B"
+        },
+        {
+            "userIdentifier": "1b8200d7-3a8c-4fb6-8e5c-cec4540999d5",
+            "userRole": "PROV",
+            "secondaryIdentifier": {
+                "use": "official",
+                "system": "todo",
+                "value": "todo"
+            },
+            "purposeOfUse": [
+                "SYSDEV"
+            ],
+            "userFullName": "Sample PMS Integration Application"
+        }
+    ]
 }

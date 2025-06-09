@@ -4,7 +4,8 @@ const path = require("node:path");
 const fs = require("node:fs");
 const Ajv = require("ajv");
 
-const ajv = new Ajv();
+const ajv = new Ajv({schemaId: 'id'});
+ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'));
 
 const requestContextSchema = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, "./Request-Context.json"))

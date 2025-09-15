@@ -1,5 +1,5 @@
 {
-  "description": "A resource that represents the data of a single raw artifact as digital content accessible in its native format.  A Binary resource can contain any content, whether text, image, pdf, zip archive, etc.",
+  "type": "object",
   "properties": {
     "resourceType": {
       "description": "This is a Binary resource",
@@ -7,7 +7,7 @@
     },
     "id": {
       "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
-      "pattern": "^[A-Za-z0-9\\-\\.]{1,64}$",
+      "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
       "type": "string"
     },
     "meta": {
@@ -106,13 +106,12 @@
       }
     },
     "contentType": {
-      "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
       "type": "string",
-      "description": "A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents"
+      "pattern": "[^\\s]+(\\s[^\\s]+)*",
+      "description": "Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate."
     },
     "securityContext": {
       "description": "A reference from one resource to another.",
-      "additionalProperties": false,
       "type": "string"
     },
     "data": {

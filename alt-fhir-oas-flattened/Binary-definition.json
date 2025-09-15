@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "observationId": {
+      "type": "string",
+      "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+      "description": "The logical id of the source observation resource, as used in the URL for the resource."
+    },
+    "issued": {
+      "type": "string",
+      "pattern": "[A-Za-z0-9\\-\\.]{1,64}",
+      "description": "The time at which the associated resource was created."
+    }
+  }
+}

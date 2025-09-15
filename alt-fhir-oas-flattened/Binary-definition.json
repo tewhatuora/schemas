@@ -121,5 +121,5 @@
     }
   },
   "additionalProperties": false,
-  "required": ["resourceType"]
+  "required": ["resourceType", "contentType"]
 }

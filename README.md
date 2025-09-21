@@ -44,7 +44,7 @@ The value of the header has differing forms based on the type of request being m
 | **Context property**     | **Mandatory** | **Value**                                                                                                                          |
 |:-------------------------|:------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `userIdentifier`         | Yes         | The oAuth clientId of the system submitting data to the API                                                                                   |
-| `purposeOfUse`           | Yes         | [ "SYSDEV" ]. For descriptions of the values, see [Audit Events](https://fhir-ig.digital.health.nz/auditevents/ValueSet-purposeofuse.html)                                                                              |
+| `purposeOfUse`           | Yes         | [ "RECORDMGT" ]. For descriptions of the values, see [Audit Events](https://fhir-ig.digital.health.nz/auditevents/ValueSet-purposeofuse.html)                                                                              |
 | `userFullName`           | Yes         | Name of the PMS/health application.                                                                                                    |
 | `userRole`               | Yes         | Role of the PMS/health application. Set to `"110150"` (Application)                                                 |
 
@@ -77,7 +77,7 @@ The value of the header has differing forms based on the type of request being m
   #### Example Request-Context Header Payload for a system submitting data to the API, where there is no end user
   **Base64 Encoded**
   ```
-  ICB7CiAgICAidXNlcklkZW50aWZpZXIiOiAiMWI4MjAwZDctM2E4Yy00ZmI2LThlNWMtY2VjNDU0MDk5OWQ1IiwKICAgICJ1c2VyUm9sZSI6ICIxMTAxNTAiLAogICAgInB1cnBvc2VPZlVzZSI6IFsKICAgICAgIlNZU0RFViIKICAgIF0sCiAgICAidXNlckZ1bGxOYW1lIjogIlNhbXBsZSBQTVMgSW50ZWdyYXRpb24gQXBwbGljYXRpb24iCiAgfQ==
+  ICB7CiAgICAidXNlcklkZW50aWZpZXIiOiAiMWI4MjAwZDctM2E4Yy00ZmI2LThlNWMtY2VjNDU0MDk5OWQ1IiwKICAgICJ1c2VyUm9sZSI6ICIxMTAxNTAiLAogICAgInB1cnBvc2VPZlVzZSI6IFsKICAgICAgIlJFQ09SRE1HVCIKICAgIF0sCiAgICAidXNlckZ1bGxOYW1lIjogIlNhbXBsZSBQTVMgSW50ZWdyYXRpb24gQXBwbGljYXRpb24iCiAgfQ==
   ```
   **Decoded JSON**
   ```json
@@ -85,7 +85,7 @@ The value of the header has differing forms based on the type of request being m
     "userIdentifier": "1b8200d7-3a8c-4fb6-8e5c-cec4540999d5",
     "userRole": "110150",
     "purposeOfUse": [
-      "SYSDEV"
+      "RECORDMGT"
     ],
     "userFullName": "Sample PMS Integration Application"
   }

@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/draft-04/schema",
   "description": "HNZ | Te Whatu Ora Request-Context header schema definition",
   "type": "object",
   "properties": {
@@ -40,62 +40,72 @@
       "type": "array",
       "description": "The purpose of use for the data returned by this request. For a description of the purpose of use codes, see https://fhir-ig.digital.health.nz/auditevents/ValueSet-purposeofuse.html",
       "items": {
-        "$ref": "#/definitions/purposeOfUseTypes"
+        "type": "string",
+        "enum": [
+          "PATRQT",
+          "POPHLTH",
+          "TREAT",
+          "ETREAT",
+          "PUBHLTH",
+          "SYSDEV"
+        ]
+      },
+      "userFullName": {
+        "type": "string",
+        "description": "For a human interaction, this should be the full name of the user of the PMS/health application. For a system interaction, this should be the name of the application making the request."
+      },
+      "orgIdentifier": {
+        "type": "string",
+        "description": "HPI Organisation identifierfor the facility of user of the PMS/health application"
+      },
+      "facilityIdentifier": {
+        "type": "string",
+        "description": "HPI identifier for the facility of user of the PMS/health application"
       }
-    },
-    "userFullName": {
-      "type": "string",
-      "description": "For a human interaction, this should be the full name of the user of the PMS/health application. For a system interaction, this should be the name of the application making the request."
-    },
-    "orgIdentifier": {
-      "type": "string",
-      "description": "HPI Organisation identifierfor the facility of user of the PMS/health application"
-    },
-    "facilityIdentifier": {
-      "type": "string",
-      "description": "HPI identifier for the facility of user of the PMS/health application"
     }
   },
-  "allOf": [
+  "anyOf": [
     {
-      "if": {
-        "properties": {
-          "userRole": { "const": "110150" }
+      "properties": {
+        "userRole": {
+          "enum": [
+            "110150"
+          ]
         }
       },
-      "then": {
-        "required": [
-          "userIdentifier",
-          "userRole",
-          "purposeOfUse",
-          "userFullName"
-        ]
+      "required": [
+        "userIdentifier",
+        "userRole",
+        "purposeOfUse",
+        "userFullName"
+      ]
+    },
+    {
+      "properties": {
+        "userRole": {
+          "enum": [
+            "PROV",
+            "PAT"
+          ]
+        },
+        "secondaryIdentifier": {
+          "type": "object",
+          "required": [
+            "use",
+            "system",
+            "value"
+          ]
+        }
       },
-      "else": {
-        "required": [
-          "userIdentifier",
-          "userRole",
-          "secondaryIdentifier",
-          "purposeOfUse",
-          "userFullName"
-        ]
-      }
-    }
-  ],
-  "definitions": {
-    "purposeOfUseTypes": {
-      "$id": "purposeOfUseTypes",
-      "type": "string",
-      "enum": [
-        "PATRQT",
-        "POPHLTH",
-        "TREAT",
-        "ETREAT",
-        "PUBHLTH",
-        "SYSDEV"
+      "required": [
+        "userIdentifier",
+        "userRole",
+        "secondaryIdentifier",
+        "purposeOfUse",
+        "userFullName"
       ]
     }
-  },
+  ],
   "examples": [
     {
       "userIdentifier": "pms-user-id-123",
